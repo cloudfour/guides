@@ -24,6 +24,7 @@ Kinda handy:
 
 * `git rev-parse --is-inside-work-tree` returns a Boolean as to whether you are, well, currently inside of a working git tree
 * `git rev-parse --short HEAD` Gits you the short SHA hash for the most recent commit on HEAD
+* `git rev-parse --verify --short refs/stash` will return the short hash of the latest stash. Note that it will fail/exit 1 if there isn't a stash: `fatal: Needed a single revision` and thus needs to be handled appropriately if you're doing something meaningful with the response.
 
 
 ## git symbolic-ref
