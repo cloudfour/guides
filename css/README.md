@@ -13,12 +13,19 @@
 [SUIT CSS Linter]: https://github.com/necolas/postcss-bem-linter
 [ARIA Role, State, and Property Quick Reference]: http://rawgit.com/w3c/aria-in-html/master/index.html#recommendations-table
 
-<!--
-TODO: table of contents
--->
+**Contents**
 
-Organization
-============
+<!-- TOC depth:1 withLinks:1 updateOnSave:1 -->
+- [Organization](#organization)
+- [Formatting](#formatting)
+- [Selectors](#selectors)
+- [Encapsulation](#encapsulation)
+- [Specificity](#specificity)
+- [Architecture](#architecture)
+- [Tools](#tools)
+<!-- /TOC -->
+
+# Organization
 
 ## Directory Structure
 
@@ -59,8 +66,7 @@ TODO: breakdown of each folder
 TODO: ## File Separation
 -->
 
-Formatting
-==========
+# Formatting
 
 ## General Rules
 
@@ -307,8 +313,7 @@ selector {
 
 [CSScomb] is a tool that will automate the otherwise difficult process of maintaining organized CSS properties. It is available as a package for [Atom] and [Sublime Text], and can be executed manually or upon saving your file.
 
-Selectors
-=========
+# Selectors
 
 ## General Rules
 
@@ -471,8 +476,7 @@ The [ARIA Role, State, and Property Quick Reference] is a good resource for comm
 .Component.is-selected {}
 ```
 
-Encapsulation
-=============
+# Encapsulation
 
 When writing base styles for a component, assume that the component is entirely unaware of everything outside of its box. If styles that depend on other sibling or parent elements are needed, add them prescriptively (or consider using an additional utility class in your HTML.)
 
@@ -506,8 +510,7 @@ When writing base styles for a component, assume that the component is entirely 
 TODO: more examples of encapsulation
 -->
 
-Specificity
-===========
+# Specificity
 
 ## Special Considerations
 
@@ -526,8 +529,7 @@ white-space
 */
 ```
 
-Architecture
-============
+# Architecture
 
 See [CSS Guidelines: Architectural Principles]
 
@@ -535,8 +537,7 @@ See [CSS Guidelines: Architectural Principles]
 TODO: more content
 -->
 
-Tools
-=====
+# Tools
 
 - **[CSScomb]**
     CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
