@@ -15,7 +15,6 @@
 
 **Contents**
 
-<!-- TOC depth:1 withLinks:1 updateOnSave:1 -->
 - [Organization](#organization)
 - [Formatting](#formatting)
 - [Selectors](#selectors)
@@ -23,7 +22,6 @@
 - [Specificity](#specificity)
 - [Architecture](#architecture)
 - [Tools](#tools)
-<!-- /TOC -->
 
 # Organization
 
