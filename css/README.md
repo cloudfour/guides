@@ -4,6 +4,8 @@
 [CSS Guidelines]: http://cssguidelin.es
 [CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
 [Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+[Atom]: http://atom.io
+[Sublime Text]: http://sublimetext.com
 [CSScomb]: http://csscomb.com
 [CSScomb config]: http://
 [CSS Property Order]: http://markdotto.com/2011/11/29/css-property-order/
@@ -13,7 +15,7 @@
 [SUIT CSS Linter]: https://github.com/necolas/postcss-bem-linter
 [ARIA Role, State, and Property Quick Reference]: http://rawgit.com/w3c/aria-in-html/master/index.html#recommendations-table
 
-**Contents**
+**CSS Guide**
 
 - [Organization](#organization)
 - [Formatting](#formatting)
