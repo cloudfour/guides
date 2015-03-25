@@ -109,6 +109,29 @@ The `base/` directory should contain mostly foundational element styles and any 
 - `forms.css`
 - `typography.css`
 
+Each file should only be responsible for providing base styles for designated group of related elements.
+
+```css
+/* base/forms.css */
+
+label {/*...*/}
+
+input {/*...*/}
+
+button {/*...*/}
+```
+
+```css
+/* base/typography.css */
+
+h1,
+h2,
+h3 {/*...*/}
+
+pre,
+code {/*...*/}
+```
+
 ### Components
 
 The `components/` directory should be the largest, as most of the CSS should be written as small, reusable components. Some examples of what you might place here include:
@@ -126,11 +149,11 @@ Each file should contain only one component, and if possible, only class selecto
 ```css
 /* components/button.css */
 
-.Button {/* ... */}
+.Button {/*...*/}
 
-.Button--large {/* ... */}
+.Button--large {/*...*/}
 
-.Button--small {/* ... */}
+.Button--small {/*...*/}
 ```
 
 <!--
@@ -141,7 +164,7 @@ If two components need to be combined in order to define overriding styles for a
 
 /* pages/search.css */
 
-.Page--search .Button {/* ... */}
+.Page--search .Button {/*...*/}
 
 
 If this combination is reoccurring, then a better solution is to create a new components that abstracts the needed pieces:
@@ -149,26 +172,49 @@ If this combination is reoccurring, then a better solution is to create a new co
 
 /* components/searchbar.css */
 
-.SearchBar {/* ... */}
+.SearchBar {/*...*/}
 
-.SearchBar-button {/* ... */}
+.SearchBar-button {/*...*/}
 
 -->
 
 ### Page Styles
 
-The `pages/` directory is where contextual use-case overrides for components should occur.
+The `pages/` directory is where page-specific styling and contextual use-case overrides for components should occur. If a page requires specific modifications to a component, they should be placed in a style sheet for that page:
+
+- `home.css`
+- `listing.css`
+- `error.css`
+
+```css
+/* pages/home.css */
+
+.Page--home .Page-welcome .Button {
+  font-size: 3em;
+}
+```
 
 ### Utilities
 
-The `utilities/` directory is where utility (or "helper") classes should be defined. Unlike components, there may be multiple class definitions within each file, though they should be organized according to what kind of properties they affect. [SUIT CSS Utils] is nice example of this kind of organization. Some examples of what you might place here include:
+The `utilities/` directory is where utility classes (or "helpers") should be defined. Unlike components, there may be multiple class definitions within each file, though they should be organized according to what kind of properties they affect. [SUIT CSS Utils] is nice example of this kind of organization. Some examples of what you might place here include:
 
-- `u-display.css`
-- `u-position.css`
+- `display.css`
+- `position.css`
+- `text.css`
 
-##### Notes
+Each file should contain nothing but class definitions prefixed with `u-` to identity them as utility classes. To ensure that they always override conflicting declarations, utilities should be included after all other styles.
 
-- Utilities should use `!important` to ensure that their styles always win.
+```css
+/* utilities/display.css */
+
+.u-displayBlock {
+  display: block !important;
+}
+
+.u-displayInline {
+  display: inline !important;
+}
+```
 
 [⇧ top](#cssguide)
 
