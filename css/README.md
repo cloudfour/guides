@@ -1,69 +1,58 @@
 <!-- Link aliases -->
 
-[About HTML Semantics and Front-end Architecture]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture
 [ARIA Role, State, and Property Quick Reference]: http://rawgit.com/w3c/aria-in-html/master/index.html#recommendations-table
+[About HTML Semantics and Front-end Architecture]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture
 [Atom]: http://atom.io
 [Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
-[Code Guide by @mdo]: http://codeguide.co/#css
 [CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
 [CSS Guidelines]: http://cssguidelin.es
 [CSS Property Order]: http://markdotto.com/2011/11/29/css-property-order/
 [CSScomb config]: http://
 [CSScomb]: http://csscomb.com
+[Code Guide by @mdo]: http://codeguide.co/#css
+[KSS]: https://github.com/kss-node/kss-node
 [Modular CSS BEM/OOCSS Naming]: http://benfrain.com/modular-css-bem-oocss-naming/
 [Outside In]: http://webdesign.tutsplus.com/articles/outside-in-ordering-css-properties-by-importance--cms-21685
-[Sass Guidelines: The 7-1 Pattern]: http://sass-guidelin.es/#the-7-1-pattern
-[Sublime Text]: http://sublimetext.com
+[PostCSS]: https://github.com/postcss/postcss
+[Rework]: https://github.com/reworkcss/rework
 [SUIT CSS Linter]: https://github.com/necolas/postcss-bem-linter
 [SUIT CSS Naming Conventions]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 [SUIT CSS Utils]: https://github.com/suitcss/utils
-[The Specificity Graph]: http://csswizardry.com/2014/10/the-specificity-graph/
-
-<!-- Outline
-
-## Organization
-  ### Directory Structure
-  ### Base Styles
-  ### Components
-  ### Page Styles
-  ### Themes
-  ### Utilities
-  ### Vendor Styles
-  ### Main
-## Conventions
-  ### General Rules
-  ### Property Sorting
-  ### Selectors
-  ### Class Naming
-  ### Comments
-## Architecture
-  ### Dryness
-  ### Encapsulation
-  ### Specificity
-## Tools
-  ### Processors
-  ### Validators
-  ### Analyzers
-
--->
+[Sass Guidelines: The 7-1 Pattern]: http://sass-guidelin.es/#the-7-1-pattern
+[Sublime Text]: http://sublimetext.com
+[The CSS Specificity Graph]: http://csswizardry.com/2014/10/the-specificity-graph/
 
 # CSS Guide
 
-<!-- Table of contents -->
-
 - [Organization](#organization)
-- [Formatting](#formatting)
-- [Selectors](#selectors)
-- [Encapsulation](#encapsulation)
-- [Specificity](#specificity)
+    - [Directory Structure](#directory-structure)
+    - [Base Styles](#base-styles)
+    - [Components](#components)
+    - [Page Styles](#page-styles)
+    - [Utilities](#utilities)
+- [Conventions](#conventions)
+    - [General Rules](#general-rules)
+    - [Property Sorting](#property-sorting)
+    - [Selectors](#selectors)
+    - [Class Naming](#class-naming)
+    - [Comments](#comments)
 - [Architecture](#architecture)
+    - [Dryness](#dryness)
+    - [Encapsulation](#encapsulation)
+    - [Composition](#composition)
 - [Tools](#tools)
+    - [Processors](#processors)
+    - [Formatters](#formatters)
+    - [Validators](#validators)
+    - [Analyzers](#analyzers)
 
 ## Organization
 
 ### Directory Structure
 
-Unless specific project requirements dictate otherwise, the directory structure should look something like this:
+This structure was adapted from [Sass Guidelines: The 7-1 Pattern], and represents the organization of different types of style sheets, and also the sequential order in which they should be applied.
+
+The exact naming of folders and files (extensions included) will vary depending on what processing tools are being used, but unless specific project requirements dictate otherwise, the directory structure should look something like this:
 
 <pre>
 ├── base
@@ -91,12 +80,6 @@ Unless specific project requirements dictate otherwise, the directory structure 
 │   └── ...
 └── main.css
 </pre>
-
-##### Notes
-
-- This structure represents the organization of different types of style sheets, as well as sequential the order in which they should be applied.
-- The exact naming of folders and files (extensions included) will vary depending on what processing tools are being used. For example, Sass will require includes to be prefixed with an underscore.
-- Adapted from [Sass Guidelines: The 7-1 Pattern]
 
 ### Base Styles
 
@@ -156,28 +139,6 @@ Each file should contain only one component, and if possible, only class selecto
 .Button--small {/*...*/}
 ```
 
-<!--
-TODO: Put this under Architecture
-
-If two components need to be combined in order to define overriding styles for a specific use case, then this should be done within a context-specific style sheet:
-
-
-/* pages/search.css */
-
-.Page--search .Button {/*...*/}
-
-
-If this combination is reoccurring, then a better solution is to create a new components that abstracts the needed pieces:
-
-
-/* components/searchbar.css */
-
-.SearchBar {/*...*/}
-
-.SearchBar-button {/*...*/}
-
--->
-
 ### Page Styles
 
 The `pages/` directory is where page-specific styling and contextual use-case overrides for components should occur. If a page requires specific modifications to a component, they should be placed in a style sheet for that page:
@@ -217,10 +178,11 @@ Each file should contain nothing but class definitions prefixed with `u-` to ide
 ```
 
 [⇧ top](#cssguide)
+<!---------------->
 
-# Formatting
+## Conventions
 
-## General Rules
+### General Rules
 
 These rules were adapted from [CSS Guidelines].
 
@@ -357,7 +319,7 @@ These rules were adapted from [CSS Guidelines].
     }
     ```
 
-## Property Organization
+### Property Sorting
 
 It is recommended to order all property declarations categorically rather than randomly or alphabetically. The high-level categories that determine this property order are loosely based on the [Outside In] method described by Guy Routledge:
 
@@ -465,9 +427,7 @@ selector {
 
 [CSScomb] is a tool that will automate the otherwise difficult process of maintaining organized CSS properties. It is available as a package for [Atom] and [Sublime Text], and can be executed manually or upon saving your file.
 
-# Selectors
-
-## General Rules
+### Selectors
 
 - ID selectors should be avoided
 
@@ -554,11 +514,11 @@ selector {
 
     **Note:** If using a preprocessor like Sass, the `@extend` feature should be used with great care to avoid the unintentional combining of unrelated selectors.
 
-## Class Naming Syntax
+### Class Naming
 
 Adapted from the [SUIT CSS Naming Conventions].
 
-### Naming Utilities
+#### Utility Classes
 
 Syntax: `u-[sm|md|lg-]<utilityName>`
 
@@ -578,7 +538,7 @@ Syntax: `u-[sm|md|lg-]<utilityName>`
 TODO: ### States
 -->
 
-### Naming Components
+#### Component Classes
 
 Syntax: `<ComponentName>[--modifierName|-descendentName`
 
@@ -596,7 +556,7 @@ Syntax: `<ComponentName>[--modifierName|-descendentName`
 .Alert--dismissable .Alert-closeButton {}
 ```
 
-### Micro-semantics
+#### Micro-semantics
 
 When deciding how to construct complex class names with multiple delimited pieces, look at existing HTML specifications for inspiration before deciding on something arbitrary.
 
@@ -628,7 +588,56 @@ The [ARIA Role, State, and Property Quick Reference] is a good resource for comm
 .Component.is-selected {}
 ```
 
-# Encapsulation
+### Comments
+
+Comments are a good idea. There is no standardized CSS documentation tool ([KSS] for example) currently in use. For comments that explain declarations, this formatting is nice:
+
+From https://github.com/suitcss/components-arrange/blob/master/lib/arrange.css
+
+```css
+/**
+ * 1. Protect against the component expanding beyond the confines of its
+ *    container if properties affecting the box-model are applied to the
+ *    component. Mainly necessary because of (5).
+ * 2. Rely on table layout.
+ * 3. Zero out the default spacing that might be on an element (e.g., `ul`).
+ * 4. Make sure the component fills at least the full width of its parent.
+ * 5. Reset the table-layout algorithm in case a component is nested.
+ */
+
+.Arrange {
+  box-sizing: border-box; /* 1 */
+  display: table; /* 2 */
+  margin: 0; /* 3 */
+  min-width: 100%; /* 4 */
+  padding: 0; /* 3 */
+  table-layout: auto; /* 5 */
+}
+```
+
+<!-- TODO: More content -->
+
+[⇧ top](#cssguide)
+<!---------------->
+
+## Architecture
+
+See [CSS Guidelines: Architectural Principles]
+
+### Dryness
+
+Use the following properties with care. Ideally, they should mostly be found in reusable utilities, and not be repeated across a wide variety of components.
+
+- `margin`
+- `float`
+- `width`
+- `height`
+- `font-*`
+- `line-height`
+- `text-align`
+- `white-space`
+
+### Encapsulation
 
 When writing base styles for a component, assume that the component is entirely unaware of everything outside of its box. If styles that depend on other sibling or parent elements are needed, add them prescriptively (or consider using an additional utility class in your HTML.)
 
@@ -658,41 +667,49 @@ When writing base styles for a component, assume that the component is entirely 
 }
 ```
 
-<!--
-TODO: more examples of encapsulation
--->
+### Composition
 
-# Specificity
-
-## Special Considerations
-
-Use the following properties with care. Ideally, they should mostly be found in reusable utilities, and not be repeated across a wide variety of components.
+If two components need to be combined in order to define overriding styles for a specific use case, then this should be done within a context-specific style sheet:
 
 ```css
-/*
-margin
-float
-width
-height
-font-*
-line-height
-text-align
-white-space
-*/
+/* pages/search.css */
+
+.Page--search .Button {/*...*/}
 ```
 
-# Architecture
+If this combination is reoccurring, then a better solution is to create a new components that abstracts the needed pieces:
 
-See [CSS Guidelines: Architectural Principles]
+```css
+/* components/searchbar.css */
 
-<!--
-TODO: more content
--->
+.SearchBar {/*...*/}
 
-# Tools
+.SearchBar-button {/*...*/}
+```
+
+[⇧ top](#cssguide)
+<!---------------->
+
+## Tools
+
+### Processors
+
+- **[PostCSS]**
+- **[Rework]**
+
+### Formatters
 
 - **[CSScomb]**
     CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
 
+### Validators
+
 - **[SUIT CSS Linter]**
     With this plugin, you can check the validity of stylesheets against a set of BEM-style conventions. You can use preset patterns (SUIT and BEM, currently) or insert your own. The plugin will throw an error if it finds CSS that does not follow the specified conventions.
+
+### Analyzers
+
+- **[The CSS Specificity Graph]**
+
+[⇧ top](#cssguide)
+<!---------------->
