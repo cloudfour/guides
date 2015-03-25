@@ -1,21 +1,55 @@
-[About HTML Semantics and Front-end Architecture]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture
-[Modular CSS BEM/OOCSS Naming]: http://benfrain.com/modular-css-bem-oocss-naming/
-[The Specificity Graph]: http://csswizardry.com/2014/10/the-specificity-graph/
-[CSS Guidelines]: http://cssguidelin.es
-[CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
-[Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
-[Atom]: http://atom.io
-[Sublime Text]: http://sublimetext.com
-[CSScomb]: http://csscomb.com
-[CSScomb config]: http://
-[CSS Property Order]: http://markdotto.com/2011/11/29/css-property-order/
-[Code Guide by @mdo]: http://codeguide.co/#css
-[Outside In]: http://webdesign.tutsplus.com/articles/outside-in-ordering-css-properties-by-importance--cms-21685
-[SUIT CSS Naming Conventions]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
-[SUIT CSS Linter]: https://github.com/necolas/postcss-bem-linter
-[ARIA Role, State, and Property Quick Reference]: http://rawgit.com/w3c/aria-in-html/master/index.html#recommendations-table
+<!-- Link aliases -->
 
-**CSS Guide**
+[About HTML Semantics and Front-end Architecture]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture
+[ARIA Role, State, and Property Quick Reference]: http://rawgit.com/w3c/aria-in-html/master/index.html#recommendations-table
+[Atom]: http://atom.io
+[Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+[Code Guide by @mdo]: http://codeguide.co/#css
+[CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
+[CSS Guidelines]: http://cssguidelin.es
+[CSS Property Order]: http://markdotto.com/2011/11/29/css-property-order/
+[CSScomb config]: http://
+[CSScomb]: http://csscomb.com
+[Modular CSS BEM/OOCSS Naming]: http://benfrain.com/modular-css-bem-oocss-naming/
+[Outside In]: http://webdesign.tutsplus.com/articles/outside-in-ordering-css-properties-by-importance--cms-21685
+[Sass Guidelines: The 7-1 Pattern]: http://sass-guidelin.es/#the-7-1-pattern
+[Sublime Text]: http://sublimetext.com
+[SUIT CSS Linter]: https://github.com/necolas/postcss-bem-linter
+[SUIT CSS Naming Conventions]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
+[SUIT CSS Utils]: https://github.com/suitcss/utils
+[The Specificity Graph]: http://csswizardry.com/2014/10/the-specificity-graph/
+
+<!-- Outline
+
+## Organization
+  ### Directory Structure
+  ### Base Styles
+  ### Components
+  ### Page Styles
+  ### Themes
+  ### Utilities
+  ### Vendor Styles
+  ### Main
+## Conventions
+  ### General Rules
+  ### Property Sorting
+  ### Selectors
+  ### Class Naming
+  ### Comments
+## Architecture
+  ### Dryness
+  ### Encapsulation
+  ### Specificity
+## Tools
+  ### Processors
+  ### Validators
+  ### Analyzers
+
+-->
+
+# CSS Guide
+
+<!-- Table of contents -->
 
 - [Organization](#organization)
 - [Formatting](#formatting)
@@ -25,13 +59,11 @@
 - [Architecture](#architecture)
 - [Tools](#tools)
 
-# Organization
+## Organization
 
-## Directory Structure
+### Directory Structure
 
-Adapted from [Sass Guidelines: The 7-1 Pattern](http://sass-guidelin.es/#the-7-1-pattern)
-
-Unless project requirements dictate otherwise, the directory structure for CSS source code should look something like this:
+Unless specific project requirements dictate otherwise, the directory structure should look something like this:
 
 <pre>
 ├── base
@@ -39,32 +71,106 @@ Unless project requirements dictate otherwise, the directory structure for CSS s
 │   ├── reset.css
 │   ├── typography.css
 │   └── variables.css
+│   └── ...
 ├── components
 │   ├── alert.css
 │   ├── button.css
 │   ├── dropdown.css
 │   └── tabs.css
+│   └── ...
 ├── pages
 │   ├── contact.css
 │   └── home.css
-├── themes
-│   ├── admin.css
-│   └── default.css
+│   └── ...
 ├── utils
 │   ├── u-align.css
 │   ├── u-display.css
 │   └── u-position.css
+│   └── ...
 ├── vendor
+│   └── ...
 └── main.css
 </pre>
 
-<!--
-TODO: breakdown of each folder
--->
+##### Notes
+
+- This structure represents the organization of different types of style sheets, as well as sequential the order in which they should be applied.
+- The exact naming of folders and files (extensions included) will vary depending on what processing tools are being used. For example, Sass will require includes to be prefixed with an underscore.
+- Adapted from [Sass Guidelines: The 7-1 Pattern]
+
+### Base Styles
+
+The `base/` directory should contain mostly foundational element styles and any core dependencies (mixins, variables, functions, etc.) that need to be globally available. There should be few (if any) class definitions within this directory. Some examples of what you might place here include:
+
+- `reset.css` or `normalize.css` (or _both_)
+- `variables.css`
+- `mixins.css`
+- `scaffolding.css`
+- `forms.css`
+- `typography.css`
+
+### Components
+
+The `components/` directory should be the largest, as most of the CSS should be written as small, reusable components. Some examples of what you might place here include:
+
+- `alert.css`
+- `button.css`
+- `grid.css`
+- `arrange.css`
+- `dropdown.css`
+- `tablist.css`
+- `well.css`
+
+Each file should contain only one component, and if possible, only class selectors with a common namespace for that component:
+
+```css
+/* components/button.css */
+
+.Button {/* ... */}
+
+.Button--large {/* ... */}
+
+.Button--small {/* ... */}
+```
 
 <!--
-TODO: ## File Separation
+TODO: Put this under Architecture
+
+If two components need to be combined in order to define overriding styles for a specific use case, then this should be done within a context-specific style sheet:
+
+
+/* pages/search.css */
+
+.Page--search .Button {/* ... */}
+
+
+If this combination is reoccurring, then a better solution is to create a new components that abstracts the needed pieces:
+
+
+/* components/searchbar.css */
+
+.SearchBar {/* ... */}
+
+.SearchBar-button {/* ... */}
+
 -->
+
+### Page Styles
+
+The `pages/` directory is where contextual use-case overrides for components should occur.
+
+### Utilities
+
+The `utilities/` directory is where utility (or "helper") classes should be defined. Unlike components, there may be multiple class definitions within each file, though they should be organized according to what kind of properties they affect. [SUIT CSS Utils] is nice example of this kind of organization. Some examples of what you might place here include:
+
+- `u-display.css`
+- `u-position.css`
+
+##### Notes
+
+- Utilities should use `!important` to ensure that their styles always win.
+
+[⇧ top](#cssguide)
 
 # Formatting
 
