@@ -186,7 +186,7 @@ Each file should contain nothing but class definitions prefixed with `u-` to ide
 
 These rules were adapted from [CSS Guidelines]. This is an example of how declaration block syntax should be formatted (Sass syntax used to illustrate nesting):
 
-```scss
+```sass
 .Selector-1,
 .Selector-2 { /* 1 */
   @include some-mixin(); /* 2 */
