@@ -52,8 +52,6 @@
 
 This structure was adapted from [Sass Guidelines: The 7-1 Pattern], and represents the organization of different types of style sheets, and also the sequential order in which they should be applied.
 
-The exact naming of folders and files (extensions included) will vary depending on what processing tools are being used, but unless specific project requirements dictate otherwise, the directory structure should look something like this:
-
 <pre>
 ├── base
 │   ├── normalize.css
@@ -80,6 +78,8 @@ The exact naming of folders and files (extensions included) will vary depending 
 │   └── ...
 └── main.css
 </pre>
+
+The exact naming of folders and files (extensions included) will vary depending on what processing tools are being used, but unless specific project requirements dictate otherwise, the directory structure should look something like this.
 
 ### Base Styles
 
@@ -163,7 +163,7 @@ The `utilities/` directory is where utility classes (or "helpers") should be def
 - `position.css`
 - `text.css`
 
-Each file should contain nothing but class definitions prefixed with `u-` to identity them as utility classes. To ensure that they always override conflicting declarations, utilities should be included after all other styles.
+Each file should contain nothing but class definitions prefixed with `u-` to identity them as utility classes. To ensure that they always override conflicting declarations, **utilities should be included after all other styles** in `main.css`.
 
 ```css
 /* utilities/display.css */
@@ -184,140 +184,55 @@ Each file should contain nothing but class definitions prefixed with `u-` to ide
 
 ### General Rules
 
-These rules were adapted from [CSS Guidelines].
+These rules were adapted from [CSS Guidelines]. This is an example of how declaration block syntax should be formatted (Sass syntax used to illustrate nesting):
 
-0. Closely related selectors should be on the same line
+```scss
+.Selector-1,
+.Selector-2 { /* 1 */
+  @include some-mixin(); /* 2 */
 
-    ```css
-    h1, .h1 {
-      font-size: 2em;
-    }
-    ```
+  display: block; /* 3 */
+  padding: 0; /* 4 */
+  background-image: url("image.png"); /* 5 */
+  background-color: rgba(0,0,0,0.1); /* 6 */
+  opacity: 0.8; /* 7 */
+  transition-duration: 300ms; /* 8 */
 
-0. All other selectors should be on new lines
+  &::before { /* 9 */
+    content: "Foo";
+  }
 
-    ```css
-    .Component-header,
-    .Component-footer {
-      display: block;
-    }
-    ```
+  &:hover,
+  &:focus { /* 10 */
+    color: green;
+  }
 
-0. One space should be before each opening brace (`{`)
+  &.is-disabled,
+  &[disabled] { /* 11 */
+    border-width: 2em;
+  }
 
-    ```css
-    /* Do */
+  @media (min-width: 40em) { /* 12 */
+    width: auto;
+  }
+} /* 13 */
+/* 14 */
+```
 
-    selector {
-      property: value;
-    }
-    ```
-
-    ```css
-    /* Don't */
-
-    selector{
-      property: value;
-    }
-    ```
-
-0. One space should be after each property–value delimiting colon (`:`)
-
-    ```css
-    /* Do */
-
-    selector {
-      property: value;
-    }
-    ```
-
-    ```css
-    /* Don't */
-
-    selector {
-      property:value;
-    }
-    ```
-
-0. Each declaration should be on its own line
-
-    ```css
-    /* Do */
-
-    selector {
-      width: 100%;
-      height: 100%;
-    }
-    ```
-
-    ```css
-    /* Don't */
-
-    selector {
-      width: 100%; height: 100%;
-    }
-    ```
-
-0. The opening brace (`{`) should be on the same line as the last selector
-
-    ```css
-    /* Do */
-
-    .Selector-a,
-    .Selector-b {
-      property: value;
-    }
-    ```
-
-    ```css
-    /* Don't */
-
-    .Selector-a,
-    .Selector-b
-    {
-      property: value;
-    }
-    ```
-
-0. The closing brace (`}`) should be on its own new line
-
-    ```css
-    /* Do */
-
-    selector {
-      property: value;
-    }
-    ```
-
-    ```css
-    /* Don't */
-
-    selector {
-      property: value; }
-    ```
-
-0. A trailing semi-colon (`;`) should be on all declarations
-
-    ```css
-    /* Do */
-
-    selector {
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-    }
-
-    ```
-
-    ```css
-    /* Don't */
-
-    selector {
-      width: 100%;
-      height: 100%;
-      opacity: 0
-    }
-    ```
+1. Combined selectors should be on separate lines; the opening brace (`{`) should be on the same line as the last selector
+2. Variables and preprocessor cruft should be placed before any properties, with a blank line below
+3. One space should be after each colon (`:`); each line should end with a semicolon (`;`)
+4. Values of `0` should be unit-less
+5. Strings within values should use double quotes (`""`)
+6. Comma-delimited numerical values inside of parenthesis should have no spaces
+7. Decimal values should include a leading `0`
+8. Time values should be represented in milliseconds (`ms`)
+9. Nested pseudo element blocks should be placed after all property declarations
+10. Nested pseudo class blocks should be placed after all pseudo element blocks
+11. Nested class or attribute blocks should be placed after all pseudo class blocks
+12. Nested media queries should be placed after all combining class blocks
+13. Closing braces (`}`) should be on a new line
+14. A blank line should be after each declaration block
 
 ### Property Sorting
 
