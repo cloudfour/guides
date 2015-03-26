@@ -177,7 +177,7 @@ Each file should contain nothing but class definitions prefixed with `u-` to ide
 }
 ```
 
-[⇧ top](#cssguide)
+[⇧ top](#css-guide)
 <!---------------->
 
 ## Conventions
@@ -532,7 +532,7 @@ From https://github.com/suitcss/components-arrange/blob/master/lib/arrange.css
 
 <!-- TODO: More content -->
 
-[⇧ top](#cssguide)
+[⇧ top](#css-guide)
 <!---------------->
 
 ## Architecture
@@ -602,7 +602,7 @@ If this combination is reoccurring, then a better solution is to create a new co
 .SearchBar-button {/*...*/}
 ```
 
-[⇧ top](#cssguide)
+[⇧ top](#css-guide)
 <!---------------->
 
 ## Tools
@@ -626,5 +626,5 @@ If this combination is reoccurring, then a better solution is to create a new co
 
 - **[The CSS Specificity Graph]**
 
-[⇧ top](#cssguide)
+[⇧ top](#css-guide)
 <!---------------->
