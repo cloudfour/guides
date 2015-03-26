@@ -209,7 +209,7 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 
   &.is-disabled,
   &[disabled] { /* 11 */
-    border-width: 2em;
+    pointer-events: none;
   }
 
   @media (min-width: 40em) { /* 12 */
