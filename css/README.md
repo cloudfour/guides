@@ -5,13 +5,16 @@
 [Atom]: http://atom.io
 [Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 [CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
+[CSS Guidelines: JavaScript Hooks]: http://cssguidelin.es/#javascript-hooks
 [CSS Guidelines]: http://cssguidelin.es
 [CSS Property Order]: http://markdotto.com/2011/11/29/css-property-order/
+[CSS Reset]: http://meyerweb.com/eric/tools/css/reset/
 [CSScomb config]: http://
 [CSScomb]: http://csscomb.com
 [Code Guide by @mdo]: http://codeguide.co/#css
 [KSS]: https://github.com/kss-node/kss-node
 [Modular CSS BEM/OOCSS Naming]: http://benfrain.com/modular-css-bem-oocss-naming/
+[normalize.css]: http://necolas.github.io/normalize.css/
 [Outside In]: http://webdesign.tutsplus.com/articles/outside-in-ordering-css-properties-by-importance--cms-21685
 [PostCSS]: https://github.com/postcss/postcss
 [Rework]: https://github.com/reworkcss/rework
@@ -28,7 +31,7 @@
     - [Directory Structure](#directory-structure)
     - [Base Styles](#base-styles)
     - [Components](#components)
-    - [Page Styles](#page-styles)
+    - [Section Styles](#section-styles)
     - [Utilities](#utilities)
 - [Conventions](#conventions)
     - [General Rules](#general-rules)
@@ -65,7 +68,7 @@ This structure was adapted from [Sass Guidelines: The 7-1 Pattern], and represen
 │   ├── dropdown.css
 │   └── tabs.css
 │   └── ...
-├── pages
+├── sections
 │   ├── contact.css
 │   └── home.css
 │   └── ...
@@ -85,14 +88,14 @@ The exact naming of folders and files (extensions included) will vary depending 
 
 The `base/` directory should contain mostly foundational element styles and any core dependencies (mixins, variables, functions, etc.) that need to be globally available. There should be few (if any) class definitions within this directory. Some examples of what you might place here include:
 
-- `reset.css` or `normalize.css` (or _both_)
+- `reset.css` or `normalize.css` (not necessarily [CSS Reset] or [normalize.css])
 - `variables.css`
 - `mixins.css`
 - `scaffolding.css`
 - `forms.css`
 - `typography.css`
 
-Each file should only be responsible for providing base styles for designated group of related elements.
+Each file should only be responsible for providing base styles for a designated group of related elements.
 
 ```css
 /* base/forms.css */
@@ -127,7 +130,7 @@ The `components/` directory should be the largest, as most of the CSS should be 
 - `tablist.css`
 - `well.css`
 
-Each file should contain only one component, and if possible, only class selectors with a common namespace for that component:
+Each file should contain only one component and, if possible, only class selectors with a common namespace for that component:
 
 ```css
 /* components/button.css */
@@ -139,25 +142,25 @@ Each file should contain only one component, and if possible, only class selecto
 .Button--small {/*...*/}
 ```
 
-### Page Styles
+### Section Styles
 
-The `pages/` directory is where page-specific styling and contextual use-case overrides for components should occur. If a page requires specific modifications to a component, they should be placed in a style sheet for that page:
+The `section/` directory is where page- or section- specific styling and contextual use-case overrides for components should occur. If a section requires specific modifications to a component, they should be placed in a style sheet for that section:
 
 - `home.css`
 - `listing.css`
 - `error.css`
 
 ```css
-/* pages/home.css */
+/* sections/home.css */
 
-.Page--home .Page-welcome .Button {
+.Section--home .Section-welcome .Button {
   font-size: 3em;
 }
 ```
 
 ### Utilities
 
-The `utilities/` directory is where utility classes (or "helpers") should be defined. Unlike components, there may be multiple class definitions within each file, though they should be organized according to what kind of properties they affect. [SUIT CSS Utils] is nice example of this kind of organization. Some examples of what you might place here include:
+The `utilities/` directory is where utility classes (or "helpers") should be defined. Unlike components, there may be multiple class definitions within each file, though they should be organized according to what kind of properties they affect. [SUIT CSS Utils] is a nice example of this kind of organization. Some examples of what you might place here include:
 
 - `display.css`
 - `position.css`
@@ -449,10 +452,6 @@ Syntax: `u-[sm|md|lg-]<utilityName>`
 }
 ```
 
-<!--
-TODO: ### States
--->
-
 #### Component Classes
 
 Syntax: `<ComponentName>[--modifierName|-descendentName`
@@ -469,6 +468,21 @@ Syntax: `<ComponentName>[--modifierName|-descendentName`
 
 /* Modifying descendants */
 .Alert--dismissable .Alert-closeButton {}
+```
+
+#### States
+
+Syntax: `<ComponentName>.is-stateOfComponent`
+
+State classes should reflect changes to a component's state. As such, it's important to resist the temptation to style these classes
+directly. Scoping states to an associated component class insures consistent terminology can be easily used across components.
+
+```css
+/* Component Name */
+.Tweet {}
+
+/* State of component */
+.Tweet.is-expanded {}
 ```
 
 #### Micro-semantics
@@ -502,6 +516,10 @@ The [ARIA Role, State, and Property Quick Reference] is a good resource for comm
 .Component.is-checked {}
 .Component.is-selected {}
 ```
+
+#### JavaScript Hooks
+
+See [CSS Guidelines: JavaScript Hooks]
 
 ### Comments
 
@@ -587,9 +605,9 @@ When writing base styles for a component, assume that the component is entirely 
 If two components need to be combined in order to define overriding styles for a specific use case, then this should be done within a context-specific style sheet:
 
 ```css
-/* pages/search.css */
+/* sections/search.css */
 
-.Page--search .Button {/*...*/}
+.Section--search .Button {/*...*/}
 ```
 
 If this combination is reoccurring, then a better solution is to create a new components that abstracts the needed pieces:
