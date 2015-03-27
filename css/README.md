@@ -28,7 +28,7 @@
 
 # CSS Guide
 
-
+Clean, consistent and understandable CSS is paramount to a successful project. It sets the tone, both visually and architecturally, for the entire front-end. These are our collected (and evolving) best practices for writing styles with some _style_. 😎
 
 - [Organization](#organization)
     - [Directory Structure](#directory-structure)
