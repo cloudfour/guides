@@ -4,6 +4,7 @@
 [About HTML Semantics and Front-end Architecture]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture
 [Atom]: http://atom.io
 [Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+[Autoprefixer]: https://github.com/postcss/autoprefixer
 [CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
 [CSS Guidelines: JavaScript Hooks]: http://cssguidelin.es/#javascript-hooks
 [CSS Guidelines]: http://cssguidelin.es
@@ -27,6 +28,8 @@
 
 # CSS Guide
 
+
+
 - [Organization](#organization)
     - [Directory Structure](#directory-structure)
     - [Base Styles](#base-styles)
@@ -43,6 +46,7 @@
     - [Dryness](#dryness)
     - [Encapsulation](#encapsulation)
     - [Composition](#composition)
+    - [Compatibility](#compatibility)
 - [Tools](#tools)
     - [Processors](#processors)
     - [Formatters](#formatters)
@@ -618,6 +622,29 @@ If this combination is reoccurring, then a better solution is to create a new co
 .SearchBar {/*...*/}
 
 .SearchBar-button {/*...*/}
+```
+
+### Compatibility
+
+Vendor prefixes or other non-standard fallbacks make CSS difficult to read and maintain. Even mixins require documentation and maintenance. Where possible, use [Autoprefixer] to magically include prefixes and other fallbacks based on your project's actual support requirements. This allows us to write styles in a standard and predictable way:
+
+```scss
+/* Don't */
+.Component {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* Don't */
+.Component {
+  @include translateX(-50%);
+}
+
+/* Do */
+.Component {
+  transform: translateX(50%);
+}
 ```
 
 [⇧ top](#css-guide)
