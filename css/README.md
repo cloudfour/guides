@@ -57,7 +57,7 @@ Clean, consistent and understandable CSS is paramount to a successful project. I
 
 ### Directory Structure
 
-This structure was adapted from [Sass Guidelines: The 7-1 Pattern], and represents the organization of different types of style sheets, and also the sequential order in which they should be applied.
+This structure is an adaptation of [Sass Guidelines: The 7-1 Pattern]. It represents the organization of different types of style sheets, and the order they should follow.
 
 <pre>
 ├── base
@@ -86,11 +86,11 @@ This structure was adapted from [Sass Guidelines: The 7-1 Pattern], and represen
 └── main.css
 </pre>
 
-The exact naming of folders and files (extensions included) will vary depending on what processing tools are being used, but unless specific project requirements dictate otherwise, the directory structure should look something like this.
+The exact naming of files will vary depending on the processing tools in use. Unless specific project requirements dictate otherwise, the directory structure should look something like this.
 
 ### Base Styles
 
-The `base/` directory should contain mostly foundational element styles and any core dependencies (mixins, variables, functions, etc.) that need to be globally available. There should be few (if any) class definitions within this directory. Some examples of what you might place here include:
+The `base/` directory should contain foundational styles and other global dependencies, such as variables. There should be few (if any) class definitions within this directory. Some examples of what you might place here include:
 
 - `reset.css` or `normalize.css` (not necessarily [CSS Reset] or [normalize.css])
 - `variables.css`
@@ -148,7 +148,7 @@ Each file should contain only one component and, if possible, only class selecto
 
 ### Section Styles
 
-The `section/` directory is where page- or section- specific styling and contextual use-case overrides for components should occur. If a section requires specific modifications to a component, they should be placed in a style sheet for that section:
+The `section/` directory is where styling specific to a page or section should occur. This includes contextual use-case overrides for components. If a section requires specific modifications to a component, they should done in a style sheet for that section:
 
 - `home.css`
 - `listing.css`
@@ -164,7 +164,7 @@ The `section/` directory is where page- or section- specific styling and context
 
 ### Utilities
 
-The `utilities/` directory is where utility classes (or "helpers") should be defined. Unlike components, there may be multiple class definitions within each file, though they should be organized according to what kind of properties they affect. [SUIT CSS Utils] is a nice example of this kind of organization. Some examples of what you might place here include:
+The `utilities/` directory is where definitions for utility classes (or "helpers") should occur. Unlike components, there may be many of these class definitions per file. Their organization should be according to what kind of properties they affect. [SUIT CSS Utils] is a nice example of this kind of organization. Some examples of what you might place here include:
 
 - `display.css`
 - `position.css`
@@ -243,7 +243,7 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 
 ### Property Sorting
 
-It is recommended to order all property declarations categorically rather than randomly or alphabetically. The high-level categories that determine this property order are loosely based on the [Outside In] method described by Guy Routledge:
+The recommended order of all property declarations is by category, rather than by random or by name. The basis for these property categories is the [Outside In] method described by Guy Routledge:
 
 >The gist of the technique is to start with big-picture properties which impact stuff outside the element and work in towards the finer details. This is why I call it the “Outside In” method.
 
@@ -478,8 +478,7 @@ Syntax: `<ComponentName>[--modifierName|-descendentName`
 
 Syntax: `<ComponentName>.is-stateOfComponent`
 
-State classes should reflect changes to a component's state. As such, it's important to resist the temptation to style these classes
-directly. Scoping states to an associated component class insures consistent terminology can be easily used across components.
+State classes should reflect changes to a component's state. As such, it's important to resist the temptation to apply direct styles to these classes. Scoping states to associated component classes insures the use of consistent cross-component terminology.
 
 ```css
 /* Component Name */
@@ -576,7 +575,7 @@ Use the following properties with care. Ideally, they should mostly be found in 
 
 ### Encapsulation
 
-When writing base styles for a component, assume that the component is entirely unaware of everything outside of its box. If styles that depend on other sibling or parent elements are needed, add them prescriptively (or consider using an additional utility class in your HTML.)
+When writing base styles for a component, assume that the component is unaware of everything outside of its box. Add styles that depend on surrounding elements with care (or instead use more utility classes in your HTML.)
 
 ```css
 /* Do */
@@ -606,7 +605,7 @@ When writing base styles for a component, assume that the component is entirely 
 
 ### Composition
 
-If two components need to be combined in order to define overriding styles for a specific use case, then this should be done within a context-specific style sheet:
+When combining two components for specific overrides, do this in a context-specific style sheet:
 
 ```css
 /* sections/search.css */
@@ -626,7 +625,7 @@ If this combination is reoccurring, then a better solution is to create a new co
 
 ### Compatibility
 
-Vendor prefixes or other non-standard fallbacks make CSS difficult to read and maintain. Even mixins require documentation and maintenance. Where possible, use [Autoprefixer] to magically include prefixes and other fallbacks based on your project's actual support requirements. This allows us to write styles in a standard and predictable way:
+Vendor prefixes or other non-standard fallbacks make CSS difficult to read and maintain. Even mixins require documentation and maintenance. [Autoprefixer] will handle prefixes and other fallbacks based on your project's actual support requirements. This allows us to write styles in a standard and predictable way:
 
 ```scss
 /* Don't */
