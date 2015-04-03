@@ -31,3 +31,11 @@ Kinda handy:
 
 `git symbolic-ref --quiet --short HEAD` is a programattic way to ask what your working branch is at the moment.
 
+## Delete merged local branches
+
+```
+git checkout master
+git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+```
+
+[Via this gist](https://gist.github.com/JoshuaEstes/2627607#delete-all-branches-that-have-been-merged)
