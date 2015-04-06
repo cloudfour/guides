@@ -5,6 +5,7 @@
 [Atom]: http://atom.io
 [Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 [Autoprefixer]: https://github.com/postcss/autoprefixer
+[CSS Dig]: https://css-tricks.com/starting-a-refactor-with-css-dig/
 [CSS Guidelines: Architectural Principles]: http://cssguidelin.es/#architectural-principles
 [CSS Guidelines: JavaScript Hooks]: http://cssguidelin.es/#javascript-hooks
 [CSS Guidelines]: http://cssguidelin.es
@@ -15,6 +16,7 @@
 [Code Guide by @mdo]: http://codeguide.co/#css
 [KSS]: https://github.com/kss-node/kss-node
 [Modular CSS BEM/OOCSS Naming]: http://benfrain.com/modular-css-bem-oocss-naming/
+[Naming CSS Stuff Is Really Hard]:http://seesparkbox.com/foundry/naming_css_stuff_is_really_hard
 [normalize.css]: http://necolas.github.io/normalize.css/
 [Outside In]: http://webdesign.tutsplus.com/articles/outside-in-ordering-css-properties-by-importance--cms-21685
 [PostCSS]: https://github.com/postcss/postcss
@@ -464,7 +466,9 @@ selector {
 
 ### Class Naming
 
-Adapted from the [SUIT CSS Naming Conventions].
+Naming stuff can be hilariously difficult. To minimize future confusion, try to pick names that are less likely to change (or become inaccurate). For example, a component name of `.FormGroup` might be better than `.RegistrationShipping`, since it describes a _function_ rather than a _context_. See [Naming CSS Stuff Is Really Hard] for more examples.
+
+The following conventions were adapted from the [SUIT CSS Naming Conventions].
 
 #### Utility Classes
 
@@ -695,6 +699,8 @@ Vendor prefixes or other non-standard fallbacks make CSS difficult to read and m
 ### Analyzers
 
 - **[The CSS Specificity Graph]**
+- **[CSS Dig]**
+    > A Chrome extension that summarizes selector and propery usage for any given page. Particularly useful for identifying areas of needless repetition (see [Dryness](#dryness)).
 
 [⇧ top](#css-guide)
 <!---------------->
