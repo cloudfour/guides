@@ -62,24 +62,23 @@ This structure is an adaptation of [Sass Guidelines: The 7-1 Pattern]. It repres
 <pre>
 ├── base
 │   ├── normalize.css
-│   ├── reset.css
 │   ├── typography.css
 │   └── variables.css
 │   └── ...
 ├── components
 │   ├── alert.css
 │   ├── button.css
-│   ├── dropdown.css
 │   └── tabs.css
 │   └── ...
 ├── sections
 │   ├── contact.css
 │   └── home.css
+│   └── search.css
 │   └── ...
 ├── utils
-│   ├── u-align.css
-│   ├── u-display.css
-│   └── u-position.css
+│   ├── align.css
+│   ├── display.css
+│   └── position.css
 │   └── ...
 ├── vendor
 │   └── ...
@@ -90,14 +89,13 @@ The exact naming of files will vary depending on the processing tools in use. Un
 
 ### Base Styles
 
-The `base/` directory should contain foundational styles and other global dependencies, such as variables. There should be few (if any) class definitions within this directory. Some examples of what you might place here include:
+The `base/` directory should contain foundational styles and other global dependencies, such as variables. There should be few (if any) class definitions within this directory. If using a preprocessor, this would also be an appropriate place to put files containing mixins or functions. Some examples of what you might place here include:
 
-- `reset.css` or `normalize.css` (not necessarily [CSS Reset] or [normalize.css])
 - `variables.css`
-- `mixins.css`
+- `normalize.css` (not necessarily [normalize.css])
 - `scaffolding.css`
-- `forms.css`
 - `typography.css`
+- `forms.css`
 
 Each file should only be responsible for providing base styles for a designated group of related elements.
 
@@ -127,10 +125,10 @@ code {/*...*/}
 The `components/` directory should be the largest, as most of the CSS should be written as small, reusable components. Some examples of what you might place here include:
 
 - `alert.css`
-- `button.css`
-- `grid.css`
 - `arrange.css`
+- `button.css`
 - `dropdown.css`
+- `grid.css`
 - `tablist.css`
 - `well.css`
 
@@ -170,7 +168,7 @@ The `utilities/` directory is where definitions for utility classes (or "helpers
 - `position.css`
 - `text.css`
 
-Each file should contain nothing but class definitions prefixed with `u-` to identity them as utility classes. To ensure that they always override conflicting declarations, **utilities should be included after all other styles** in `main.css`.
+Each file should contain only classes prefixed with `u-` to identity them as utilities. To ensure dominance over conflicting declarations, **utilities should come last after all other styles** in `main.css`.
 
 ```css
 /* utilities/display.css */
@@ -226,20 +224,20 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 /* 14 */
 ```
 
-1. Combined selectors should be on separate lines; the opening brace (`{`) should be on the same line as the last selector
-2. Variables and preprocessor cruft should be placed before any properties, with a blank line below
-3. One space should be after each colon (`:`); each line should end with a semicolon (`;`)
-4. Values of `0` should be unit-less
-5. Strings within values should use double quotes (`""`)
-6. Comma-delimited numerical values inside of parenthesis should have no spaces
-7. Decimal values should include a leading `0`
-8. Time values should be represented in milliseconds (`ms`)
-9. Nested pseudo element blocks should be placed after all property declarations
-10. Nested pseudo class blocks should be placed after all pseudo element blocks
-11. Nested class or attribute blocks should be placed after all pseudo class blocks
-12. Nested media queries should be placed after all combining class blocks
-13. Closing braces (`}`) should be on a new line
-14. A blank line should be after each declaration block
+1. Combined selectors should be on separate lines, and the opening brace should be on the same line as the last selector.
+2. Variables and preprocessor cruft should come before any properties, separated with blank line below.
+3. One space should be after each colon, and each line should end with a semicolon.
+4. Values of zero should be unit-less.
+5. Strings within values should use double quotes.
+6. Comma-delimited numbers inside of values with parenthesis (e.g. `rgb(0,0,0)`) should have no spaces between them.
+7. Decimal values should include a leading `0`.
+8. Time values should be represented with the millisecond (`ms`) unit.
+9. Nested pseudo element blocks should come after all property declarations.
+10. Nested pseudo class blocks should come after all pseudo element blocks.
+11. Nested class or attribute blocks should come after all pseudo class blocks.
+12. Nested media queries should come after all combined class or attribute blocks.
+13. Closing braces should be on a new line.
+14. A blank line should come after each declaration block.
 
 ### Property Sorting
 
@@ -247,14 +245,42 @@ The recommended order of all property declarations is by category, rather than b
 
 >The gist of the technique is to start with big-picture properties which impact stuff outside the element and work in towards the finer details. This is why I call it the “Outside In” method.
 
-0. Layout Properties
-0. Box Model Properties
-0. Visual Properties
-0. Typography Properties
-0. Misc Properties
+0. Placement
+    - Position
+    - Offset
+0. Visual Formatting
+    - Display
+    - Visibility
+    - Overflow
+0. Container
+    - Margin
+    - Dimension
+    - Padding
+    - Border
+0. Background
+    - `background-`
+    - `box-shadow`
+0. Foreground
+    - Color
+    - Opacity
+0. Contextual
+    - List
+    - Table
+0. Content
+    - Text
+    - Font
+    - `content`
+0. Motion
+    - Transition
+    - Animation
+0. Interaction
+    - Cursor
+    - Outline
+0. Miscellaneous
 
 <!--
 TODO: Make this a table
+TODO: See http://www.w3.org/community/webed/wiki/CSS/Properties
 
 - Positioning
     - `position`
@@ -562,7 +588,7 @@ See [CSS Guidelines: Architectural Principles]
 
 ### Dryness
 
-Use the following properties with care. Ideally, they should mostly be found in reusable utilities, and not be repeated across a wide variety of components.
+Use the following properties with care. They should occur in reusable utilities most of the time, and not repeated across a wide variety of components.
 
 - `margin`
 - `float`
@@ -605,7 +631,7 @@ When writing base styles for a component, assume that the component is unaware o
 
 ### Composition
 
-When combining two components for specific overrides, do this in a context-specific style sheet:
+When combining components for specific overrides, do this in a context-specific style sheet:
 
 ```css
 /* sections/search.css */
@@ -613,7 +639,7 @@ When combining two components for specific overrides, do this in a context-speci
 .Section--search .Button {/*...*/}
 ```
 
-If this combination is reoccurring, then a better solution is to create a new components that abstracts the needed pieces:
+If this combination reoccurs, consider creating a new component to abstract the needed pieces:
 
 ```css
 /* components/searchbar.css */
@@ -659,12 +685,12 @@ Vendor prefixes or other non-standard fallbacks make CSS difficult to read and m
 ### Formatters
 
 - **[CSScomb]**
-    CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
+    > CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
 
 ### Validators
 
 - **[SUIT CSS Linter]**
-    With this plugin, you can check the validity of stylesheets against a set of BEM-style conventions. You can use preset patterns (SUIT and BEM, currently) or insert your own. The plugin will throw an error if it finds CSS that does not follow the specified conventions.
+    > With this plugin, you can check the validity of stylesheets against a set of BEM-style conventions. You can use preset patterns (SUIT and BEM, currently) or insert your own. The plugin will throw an error if it finds CSS that does not follow the specified conventions.
 
 ### Analyzers
 
