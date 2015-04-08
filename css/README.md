@@ -85,9 +85,9 @@ This structure is an adaptation of [Sass Guidelines: The 7-1 Pattern]. It repres
 
 ### Base Styles
 
-The `base/` directory should contain foundational styles and other global dependencies, such as variables. There should be few (if any) class definitions within this directory. If using a preprocessor, this would also be an appropriate place to put files containing mixins or functions.
+The `base/` directory should contain foundational styles and other global dependencies. There should be few (if any) class definitions within this directory. In addition to common variables, this would also be an appropriate place to put mixins or functions if a preprocessor is in use.
 
-- Variables (and mixins or functions) should be organized in separate files.
+- Variables, mixins and functions should be organized in their own separate files.
 
     ```css
     /* base/variables.css */
@@ -103,6 +103,16 @@ The `base/` directory should contain foundational styles and other global depend
     ```
 
 - Each file should only be responsible for providing base styles for a designated group of related elements.
+
+    ```css
+    /* base/scaffolding.css */
+
+    * {/*...*/}
+
+    html {/*...*/}
+
+    body {/*...*/}
+    ```
 
     ```css
     /* base/forms.css */
@@ -179,14 +189,14 @@ The `utilities/` directory is where definitions for utility classes (or "helpers
 - Each file should contain only classes prefixed with `u-` to identity them as utilities.
 
     ```css
-    /* utilities/display.css */
+    /* utilities/margin.css */
 
-    .u-displayBlock {
-      display: block !important;
+    .u-marginAbove {
+      margin-top: var(--vspace) !important;
     }
 
-    .u-displayInline {
-      display: inline !important;
+    .u-marginBelow {
+      margin-bottom: var(--vspace) !important;
     }
     ```
 
