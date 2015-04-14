@@ -59,130 +59,157 @@ Clean, consistent and understandable CSS is paramount to a successful project. I
 
 ### Directory Structure
 
-This structure is an adaptation of [Sass Guidelines: The 7-1 Pattern]. It represents the organization of different types of style sheets, and the order they should follow.
+This structure is an adaptation of [Sass Guidelines: The 7-1 Pattern]. It represents the organization of different types of style sheets, and the order they should follow. Unless specific project requirements dictate otherwise, the directory structure should look _something_ like this:
 
 <pre>
-├── base
-│   ├── normalize.css
+├── base/
+│   ├── forms.css
 │   ├── typography.css
 │   └── variables.css
-│   └── ...
-├── components
+├── components/
 │   ├── alert.css
 │   ├── button.css
-│   └── tabs.css
-│   └── ...
-├── sections
-│   ├── contact.css
-│   └── home.css
-│   └── search.css
-│   └── ...
-├── utils
-│   ├── align.css
+│   └── grid.css
+├── sections/
+│   ├── error.css
+│   ├── home.css
+│   └── listing.css
+├── utils/
 │   ├── display.css
-│   └── position.css
-│   └── ...
-├── vendor
+│   ├── position.css
+│   └── text.css
+├── vendor/
 │   └── ...
 └── main.css
 </pre>
 
-The exact naming of files will vary depending on the processing tools in use. Unless specific project requirements dictate otherwise, the directory structure should look something like this.
-
 ### Base Styles
 
-The `base/` directory should contain foundational styles and other global dependencies, such as variables. There should be few (if any) class definitions within this directory. If using a preprocessor, this would also be an appropriate place to put files containing mixins or functions. Some examples of what you might place here include:
+The `base/` directory should contain foundational styles and other global dependencies. There should be few (if any) class definitions within this directory. In addition to common variables, this would also be an appropriate place to put mixins or functions if a preprocessor is in use.
 
-- `variables.css`
-- `normalize.css` (not necessarily [normalize.css])
-- `scaffolding.css`
-- `typography.css`
-- `forms.css`
+- Variables, mixins and functions should be organized in their own separate files.
 
-Each file should only be responsible for providing base styles for a designated group of related elements.
+    ```css
+    /* base/variables.css */
 
-```css
-/* base/forms.css */
+    :root {
+      --font-family-sans: popular-sans, "Helvetica Neue", sans-serif;
+      --font-size-base: 22px;
+      --transition-duration: 360ms;
+    }
 
-label {/*...*/}
+    @custom-media --width-min-md screen and (min-width: 30em);
+    @custom-media --width-min-lg screen and (min-width: 60em);
+    ```
 
-input {/*...*/}
+- Each file should only be responsible for providing base styles for a designated group of related elements.
 
-button {/*...*/}
-```
+    ```css
+    /* base/scaffolding.css */
 
-```css
-/* base/typography.css */
+    * {/*...*/}
 
-h1,
-h2,
-h3 {/*...*/}
+    html {/*...*/}
 
-pre,
-code {/*...*/}
-```
+    body {/*...*/}
+    ```
+
+    ```css
+    /* base/forms.css */
+
+    label {/*...*/}
+
+    input {/*...*/}
+
+    button {/*...*/}
+    ```
+
+    ```css
+    /* base/typography.css */
+
+    h1,
+    h2,
+    h3 {/*...*/}
+
+    pre,
+    code {/*...*/}
+    ```
 
 ### Components
 
-The `components/` directory should be the largest, as most of the CSS should be written as small, reusable components. Some examples of what you might place here include:
+The `components/` directory should have the largest number of files, because most of the CSS should be written as small, reusable components.
 
-- `alert.css`
-- `arrange.css`
-- `button.css`
-- `dropdown.css`
-- `grid.css`
-- `tablist.css`
-- `well.css`
+- Each file should contain only one component and, if possible, only class selectors with a common namespace for that component:
 
-Each file should contain only one component and, if possible, only class selectors with a common namespace for that component:
+    ```css
+    /* components/alert.css */
 
-```css
-/* components/button.css */
+    .Alert {/*...*/}
 
-.Button {/*...*/}
+    .Alert--fixed {/*...*/}
 
-.Button--large {/*...*/}
+    .Alert-header {/*...*/}
 
-.Button--small {/*...*/}
-```
+    .Alert-closeButton {/*...*/}
+    ```
+
+    ```css
+    /* components/button.css */
+
+    .Button {/*...*/}
+
+    .Button--large {/*...*/}
+
+    .Button--small {/*...*/}
+    ```
 
 ### Section Styles
 
-The `section/` directory is where styling specific to a page or section should occur. This includes contextual use-case overrides for components. If a section requires specific modifications to a component, they should done in a style sheet for that section:
+The `sections/` directory is where styling specific to a page or section should occur.
 
-- `home.css`
-- `listing.css`
-- `error.css`
+- Section style sheets should contain styling related to specific content, as well as contextual overrides for components.
 
-```css
-/* sections/home.css */
+    ```css
+    /* sections/home.css */
 
-.Section--home .Section-welcome .Button {
-  font-size: 3em;
-}
-```
+    .Section--home .Section-welcome {
+      background-image: url("marketing_photo.jpg");
+    }
+
+    .Section--home .Section-welcome .Button {
+      font-size: 3em;
+      color: var(--brand-primary);
+    }
+    ```
 
 ### Utilities
 
-The `utilities/` directory is where definitions for utility classes (or "helpers") should occur. Unlike components, there may be many of these class definitions per file. Their organization should be according to what kind of properties they affect. [SUIT CSS Utils] is a nice example of this kind of organization. Some examples of what you might place here include:
+The `utilities/` directory is where definitions for utility classes (or "helpers") should occur. Unlike components, there may be many of these class definitions per file. Their organization should be according to what kind of properties they affect. See [SUIT CSS Utils] for a nice example of this organization.
 
-- `display.css`
-- `position.css`
-- `text.css`
+- Each file should contain only classes prefixed with `u-` to identity them as utilities.
 
-Each file should contain only classes prefixed with `u-` to identity them as utilities. To ensure dominance over conflicting declarations, **utilities should come last after all other styles** in `main.css`.
+    ```css
+    /* utilities/margin.css */
 
-```css
-/* utilities/display.css */
+    .u-marginAbove {
+      margin-top: var(--vspace) !important;
+    }
 
-.u-displayBlock {
-  display: block !important;
-}
+    .u-marginBelow {
+      margin-bottom: var(--vspace) !important;
+    }
+    ```
 
-.u-displayInline {
-  display: inline !important;
-}
-```
+- To ensure dominance over conflicting declarations, **utilities should come last after all other styles** in `main.css`.
+
+    ```css
+    /* main.css */
+
+    @import "base";
+    @import "components";
+    @import "sections";
+    @import "utils";
+    ```
 
 [⇧ top](#css-guide)
 <!---------------->
