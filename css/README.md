@@ -715,19 +715,16 @@ Vendor prefixes or other non-standard fallbacks make CSS difficult to read and m
 
 ### Formatters
 
-- **[CSScomb]**
-    > CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
+- **[CSScomb]** CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
 
 ### Validators
 
-- **[SUIT CSS Linter]**
-    > With this plugin, you can check the validity of stylesheets against a set of BEM-style conventions. You can use preset patterns (SUIT and BEM, currently) or insert your own. The plugin will throw an error if it finds CSS that does not follow the specified conventions.
+- **[SUIT CSS Linter]** With this plugin, you can check the validity of stylesheets against a set of BEM-style conventions. You can use preset patterns (SUIT and BEM, currently) or insert your own. The plugin will throw an error if it finds CSS that does not follow the specified conventions.
 
 ### Analyzers
 
-- **[The CSS Specificity Graph]**
-- **[CSS Dig]**
-    > A Chrome extension that summarizes selector and propery usage for any given page. Particularly useful for identifying areas of needless repetition (see [Dryness](#dryness)).
+- **[The CSS Specificity Graph]** A very simple model for diagrammatically assessing the overall health of your codebase in terms of specificity—a way of looking at an entire project’s CSS and highlighting any potentially troublesome areas of higher-than-ideal specificity. 
+- **[CSS Dig]** A Chrome extension that summarizes selector and propery usage for any given page. Particularly useful for identifying areas of needless repetition (see [Dryness](#dryness)).
 
 [⇧ top](#css-guide)
 <!---------------->
