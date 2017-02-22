@@ -37,7 +37,6 @@ Clean, consistent and understandable CSS is paramount to a successful project. I
     - [Directory Structure](#directory-structure)
     - [Base Styles](#base-styles)
     - [Components](#components)
-    - [Section Styles](#section-styles)
     - [Utilities](#utilities)
 - [Conventions](#conventions)
     - [General Rules](#general-rules)
@@ -71,10 +70,6 @@ This structure is an adaptation of [Sass Guidelines: The 7-1 Pattern]. It repres
 │   ├── alert.css
 │   ├── button.css
 │   └── grid.css
-├── sections/
-│   ├── error.css
-│   ├── home.css
-│   └── listing.css
 ├── utils/
 │   ├── display.css
 │   ├── position.css
@@ -163,27 +158,6 @@ The `components/` directory should have the largest number of files, because mos
 
     .Button--small {/*...*/}
     ```
-
-### Section Styles
-
-The `sections/` directory is where styling specific to a page or section should occur.
-
-- Section style sheets should contain styling related to specific content, as well as contextual overrides for components.
-
-    ```css
-    /* sections/home.css */
-
-    .Section--home .Section-welcome {
-      background-image: url("marketing_photo.jpg");
-    }
-
-    .Section--home .Section-welcome .Button {
-      font-size: 3em;
-      color: var(--brand-primary);
-    }
-    ```
-    
-Section styles should be avoided wherever possible as they discourage reuse of components that may come in handy outside of their original context. That said, there are always exceptions to the rule.
 
 ### Utilities
 
