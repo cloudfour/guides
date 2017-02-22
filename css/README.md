@@ -25,6 +25,7 @@
 [SUIT CSS Naming Conventions]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 [SUIT CSS Utils]: https://github.com/suitcss/utils
 [Sass Guidelines: The 7-1 Pattern]: http://sass-guidelin.es/#the-7-1-pattern
+[stylelint]: https://stylelint.io/
 [Sublime Text]: http://sublimetext.com
 [The CSS Specificity Graph]: http://csswizardry.com/2014/10/the-specificity-graph/
 
@@ -181,6 +182,8 @@ The `sections/` directory is where styling specific to a page or section should 
       color: var(--brand-primary);
     }
     ```
+    
+Section styles should be avoided wherever possible as they discourage reuse of components that may come in handy outside of their original context. That said, there are always exceptions to the rule.
 
 ### Utilities
 
@@ -270,117 +273,19 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 
 ### Property Sorting
 
-The recommended order of all property declarations is by category, rather than by random or by name. The basis for these property categories is the [Outside In] method described by Guy Routledge:
+Until recently, we followed Guy Routledge's [Outside In] method of property sorting. Over time, we discovered most property sorting methodologies require maintenance as new properties (for example, `flex-*` or `grid-*`) are introduced. This makes them inherently fragile and difficult to enforce.
 
->The gist of the technique is to start with big-picture properties which impact stuff outside the element and work in towards the finer details. This is why I call it the “Outside In” method.
-
-0. Placement
-    - Position
-    - Offset
-0. Visual Formatting
-    - Display
-    - Visibility
-    - Overflow
-0. Container
-    - Margin
-    - Dimension
-    - Padding
-    - Border
-0. Background
-    - `background-`
-    - `box-shadow`
-0. Foreground
-    - Color
-    - Opacity
-0. Contextual
-    - List
-    - Table
-0. Content
-    - Text
-    - Font
-    - `content`
-0. Motion
-    - Transition
-    - Animation
-0. Interaction
-    - Cursor
-    - Outline
-0. Miscellaneous
-
-<!--
-TODO: Make this a table
-TODO: See http://www.w3.org/community/webed/wiki/CSS/Properties
-
-- Positioning
-    - `position`
-    - `z-index`
-    - `top`
-    - `right`
-    - `bottom`
-    - `left`
-    - `margin`
-    - `...`
-- Box
-    - `float`
-    - `clear`
-    - `display`
-    - `width`
-    - `height`
-    - `padding`
-    - `flex`
-    - `vertical-align`
-    - `...`
-- Contents
-    - `content`
-    - `overflow`
-    - `visibility`
-    - `text-align`
-    - `...`
-- Typography
-    - `font`
-    - `line-height`
-    - `letter-spacing`
-    - `white-space`
-    - `text-overflow`
-    - `...`
-- Surfaces
-    - `outline`
-    - `border`
-    - `background`
-    - `color`
-    - `...`
-- Effects
-    - `opacity`
-    - `filter`
-    - `box-shadow`
-    - `text-shadow`
-    - `transform`
-    - `...`
-- Behaviors
-    - `transition`
-    - `animation`
-    - `pointer-events`
-    - `...`
-
--->
+We now recommend properties are sorted alphabetically. This technique will scale to accommodate any new properties, and requires no learning curve for new project contributors.
 
 ```css
 /* Do */
 
 selector {
-  position: absolute;    /* Position */
-  top: 0;                /* Position */
-  left: 0;               /* Position */
-
-  display: inline-block; /* Box model */
-  width: 100%;           /* Box model */
-  height: 2em;           /* Box model */
-  padding: 3px 7px;      /* Box model */
-
-  font-size: 11px;       /* Typography */
-  line-height: 1;        /* Typography */
-  white-space: nowrap;   /* Typography */
-  text-align: center;    /* Typography */
+  display: flex;
+  font-size: 2em;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 ```
 
@@ -388,21 +293,15 @@ selector {
 /* Don't */
 
 selector {
-  display: inline-block; /* Box model */
-  font-size: 11px;       /* Typography */
-  height: 2em;           /* Box model */
-  left: 0;               /* Position */
-  line-height: 1;        /* Typography */
-  padding: 3px 7px;      /* Box model */
-  position: absolute;    /* Position */
-  text-align: center;    /* Typography */
-  top: 0;                /* Position */
-  white-space: nowrap;   /* Typography */
-  width: 100%;           /* Box model */
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  font-size: 2em;
 }
 ```
 
-[CSScomb] is a tool that will automate the otherwise difficult process of maintaining organized CSS properties. It is available as a package for [Atom] and [Sublime Text], and can be executed manually or upon saving your file.
+[CSScomb] is a tool that will automate the process of formatting and organizing CSS properties. It is available as a package for [Atom] and [Sublime Text], and can be executed manually or upon saving your file.
 
 ### Selectors
 
@@ -711,7 +610,6 @@ Vendor prefixes or other non-standard fallbacks make CSS difficult to read and m
 ### Processors
 
 - **[PostCSS]**
-- **[Rework]**
 
 ### Formatters
 
@@ -719,7 +617,7 @@ Vendor prefixes or other non-standard fallbacks make CSS difficult to read and m
 
 ### Validators
 
-- **[SUIT CSS Linter]** With this plugin, you can check the validity of stylesheets against a set of BEM-style conventions. You can use preset patterns (SUIT and BEM, currently) or insert your own. The plugin will throw an error if it finds CSS that does not follow the specified conventions.
+- **[stylelint]** With this plugin, you can check the validity of stylesheets against a set of project-specific conventions. The plugin will throw an error if it finds CSS that violates these rules.
 
 ### Analyzers
 
