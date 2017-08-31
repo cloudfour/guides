@@ -1,6 +1,6 @@
 <!-- Link aliases -->
 
-[ARIA Role, State, and Property Quick Reference]: http://rawgit.com/w3c/aria-in-html/master/index.html#recommendations-table
+[ARIA Role, State, and Property Quick Reference]: https://www.w3.org/TR/html-aria/#aria-table
 [About HTML Semantics and Front-end Architecture]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture
 [Atom]: http://atom.io
 [Atomic CSS and Lobotomized Owls]: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
