@@ -26,6 +26,7 @@
 [SUIT CSS Utils]: https://github.com/suitcss/utils
 [Sass Guidelines: The 7-1 Pattern]: http://sass-guidelin.es/#the-7-1-pattern
 [stylelint]: https://stylelint.io/
+[stylefmt]: https://github.com/morishitter/stylefmt
 [Sublime Text]: http://sublimetext.com
 [The CSS Specificity Graph]: http://csswizardry.com/2014/10/the-specificity-graph/
 
@@ -205,9 +206,9 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
   display: block; /* 3 */
   padding: 0; /* 4 */
   background-image: url("image.png"); /* 5 */
-  background-color: rgba(0,0,0,0.1); /* 6 */
+  background-color: rgba(0, 0, 0, 0.1); /* 6 */
   opacity: 0.8; /* 7 */
-  transition-duration: 300ms; /* 8 */
+  transition-duration: 0.3s; /* 8 */
 
   &::before { /* 9 */
     content: "Foo";
@@ -235,9 +236,9 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 3. One space should be after each colon, and each line should end with a semicolon.
 4. Values of zero should be unit-less.
 5. Strings within values should use double quotes.
-6. Comma-delimited numbers inside of values with parenthesis (e.g. `rgb(0,0,0)`) should have no spaces between them.
+6. Comma-delimited numbers inside of values with parenthesis (e.g. `rgb(0, 0, 0)`) should have spaces between them.
 7. Decimal values should include a leading `0`.
-8. Time values should be represented with the millisecond (`ms`) unit.
+8. Time values should be represented with the second (`s`) unit. This is easier for humans to parse, and encourages shorter values that divide evenly within an ideal 60 frames-per-second animation speed.
 9. Nested pseudo element blocks should come after all property declarations.
 10. Nested pseudo class blocks should come after all pseudo element blocks.
 11. Nested class or attribute blocks should come after all pseudo class blocks.
@@ -275,7 +276,7 @@ selector {
 }
 ```
 
-[CSScomb] is a tool that will automate the process of formatting and organizing CSS properties. It is available as a package for [Atom] and [Sublime Text], and can be executed manually or upon saving your file.
+It is recommended to use tools like [stylelint] to enforce these sorts of rules, which can be combined with the `--fix` option or a complementary tool like [stylefmt] to organize CSS properties from text editors like [Atom] and [Sublime Text].
 
 ### Selectors
 
@@ -404,6 +405,26 @@ Syntax: `<ComponentName>[--modifierName|-descendentName`
 .Alert--dismissable .Alert-closeButton {}
 ```
 
+Avoid nesting descendents:
+
+```css
+/* Do */
+
+.Nav-subnavButton {}
+
+/* Don't */
+
+.Nav-subnav-button {}
+```
+
+If you find yourself wanting complex parent-child relationships within a single component, you may benefit from breaking it into into multiple independent components:
+
+```css
+.Nav {}
+
+.Subnav {}
+```
+
 #### States
 
 Syntax: `<ComponentName>.is-stateOfComponent`
@@ -416,6 +437,16 @@ State classes should reflect changes to a component's state. As such, it's impor
 
 /* State of component */
 .Tweet.is-expanded {}
+```
+
+It's also acceptable (and in some cases preferred) to manage state via built-in browser properties:
+
+```css
+.Toggle:checked {}
+
+.Input:disabled {}
+
+.Tweet[aria-expanded="true"] {}
 ```
 
 #### Micro-semantics
@@ -481,7 +512,30 @@ From https://github.com/suitcss/components-arrange/blob/master/lib/arrange.css
 }
 ```
 
-<!-- TODO: More content -->
+Avoid simply restating what the property already tells us. Try to provide useful clarification of _why_ a rule was chosen.
+
+```css
+/* Don't */
+
+/**
+ * 1. Use relative positioning.
+ */
+
+.Nav {
+  position: relative; /* 1 */
+}
+
+/* Do */
+
+/**
+ * 1. Allow child elements like the logo to position themselves relative
+      to this container.
+ */
+
+.Nav {
+  position: relative; /* 1 */
+}
+```
 
 [⇧ top](#css-guide)
 <!---------------->
@@ -585,13 +639,13 @@ Vendor prefixes or other non-standard fallbacks make CSS difficult to read and m
 
 - **[PostCSS]**
 
-### Formatters
-
-- **[CSScomb]** CSScomb is a coding style formatter for CSS. You can easily write your own configuration to make your style sheets beautiful and consistent.
-
 ### Validators
 
 - **[stylelint]** With this plugin, you can check the validity of stylesheets against a set of project-specific conventions. The plugin will throw an error if it finds CSS that violates these rules.
+
+### Formatters
+
+- **[stylefmt]** Works alongside stylelint to help format your code.
 
 ### Analyzers
 
