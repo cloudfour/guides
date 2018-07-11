@@ -33,6 +33,17 @@ Prefix the branch name with something meaningful, for example:
 - `bugfix/735-sw-not-caching-images`
 - `cleanup/rename-all-the-files`
 
+Using slashes provides a much nicer organization when viewing as directories as well as within any Git GUI apps.
+
+Another benefit is it lends itself to [this type of organization](https://docs.microsoft.com/en-us/vsts/git/concepts/git-branching-guidance?view=vsts#name-your-feature-branches-by-convention) as well, when/if needed:
+
+> - `users/username/description`
+> - `users/username/workitem`
+> - `bugfix/description`
+> - `features/feature-name`
+> - `features/feature-area/feature-name`
+> - `hotfix/description`
+
 ### Rebase frequently to incorporate upstream changes
 
 ```
