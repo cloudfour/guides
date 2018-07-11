@@ -29,9 +29,9 @@ git checkout -b <branch-name>
 
 Prefix the branch name with something meaningful, for example:
 
-- `feature-make_the_thing_better`
-- `bug-the_thing_is_broken`
-- `cleanup-rename_all_the_files`
+- `feature/make-the-thing-better`
+- `bugfix/735-sw-not-caching-images`
+- `cleanup/rename-all-the-files`
 
 ### Rebase frequently to incorporate upstream changes
 
