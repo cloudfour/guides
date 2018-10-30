@@ -23,14 +23,14 @@ Use `const` for all of your references; avoid using `var`.
 
 eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 var a = 1;
 var b = 2;
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 const a = 1;
@@ -45,7 +45,7 @@ If you must reassign references, use `let` instead of `var`.
 
 eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 var count = 1;
@@ -54,7 +54,7 @@ if (true) {
 }
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 let count = 1;
@@ -91,11 +91,14 @@ Use the literal syntax for object creation.
 
 eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
 
-Nope.
+🚫 Nope. 🚫
+
 ```js
 const item = new Object();
-```
-Yep!
+````
+
+🎉 Yep! 🎉
+
 ```js
 const item = {};
 ```
@@ -110,7 +113,7 @@ eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html
 
 #### Object Method
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 const atom = {
@@ -121,7 +124,7 @@ const atom = {
 };
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 const atom = {
@@ -137,7 +140,7 @@ const atom = {
   
 #### Object Property
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 const generalLeiaOrgana = 'General Leia Organa';
@@ -147,7 +150,7 @@ const obj = {
 };
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 const generalLeiaOrgana = 'General Leia Organa';
@@ -163,7 +166,7 @@ Group your shorthand properties at the beginning of your object declaration.
 
 > Why? More subjective but allows for greater readability and consistency.
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 const anakinSkywalker = 'Anakin Skywalker';
@@ -179,7 +182,7 @@ const obj = {
 };
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 const anakinSkywalker = 'Anakin Skywalker';
@@ -202,7 +205,7 @@ Only quote properties that are invalid identifiers.
 
 eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 const obj = {
@@ -212,7 +215,7 @@ const obj = {
 };
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 const obj = {
@@ -230,13 +233,13 @@ Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `prop
 
 eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 console.log(object.hasOwnProperty(key));
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 // Good
@@ -256,7 +259,7 @@ Prefer the object spread operator over [`Object.assign`](https://developer.mozil
 
 eslint: [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
 
-Nope.
+🚫 Nope. 🚫
 
 ```js
 // This mutates `original` ಠ_ಠ
@@ -269,7 +272,7 @@ const original = { a: 1, b: 2 };
 const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 ```
 
-Yep!
+🎉 Yep! 🎉
 
 ```js
 const original = { a: 1, b: 2 };
