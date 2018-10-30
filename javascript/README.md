@@ -146,9 +146,6 @@ const atom = {
 };
 ```
 
-  <a name="es6-object-concise"></a><a name="2.6"></a>
-  - [2.4](#es6-object-concise) Use property value shorthand. 
-  
 #### Object Property
 
 🚫 Nope. 🚫
