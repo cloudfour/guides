@@ -1,6 +1,17 @@
-<!-- Link aliases -->
-
+<!-- General Link aliases -->
 [Airbnb JavaScript Style Guide]: https://github.com/airbnb/javascript
+[MDN: Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+[MDN: Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+
+<!-- ESLint link aliases -->
+[no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
+[no-new-object]: https://eslint.org/docs/rules/no-new-object.html
+[no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
+[no-var]: https://eslint.org/docs/rules/no-var.html
+[object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
+[prefer-const]: https://eslint.org/docs/rules/prefer-const.html
+[prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
+[quote-props]: https://eslint.org/docs/rules/quote-props.html
 
 # JavaScript Guide
 
@@ -21,7 +32,7 @@ Use `const` for all of your references; avoid using `var`.
 
 > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
-eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+ESLint: [prefer-const], [no-const-assign]
 
 🚫 Nope. 🚫
 
@@ -43,7 +54,7 @@ If you must reassign references, use `let` instead of `var`.
 
 > Why? `let` is block-scoped rather than function-scoped like `var`. Function-scoped variables are hoisted which can lead to bugs if you are not careful. Using block-scoped variables makes our code more predictable by giving the variable an explicit scope.
 
-eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
+ESLint: [no-var]
 
 🚫 Nope. 🚫
 
@@ -89,7 +100,7 @@ Use the literal syntax for object creation.
 
 > While there are no performance differences between the two approaches, the byte savings and conciseness of the object literal form is what has made it the de facto way of creating new objects.
 
-eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
+ESLint: [no-new-object]
 
 🚫 Nope. 🚫
 
@@ -109,7 +120,7 @@ Use object shorthand for both methods and property values.
 
 > ECMAScript 6 provides a concise form for defining object literal methods and properties. This syntax can make defining complex object literals much cleaner.
 
-eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
+ESLint: [object-shorthand]
 
 #### Object Method
 
@@ -203,7 +214,7 @@ Only quote properties that are invalid identifiers.
 
 > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
-eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
+ESLint: [quote-props]
 
 🚫 Nope. 🚫
 
@@ -231,7 +242,7 @@ Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `prop
 
 > In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`.
 
-eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
+ESLint: [no-prototype-builtins]
 
 🚫 Nope. 🚫
 
@@ -252,12 +263,12 @@ console.log(has.call(object, key));
 
 ### 2.6 Object Spread over Object.assign
   
-Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+Prefer the [object spread][MDN: Object Literal Spread Syntax] operator over [`Object.assign`][MDN: Object.assign] to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
 > Object spread is a declarative alternative which may perform better than the more dynamic, imperative Object.assign.
 
 
-eslint: [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
+ESLint: [prefer-object-spread]
 
 🚫 Nope. 🚫
 
