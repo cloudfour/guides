@@ -195,6 +195,7 @@ const obj = {
 ```js
 const anakinSkywalker = 'Anakin Skywalker';
 const lukeSkywalker = 'Luke Skywalker';
+
 const obj = {
   lukeSkywalker,
   anakinSkywalker,
