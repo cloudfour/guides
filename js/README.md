@@ -36,62 +36,70 @@
 
 ## Table of Contents
 
-  1. [References](#references)
+  1. [References](#references) (Variables, Constants, etc.)
 
 ## References
 
-  <a name="references--prefer-const"></a><a name="1.1"></a>
-  - [1.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. 
-  
-    > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+### 1.1 Prefer Constants
 
-    eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
+Use `const` for all of your references; avoid using `var`. 
 
-    Nope.
-    ```js
-    var a = 1;
-    var b = 2;
-    ```
-    Yep!
-    ```js
-    const a = 1;
-    const b = 2;
-    ```
+> Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
-  <a name="references--disallow-var"></a><a name="1.2"></a>
-  - [1.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. 
+eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+Nope.
 
-    eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
-    
-    Nope.
-    ```js
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
-    Yep!
-    ```js
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
+```js
+var a = 1;
+var b = 2;
+```
 
-  <a name="references--block-scope"></a><a name="1.3"></a>
-  - [1.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+Yep!
 
-    ```js
-    // Both `const` and `let` only exist in the blocks they are defined in.
-    {
-      let a = 1;
-      const b = 1;
-    }
-    console.log(a); // ReferenceError: a is not defined
-    console.log(b); // ReferenceError: b is not defined
+```js
+const a = 1;
+const b = 2;
+```
 
-    ```
+### 1.2 Reassigning References
+
+If you must reassign references, use `let` instead of `var`. 
+
+> Why? `let` is block-scoped rather than function-scoped like `var`. Function-scoped variables are hoisted which can lead to bugs if you are not careful. Using block-scoped variables makes our code more predictable by giving the variable an explicit scope.
+
+eslint: [`no-var`](https://eslint.org/docs/rules/no-var.html)
+
+Nope.
+
+```js
+var count = 1;
+if (true) {
+  count += 1;
+}
+```
+
+Yep!
+
+```js
+let count = 1;
+if (true) {
+  count += 1;
+}
+```
+
+### 1.3 Block Scope
+
+Note that both `let` and `const` are block-scoped.
+
+```js
+// Both `const` and `let` only exist in the blocks they are defined in.
+{
+  let a = 1;
+  const b = 1;
+}
+console.log(a); // ReferenceError: a is not defined
+console.log(b); // ReferenceError: b is not defined
+```
 
 [⇧ top](#javascript-guide)
