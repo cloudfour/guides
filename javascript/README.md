@@ -3,6 +3,9 @@
 [MDN: Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 [MDN: Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
 
+<!-- JSPerf aliases -->
+[JSPerf: Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
+
 <!-- ESLint link aliases -->
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
@@ -19,12 +22,12 @@
 
 ## Table of Contents
 
-1. [References](#references) (Variables, Constants, etc.)
+1. [Variables](#variables)
 2. [Objects](#objects)
 
 ---
 
-## References
+## Variables
 
 ### 1.1 Prefer Constants
 
@@ -96,9 +99,9 @@ console.log(b); // ReferenceError: b is not defined
 
 ### 2.1 Object Creation 
 
-Use the literal syntax for object creation. 
+Use the literal syntax for object creation.
 
-> While there are no performance differences between the two approaches, the byte savings and conciseness of the object literal form is what has made it the de facto way of creating new objects.
+> Why? While there are no performance differences between the two approaches, the byte savings and conciseness of the object literal form is what has made it the de facto way of creating new objects.
 
 ESLint: [no-new-object]
 
@@ -118,7 +121,7 @@ const item = {};
   
 Use object shorthand syntax for both methods and property values.
 
-> ECMAScript 6 provides a concise form for defining object literal methods and properties. This syntax can make defining complex object literals much cleaner.
+> Why? ECMAScript 6 provides a concise form for defining object literal methods and properties. This syntax can make defining complex object literals much cleaner.
 
 ESLint: [object-shorthand]
 
@@ -200,7 +203,7 @@ const obj = {
   
 Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. 
 
-> In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`.
+> Why? In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`.
 
 ESLint: [no-prototype-builtins]
 
@@ -225,10 +228,11 @@ console.log(has.call(object, key));
   
 Prefer the [object spread][MDN: Object Literal Spread Syntax] operator over [`Object.assign`][MDN: Object.assign] to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
-> Object spread is a declarative alternative which may perform better than the more dynamic, imperative Object.assign.
-
+> Why? Object spread is a declarative alternative which may perform better than the more dynamic, imperative Object.assign.
 
 ESLint: [prefer-object-spread]
+
+JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
 
 🚫 Nope. 🚫
 
