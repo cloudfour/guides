@@ -168,45 +168,7 @@ const obj = {
 };
 ```
 
-### 2.3 Group Object Shorthand Properties
-
-Group your shorthand properties at the beginning of your object declaration.
-
-> Why? More subjective but allows for greater readability and consistency.
-
-🚫 Nope. 🚫
-
-```js
-const anakinSkywalker = 'Anakin Skywalker';
-const lukeSkywalker = 'Luke Skywalker';
-
-const obj = {
-  episodeOne: 1,
-  twoJediWalkIntoACantina: 2,
-  lukeSkywalker,
-  episodeThree: 3,
-  mayTheFourth: 4,
-  anakinSkywalker,
-};
-```
-
-🎉 Yep! 🎉
-
-```js
-const anakinSkywalker = 'Anakin Skywalker';
-const lukeSkywalker = 'Luke Skywalker';
-
-const obj = {
-  lukeSkywalker,
-  anakinSkywalker,
-  episodeOne: 1,
-  twoJediWalkIntoACantina: 2,
-  episodeThree: 3,
-  mayTheFourth: 4,
-};
-```
-  
-### 2.4 Object Quoted Properties
+### 2.3 Object Quoted Properties
 
 Only quote properties that are invalid identifiers.
 
@@ -234,7 +196,7 @@ const obj = {
 };
 ```
 
-### 2.5 Object Prototype Methods
+### 2.4 Object Prototype Methods
   
 Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. 
 
@@ -259,7 +221,7 @@ const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module
 console.log(has.call(object, key));
 ```
 
-### 2.6 Object Spread over Object.assign
+### 2.5 Object Spread over Object.assign
   
 Prefer the [object spread][MDN: Object Literal Spread Syntax] operator over [`Object.assign`][MDN: Object.assign] to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
