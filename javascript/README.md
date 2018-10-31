@@ -35,7 +35,13 @@ Use `const` for all of your references; avoid using `var`.
 
 > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
-ESLint: [prefer-const], [no-const-assign]
+#### Resources
+
+- ESLint:
+  - [prefer-const]
+  - [no-const-assign]
+
+#### Examples
 
 🚫 Nope. 🚫
 
@@ -57,7 +63,11 @@ If you must reassign references, use `let` instead of `var`.
 
 > Why? `let` is block-scoped rather than function-scoped like `var`. Function-scoped variables are hoisted which can lead to bugs if you are not careful. Using block-scoped variables makes our code more predictable by giving the variable an explicit scope.
 
-ESLint: [no-var]
+#### Resources
+
+- ESLint: [no-var]
+
+#### Examples
 
 🚫 Nope. 🚫
 
@@ -81,6 +91,8 @@ if (true) {
 
 Note that both `let` and `const` are block-scoped.
 
+#### Examples
+
 ```js
 // Both `const` and `let` only exist in the blocks they are defined in.
 {
@@ -103,7 +115,11 @@ Use the literal syntax for object creation.
 
 > Why? While there are no performance differences between the two approaches, the byte savings and conciseness of the object literal form is what has made it the de facto way of creating new objects.
 
-ESLint: [no-new-object]
+#### Resources
+
+- ESLint: [no-new-object]
+
+#### Examples
 
 🚫 Nope. 🚫
 
@@ -123,7 +139,9 @@ Use object shorthand syntax for both methods and property values.
 
 > Why? ECMAScript 6 provides a concise form for defining object literal methods and properties. This syntax can make defining complex object literals much cleaner.
 
-ESLint: [object-shorthand]
+#### Resources
+
+- ESLint: [object-shorthand]
 
 #### Object Method
 
@@ -177,7 +195,11 @@ Only quote properties that are invalid identifiers.
 
 > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
-ESLint: [quote-props]
+#### Resources
+
+- ESLint: [quote-props]
+
+#### Examples
 
 🚫 Nope. 🚫
 
@@ -205,7 +227,11 @@ Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `prop
 
 > Why? In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`.
 
-ESLint: [no-prototype-builtins]
+#### Resources
+
+- ESLint: [no-prototype-builtins]
+
+#### Examples
 
 🚫 Nope. 🚫
 
@@ -230,9 +256,11 @@ Prefer the [object spread][MDN: Object Literal Spread Syntax] operator over [`Ob
 
 > Why? Object spread is a declarative alternative which may perform better than the more dynamic, imperative Object.assign.
 
-ESLint: [prefer-object-spread]
+#### Resources
+- ESLint: [prefer-object-spread]
+- JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
 
-JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
+#### Examples
 
 🚫 Nope. 🚫
 
