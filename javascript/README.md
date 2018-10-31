@@ -114,9 +114,9 @@ const item = new Object();
 const item = {};
 ```
 
-### 2.2 Object Shorthand
+### 2.2 Object Shorthand Syntax
   
-Use object shorthand for both methods and property values. 
+Use object shorthand syntax for both methods and property values.
 
 > ECMAScript 6 provides a concise form for defining object literal methods and properties. This syntax can make defining complex object literals much cleaner.
 
