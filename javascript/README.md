@@ -294,7 +294,7 @@ const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 #### Resources
 
 - ESLint: [prefer-object-spread]
-- JSPerf: [Shallow Copy Objects][Shallow Copy Objects]
+- JSPerf: [Shallow Copy Objects]
 
 [⇧ top](#javascript-guide)
 
@@ -349,7 +349,7 @@ someStack.push('abracadabra');
 
 #### Resources
 
-- JSPerf: [Adding Array Items][Adding Array Items]
+- JSPerf: [Adding Array Items]
 
 ### 3.3 Array Shallow-Copy
 
