@@ -2,9 +2,13 @@
 [Airbnb JavaScript Style Guide]: https://github.com/airbnb/javascript
 [MDN: Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 [MDN: Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+[Object Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring
+[Array Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring
 
 <!-- JSPerf aliases -->
 [JSPerf: Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
+[Object Destructuring vs Not]: https://jsperf.com/destructure-vs-not
+[Array Destructuring vs Not]: https://jsperf.com/array-destructuring
 
 <!-- ESLint link aliases -->
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
@@ -13,6 +17,7 @@
 [no-var]: https://eslint.org/docs/rules/no-var.html
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
+[prefer-destructuring]: https://eslint.org/docs/rules/prefer-destructuring
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
 
@@ -24,6 +29,7 @@
 
 1. [Variables](#variables)
 2. [Objects](#objects)
+1. [Destructring](#destructuring)
 
 ---
 
@@ -282,6 +288,116 @@ const original = { a: 1, b: 2 };
 const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
 const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+```
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Destructuring
+
+### 4.1 Object Destructuring
+
+Use [object destructuring][Object Destructuring] when accessing and using multiple properties of an object.
+
+> Why? Destructuring saves you from creating temporary references for those properties.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+
+  return `${firstName} ${lastName}`;
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+// Good
+function getFullName(user) {
+  const { firstName, lastName } = user;
+  return `${firstName} ${lastName}`;
+}
+
+// Best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+```
+
+#### Resources
+
+- ESLint: [prefer-destructuring]
+- JSPerf: [Object Destructuring vs Not]
+
+### 4.2 Array Destructuring
+
+Avoid [destructuring arrays][Array Destructuring].
+
+> Why? As it turns out, performance goes down when destructuring arrays. 😞
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const arr = [1, 2, 3, 4];
+const [first, second] = arr;
+
+console.log(first); // 1
+console.log(second); // 2
+```
+
+🎉 Yep! 🎉
+
+```js
+const arr = [1, 2, 3, 4];
+const first = arr[0];
+const second = arr[1];
+
+console.log(first); // 1
+console.log(second); // 2
+```
+
+#### Resources
+
+- ESLint: [prefer-destructuring]
+- JSPerf: [Array Destructuring vs Not]
+
+### 4.3 Destructuring for Multiple Return Values
+
+Use [object destructuring][Object Destructuring] for multiple return values, not [array destructuring][Array Destructuring].
+
+> Why? You can add new properties over time or change the order of things without breaking call sites.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function processInput(input) {
+  return [left, right, top, bottom];
+}
+
+// the caller needs to think about the order of return data
+const [left, __, top] = processInput(input);
+
+```
+
+🎉 Yep! 🎉
+
+```js
+function processInput(input) {
+  return { left, right, top, bottom };
+}
+
+// the caller selects only the data they need
+const { left, top } = processInput(input);
 ```
 
 [⇧ top](#javascript-guide)
