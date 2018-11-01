@@ -13,6 +13,7 @@
 [Adding Array Items]: https://jsperf.com/adding-array-items
 [Arrays from Array-Like Objects]: https://jsperf.com/array-like-object-to-array
 [Arrays From Iterables]: https://jsperf.com/arrays-from-iterables
+[Mapping Over Iterables]: https://jsperf.com/mapping-over-iterables
 [Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
@@ -442,5 +443,33 @@ const arr = Array.from(arrLike);
 #### Resources
 
 - JSPerf: [Arrays from Array-Like Objects]
+
+### 3.6 Mapping Over Iterables
+
+Use [array spread syntax][Array Literal Spread Syntax] `...` instead of [`Array.from`][Array.from] for mapping over iterables.
+
+> Why? Overall better performance.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const iterable = 'Hello there!';
+const upperCase = letter => letter.toUpperCase();
+const upperCaseLetters = Array.from(iterable, upperCase);
+```
+
+🎉 Yep! 🎉
+
+```js
+const iterable = 'Hello there!';
+const upperCase = letter => letter.toUpperCase();
+const upperCaseLetters = [...iterable].map(upperCase);
+```
+
+#### Resources
+
+- JSPerf: [Mapping Over Iterables]
 
 [⇧ top](#javascript-guide)
