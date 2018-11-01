@@ -18,6 +18,7 @@
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
 <!-- ESLint link aliases -->
+[array-callback-return]: https://eslint.org/docs/rules/array-callback-return
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
@@ -471,5 +472,54 @@ const upperCaseLetters = [...iterable].map(upperCase);
 #### Resources
 
 - JSPerf: [Mapping Over Iterables]
+
+### 3.7 Array Callback Return
+
+Use `return` statements in array method callbacks. It’s okay to omit the `return` if the function body consists of a single statement returning an expression without side effects.
+<!-- @TODO: Link later: following [8.2](#arrows--implicit-return).  -->
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+inbox.filter(msg => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  } else {
+    return false;
+  }
+});
+```
+
+🎉 Yep! 🎉
+
+```js
+inbox.filter(msg => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  }
+
+  return false;
+});
+```
+
+🎉 Also good! 🎉
+
+```js
+[1, 2, 3].map((x) => {
+  const y = x + 1;
+  return x * y;
+});
+
+// The return can be omitted here.
+[1, 2, 3].map(x => x + 1);
+```
+
+#### Resources
+
+- ESLint: [array-callback-return]
 
 [⇧ top](#javascript-guide)
