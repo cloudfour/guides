@@ -24,6 +24,7 @@
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
+[prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
 
 # JavaScript Guide
@@ -412,6 +413,7 @@ const nodes = [...paragraphs];
 
 #### Resources
 
+- ESLint: [prefer-spread]
 - JSPerf: [Arrays From Iterables]
 
 
