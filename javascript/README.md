@@ -11,6 +11,7 @@
 
 <!-- JSPerf link aliases -->
 [Adding Array Items]: https://jsperf.com/adding-array-items
+[Arrays from Array-Like Objects]: https://jsperf.com/array-like-object-to-array
 [Arrays From Iterables]: https://jsperf.com/arrays-from-iterables
 [Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
@@ -416,5 +417,30 @@ const nodes = [...paragraphs];
 - ESLint: [prefer-spread]
 - JSPerf: [Arrays From Iterables]
 
+### 3.5 Arrays from Array-Like Objects
+
+Use [`Array.from`][Array.from] for converting an array-like object to an array.
+
+> Why? Not only is it easier to read/type but it also performs better.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+const arr = Array.prototype.slice.call(arrLike);
+```
+
+🎉 Yep! 🎉
+
+```js
+const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+const arr = Array.from(arrLike);
+```
+
+#### Resources
+
+- JSPerf: [Arrays from Array-Like Objects]
 
 [⇧ top](#javascript-guide)
