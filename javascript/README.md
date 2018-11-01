@@ -296,7 +296,7 @@ const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 - ESLint: [prefer-object-spread]
 - JSPerf: [Shallow Copy Objects][Shallow Copy Objects]
 
-[⇧ top](#javascript-guidehttps://jsperf.com/copying-arrays)
+[⇧ top](#javascript-guide)
 
 ---
 
