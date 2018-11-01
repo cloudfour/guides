@@ -18,7 +18,9 @@
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
 <!-- ESLint link aliases -->
+[array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
+[array-element-newline]: https://eslint.org/docs/rules/array-element-newline
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
@@ -521,5 +523,62 @@ inbox.filter(msg => {
 #### Resources
 
 - ESLint: [array-callback-return]
+
+### 3.8 Array Line Breaks
+
+Use line breaks after open and before close array brackets if an array has multiple lines.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const a = [1
+];
+
+const b = [
+  1];
+
+const c = [function foo() {
+  dosomething();
+}
+];
+
+const d = [
+  function foo() {
+    dosomething();
+  }];
+```
+
+🎉 Yep! 🎉
+
+```js
+const a = [];
+
+const b = [
+];
+
+const c = [1];
+
+const d = [
+  1
+];
+
+const e = [function foo() {
+  dosomething();
+}];
+
+const f = [
+  function foo() {
+    dosomething();
+  }
+];
+```
+
+#### Resources
+
+- ESLint: 
+  - [array-bracket-newline]
+  - [array-element-newline]
 
 [⇧ top](#javascript-guide)
