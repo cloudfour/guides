@@ -13,7 +13,7 @@
 [Adding Array Items]: https://jsperf.com/adding-array-items
 [Arrays from Array-Like Objects]: https://jsperf.com/array-like-object-to-array
 [Arrays From Iterables]: https://jsperf.com/arrays-from-iterables
-[Mapping Over Iterables]: https://jsperf.com/mapping-over-iterables
+[Mapping Over Iterables]: https://jsperf.com/array-from-vs-spread-vs-array-from-map
 [Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
