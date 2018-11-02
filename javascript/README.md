@@ -2,19 +2,27 @@
 [Airbnb JavaScript Style Guide]: https://github.com/airbnb/javascript
 [MDN: Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 [MDN: Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+[Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+[No eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Do_not_ever_use_eval!
 
 <!-- JSPerf aliases -->
 [JSPerf: Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 
 <!-- ESLint link aliases -->
+[max-len]: https://eslint.org/docs/rules/max-len
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
+[no-eval]: https://eslint.org/docs/rules/no-eval
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
 [no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
+[no-useless-escape]: https://eslint.org/docs/rules/no-useless-escape
 [no-var]: https://eslint.org/docs/rules/no-var.html
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
+[prefer-template]: https://eslint.org/docs/rules/prefer-template.html
+[quotes]: https://eslint.org/docs/rules/quotes.html
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
+[template-curly-spacing]: https://eslint.org/docs/rules/template-curly-spacing
 
 # JavaScript Guide
 
@@ -24,6 +32,7 @@
 
 1. [Variables](#variables)
 2. [Objects](#objects)
+5. [Strings](#strings)
 
 ---
 
@@ -284,5 +293,139 @@ const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 
 - ESLint: [prefer-object-spread]
 - JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Strings
+
+### 5.1 Quotes
+
+Use single quotes `''` for strings.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const name = "Cloud Four";
+
+// Template literals should contain interpolation or newlines.
+const name = `Cloud Four`;
+```
+
+🎉 Yep! 🎉
+
+```js
+const name = 'Cloud Four';
+```
+
+#### Resources
+
+- ESLint: [quotes]
+
+### 5.2 Line Length
+
+Strings that cause the line to go over 80 characters should not be written across multiple lines using string concatenation.
+
+> Why? Broken strings are painful to work with and make code less searchable.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
+
+const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
+```
+
+🎉 Yep! 🎉
+
+```js
+const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+```
+
+#### Resources
+
+- ESLint [max-len]
+
+### 5.3 Template Literals
+
+When programmatically building up strings, use [template literals][Template Literals] instead of concatenation.
+
+> Why? Template literals (template strings) give you a readable, concise syntax with proper newlines and string interpolation features.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function sayHi(name) {
+  return 'How are you, ' + name + '?';
+}
+
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+function sayHi(name) {
+  return `How are you, ${name}?`;
+}
+```
+
+#### Resources
+
+- ESLint:
+  - [prefer-template]
+  - [template-curly-spacing]
+
+
+<a name="strings--eval"></a><a name="6.5"></a>
+
+[6.4](#strings--eval)
+
+### 5.4 Eval
+
+[Never use `eval()`][No eval] on a string, it opens too many vulnerabilities.
+
+#### Resources
+
+- ESLint: [no-eval]
+
+### 5.5 Escaping Characters
+
+Do not unnecessarily escape characters in strings.
+
+> Why? Backslashes harm readability, thus they should only be present when necessary.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const foo = '\'this\' \i\s \"quoted\"';
+```
+
+🎉 Yep! 🎉
+
+```js
+const foo = '\'this\' is "quoted"';
+const foo = `my name is '${name}'`;
+```
+
+#### Resources
+
+- ESLint: [no-useless-escape]
 
 [⇧ top](#javascript-guide)
