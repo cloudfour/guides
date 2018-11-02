@@ -390,9 +390,6 @@ function sayHi(name) {
   - [prefer-template]
   - [template-curly-spacing]
 
-
-<a name="strings--eval"></a><a name="6.5"></a>
-
 [6.4](#strings--eval)
 
 ### 5.4 Eval
