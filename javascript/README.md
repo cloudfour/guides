@@ -390,8 +390,6 @@ function sayHi(name) {
   - [prefer-template]
   - [template-curly-spacing]
 
-[6.4](#strings--eval)
-
 ### 5.4 Eval
 
 [Never use `eval()`][No eval] on a string, it opens too many vulnerabilities.
