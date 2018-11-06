@@ -342,30 +342,22 @@ function getFullName({ firstName, lastName }) {
 
 ### 4.2 Array Destructuring
 
-Use [array destructuring][Array Destructuring] when assigning array values to a variable.
-
-> Why? More concise and arguably more readable.
-
-_**Note:** For a performance boost, use the [@babel/plugin-transform-destructuring] plugin._
+How you destructure an array depends on your situation. Below are a couple of ways to complete the same task.
 
 #### Examples
 
-🚫 Nope. 🚫
-
 ```js
+// This works!
 const arr = [1, 2, 3, 4];
 const first = arr[0];
 const second = arr[1];
-const rest = arr.slice(2]);
+const rest = arr.slice(2);
 
 console.log(first); // 1
 console.log(second); // 2
 console.log(rest); // [3, 4]
-```
 
-🎉 Yep! 🎉
-
-```js
+// This works great also!
 const arr = [1, 2, 3, 4];
 const [first, second, ...rest] = arr;
 
@@ -374,10 +366,11 @@ console.log(second); // 2
 console.log(rest); // [3, 4]
 ```
 
+_**Note:** For performance reasons, strongly consider use of the [@babel/plugin-transform-destructuring] plugin when using [array destructuring][Array Destructuring]._
+
 #### Resources
 
 - Babel Plugin: [@babel/plugin-transform-destructuring]
-- ESLint: [prefer-destructuring]
 - JSPerf: [Array Destructuring vs Not]
 - MDN Web Docs: [Array Destructuring]
 
