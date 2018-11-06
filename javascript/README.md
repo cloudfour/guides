@@ -32,7 +32,7 @@
 
 1. [Variables](#variables)
 2. [Objects](#objects)
-1. [Destructring](#destructuring)
+4. [Destructring](#destructuring)
 
 ---
 
