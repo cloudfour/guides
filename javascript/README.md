@@ -44,12 +44,6 @@ Use `const` for all of your references; avoid using `var`.
 
 > Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
 
-#### Resources
-
-- ESLint:
-  - [prefer-const]
-  - [no-const-assign]
-
 #### Examples
 
 🚫 Nope. 🚫
@@ -66,15 +60,17 @@ const a = 1;
 const b = 2;
 ```
 
+#### Resources
+
+- ESLint:
+  - [prefer-const]
+  - [no-const-assign]
+
 ### 1.2 Reassigning References
 
 If you must reassign references, use `let` instead of `var`. 
 
 > Why? `let` is block-scoped rather than function-scoped like `var`. Function-scoped variables are hoisted which can lead to bugs if you are not careful. Using block-scoped variables makes our code more predictable by giving the variable an explicit scope.
-
-#### Resources
-
-- ESLint: [no-var]
 
 #### Examples
 
@@ -95,6 +91,10 @@ if (true) {
   count += 1;
 }
 ```
+
+#### Resources
+
+- ESLint: [no-var]
 
 ### 1.3 Block Scope
 
@@ -124,10 +124,6 @@ Use the literal syntax for object creation.
 
 > Why? While there are no performance differences between the two approaches, the byte savings and conciseness of the object literal form is what has made it the de facto way of creating new objects.
 
-#### Resources
-
-- ESLint: [no-new-object]
-
 #### Examples
 
 🚫 Nope. 🚫
@@ -142,15 +138,15 @@ const item = new Object();
 const item = {};
 ```
 
+#### Resources
+
+- ESLint: [no-new-object]
+
 ### 2.2 Object Shorthand Syntax
-  
+
 Use object shorthand syntax for both methods and property values.
 
 > Why? ECMAScript 6 provides a concise form for defining object literal methods and properties. This syntax can make defining complex object literals much cleaner.
-
-#### Resources
-
-- ESLint: [object-shorthand]
 
 #### Object Method
 
@@ -198,15 +194,15 @@ const obj = {
 };
 ```
 
+#### Resources
+
+- ESLint: [object-shorthand]
+
 ### 2.3 Object Quoted Properties
 
 Only quote properties that are invalid identifiers.
 
 > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
-
-#### Resources
-
-- ESLint: [quote-props]
 
 #### Examples
 
@@ -230,15 +226,15 @@ const obj = {
 };
 ```
 
+#### Resources
+
+- ESLint: [quote-props]
+
 ### 2.4 Object Prototype Methods
-  
+
 Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. 
 
 > Why? In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`.
-
-#### Resources
-
-- ESLint: [no-prototype-builtins]
 
 #### Examples
 
@@ -259,15 +255,15 @@ const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module
 console.log(has.call(object, key));
 ```
 
+#### Resources
+
+- ESLint: [no-prototype-builtins]
+
 ### 2.5 Object Spread over Object.assign
   
 Prefer the [object spread][MDN: Object Literal Spread Syntax] operator over [`Object.assign`][MDN: Object.assign] to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
 > Why? Object spread is a declarative alternative which may perform better than the more dynamic, imperative Object.assign.
-
-#### Resources
-- ESLint: [prefer-object-spread]
-- JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
 
 #### Examples
 
@@ -292,6 +288,11 @@ const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
 const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 ```
+
+#### Resources
+
+- ESLint: [prefer-object-spread]
+- JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
 
 [⇧ top](#javascript-guide)
 
