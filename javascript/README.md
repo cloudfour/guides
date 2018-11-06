@@ -39,8 +39,8 @@
 ## Table of Contents
 
 1. [Variables](#variables)
-1. [Objects](#objects)
-1. [Arrays](#arrays)
+2. [Objects](#objects)
+3. [Arrays](#arrays)
 
 ---
 
