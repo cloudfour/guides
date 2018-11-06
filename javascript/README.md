@@ -21,6 +21,9 @@
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
 
+<!-- Babel link aliases -->
+[@babel/plugin-transform-destructuring]: https://babeljs.io/docs/en/next/babel-plugin-transform-destructuring.html
+
 # JavaScript Guide
 
 *A mostly reasonable approach to JavaScript, inspired by the [Airbnb JavaScript Style Guide].*
@@ -334,12 +337,15 @@ function getFullName({ firstName, lastName }) {
 
 - ESLint: [prefer-destructuring]
 - JSPerf: [Object Destructuring vs Not]
+- MDN Web Docs: [Object Destructuring]
 
 ### 4.2 Array Destructuring
 
-Avoid [destructuring arrays][Array Destructuring].
+Use [array destructuring][Array Destructuring] when assigning array values to a variable.
 
-> Why? As it turns out, performance goes down when destructuring arrays. 😞
+> Why? More concise and arguably more readable.
+
+_**Note:** For a performance boost, use the [@babel/plugin-transform-destructuring] plugin._
 
 #### Examples
 
@@ -347,27 +353,32 @@ Avoid [destructuring arrays][Array Destructuring].
 
 ```js
 const arr = [1, 2, 3, 4];
-const [first, second] = arr;
+const first = arr[0];
+const second = arr[1];
+const rest = arr.slice(2]);
 
 console.log(first); // 1
 console.log(second); // 2
+console.log(rest); // [3, 4]
 ```
 
 🎉 Yep! 🎉
 
 ```js
 const arr = [1, 2, 3, 4];
-const first = arr[0];
-const second = arr[1];
+const [first, second, ...rest] = arr;
 
 console.log(first); // 1
 console.log(second); // 2
+console.log(rest); // [3, 4]
 ```
 
 #### Resources
 
+- Babel Plugin: [@babel/plugin-transform-destructuring]
 - ESLint: [prefer-destructuring]
 - JSPerf: [Array Destructuring vs Not]
+- MDN Web Docs: [Array Destructuring]
 
 ### 4.3 Destructuring for Multiple Return Values
 
