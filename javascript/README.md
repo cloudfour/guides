@@ -40,7 +40,6 @@
 [prefer-template]: https://eslint.org/docs/rules/prefer-template.html
 [quotes]: https://eslint.org/docs/rules/quotes.html
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
-[template-curly-spacing]: https://eslint.org/docs/rules/template-curly-spacing
 
 <!-- Babel link aliases -->
 [@babel/plugin-transform-destructuring]: https://babeljs.io/docs/en/next/babel-plugin-transform-destructuring.html
@@ -711,9 +710,7 @@ function sayHi(name) {
 
 #### Resources
 
-- ESLint:
-  - [prefer-template]
-  - [template-curly-spacing]
+- ESLint: [prefer-template]
 
 ### 5.3 Eval
 
@@ -722,30 +719,5 @@ function sayHi(name) {
 #### Resources
 
 - ESLint: [no-eval]
-
-### 5.4 Escaping Characters
-
-Do not unnecessarily escape characters in strings.
-
-> Why? Backslashes harm readability, thus they should only be present when necessary.
-
-#### Examples
-
-🚫 Nope. 🚫
-
-```js
-const foo = '\'this\' \i\s \"quoted\"';
-```
-
-🎉 Yep! 🎉
-
-```js
-const foo = '\'this\' is "quoted"';
-const foo = `my name is '${name}'`;
-```
-
-#### Resources
-
-- ESLint: [no-useless-escape]
 
 [⇧ top](#javascript-guide)
