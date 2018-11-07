@@ -18,9 +18,7 @@
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
 <!-- ESLint link aliases -->
-[array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
-[array-element-newline]: https://eslint.org/docs/rules/array-element-newline
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
