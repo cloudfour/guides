@@ -1,15 +1,32 @@
-<!-- General Link aliases -->
+<!-- General link aliases -->
 [Airbnb JavaScript Style Guide]: https://github.com/airbnb/javascript
-[MDN: Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
-[MDN: Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
-[Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[No eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Do_not_ever_use_eval!
 
-<!-- JSPerf aliases -->
-[JSPerf: Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
+<!-- MDN link aliases -->
+[Array Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring
+[Array Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_array_literals
+[Array.from]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+[Array.prototype.push]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+[No eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Do_not_ever_use_eval!
+[NodeList]: https://developer.mozilla.org/en-US/docs/Web/API/NodeList
+[Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+[Object Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring
+[Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+[Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+<!-- JSPerf link aliases -->
+[Adding Array Items]: https://jsperf.com/adding-array-items
+[Arrays from Array-Like Objects]: https://jsperf.com/array-like-object-to-array
+[Array Destructuring vs Not]: https://jsperf.com/array-destructuring
+[Arrays From Iterables]: https://jsperf.com/arrays-from-iterables
+[Mapping Over Iterables]: https://jsperf.com/array-from-vs-spread-vs-array-from-map
+[Object Destructuring vs Not]: https://jsperf.com/destructure-vs-not
+[Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
+[Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
 <!-- ESLint link aliases -->
 [max-len]: https://eslint.org/docs/rules/max-len
+[array-callback-return]: https://eslint.org/docs/rules/array-callback-return
+[no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-eval]: https://eslint.org/docs/rules/no-eval
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
@@ -18,11 +35,16 @@
 [no-var]: https://eslint.org/docs/rules/no-var.html
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
+[prefer-destructuring]: https://eslint.org/docs/rules/prefer-destructuring
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
+[prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
 [prefer-template]: https://eslint.org/docs/rules/prefer-template.html
 [quotes]: https://eslint.org/docs/rules/quotes.html
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
 [template-curly-spacing]: https://eslint.org/docs/rules/template-curly-spacing
+
+<!-- Babel link aliases -->
+[@babel/plugin-transform-destructuring]: https://babeljs.io/docs/en/next/babel-plugin-transform-destructuring.html
 
 # JavaScript Guide
 
@@ -32,6 +54,8 @@
 
 1. [Variables](#variables)
 2. [Objects](#objects)
+3. [Arrays](#arrays)
+4. [Destructring](#destructuring)
 5. [Strings](#strings)
 
 ---
@@ -259,9 +283,9 @@ console.log(has.call(object, key));
 
 - ESLint: [no-prototype-builtins]
 
-### 2.5 Object Spread over Object.assign
+### 2.5 Object Shallow-Copy
   
-Prefer the [object spread][MDN: Object Literal Spread Syntax] operator over [`Object.assign`][MDN: Object.assign] to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+Prefer the [object spread][Object Literal Spread Syntax] operator over [`Object.assign`][Object.assign] to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
 > Why? Object spread is a declarative alternative which may perform better than the more dynamic, imperative Object.assign.
 
@@ -292,7 +316,340 @@ const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 #### Resources
 
 - ESLint: [prefer-object-spread]
-- JSPerf: [Shallow Copy Objects][JSPerf: Shallow Copy Objects]
+- JSPerf: [Shallow Copy Objects]
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Arrays
+
+### 3.1 Array Creation
+
+Use the literal syntax for array creation.
+
+> Why? Use of the `Array` constructor to construct a new array is generally discouraged in favor of array literal notation because of the single-argument pitfall and because the `Array` global may be redefined.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const items = new Array();
+```
+
+🎉 Yep! 🎉
+
+```js
+const items = [];
+```
+
+#### Resources
+
+- ESLint: [no-array-constructor]
+
+
+### 3.2 Adding Items To Arrays
+
+Use [Array.prototype.push()][Array.prototype.push] instead of direct assignment to add items to an array.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const someStack = [];
+someStack[someStack.length] = 'abracadabra';
+```
+
+🎉 Yep! 🎉
+
+```js
+const someStack = [];
+someStack.push('abracadabra');
+```
+
+#### Resources
+
+- JSPerf: [Adding Array Items]
+
+### 3.3 Array Shallow-Copy
+
+Use [array spread syntax][Array Literal Spread Syntax] `...` to shallow-copy arrays.
+
+> Why? Better overall performance.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+// Too slow
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const len = animals.length;
+const animalsCopy = [];
+let i;
+
+for (i = 0; i < len; i ++) {
+  animalsCopy[i] = animals[i];
+}
+
+// Works but is not preferred
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const animalsCopy = animals.slice();
+```
+
+🎉 Yep! 🎉
+
+```js
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const animalsCopy = [...animals];
+```
+
+#### Resources:
+
+- JSPerf: [Shallow Copy Arrays]
+
+### 3.4 Arrays From Iterables
+
+To convert an iterable object (e.g. [NodeList]) to an array, use [array spread syntax][Array Literal Spread Syntax] `...` instead of [Array.from].
+
+> Why? Better performance.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const paragraphs = document.querySelectorAll('p');
+const nodes = Array.from(paragraphs);
+```
+
+🎉 Yep! 🎉
+
+```js
+const paragraphs = document.querySelectorAll('p');
+const nodes = [...paragraphs];
+```
+
+#### Resources
+
+- ESLint: [prefer-spread]
+- JSPerf: [Arrays From Iterables]
+
+### 3.5 Arrays from Array-Like Objects
+
+Use [`Array.from`][Array.from] for converting an array-like object to an array.
+
+> Why? Not only is it easier to read/type but it also performs better.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+const arr = Array.prototype.slice.call(arrLike);
+```
+
+🎉 Yep! 🎉
+
+```js
+const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+const arr = Array.from(arrLike);
+```
+
+#### Resources
+
+- JSPerf: [Arrays from Array-Like Objects]
+
+### 3.6 Mapping Over Iterables
+
+Use [array spread syntax][Array Literal Spread Syntax] `...` instead of [`Array.from`][Array.from] for mapping over iterables.
+
+> Why? Overall better performance.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const iterable = 'Hello there!';
+const upperCase = letter => letter.toUpperCase();
+const upperCaseLetters = Array.from(iterable, upperCase);
+```
+
+🎉 Yep! 🎉
+
+```js
+const iterable = 'Hello there!';
+const upperCase = letter => letter.toUpperCase();
+const upperCaseLetters = [...iterable].map(upperCase);
+```
+
+#### Resources
+
+- JSPerf: [Mapping Over Iterables]
+
+### 3.7 Array Callback Return
+
+Use `return` statements in array method callbacks. It’s okay to omit the `return` if the function body consists of a single statement returning an expression without side effects.
+<!-- @TODO: Link later: following [8.2](#arrows--implicit-return).  -->
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+inbox.filter(msg => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  } else {
+    return false;
+  }
+});
+```
+
+🎉 Yep! 🎉
+
+```js
+inbox.filter(msg => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  }
+
+  return false;
+});
+```
+
+🎉 Also good! 🎉
+
+```js
+[1, 2, 3].map((x) => {
+  const y = x + 1;
+  return x * y;
+});
+
+// The return can be omitted here.
+[1, 2, 3].map(x => x + 1);
+```
+
+#### Resources
+
+- ESLint: [array-callback-return]
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Destructuring
+
+### 4.1 Object Destructuring
+
+Use [object destructuring][Object Destructuring] when accessing and using multiple properties of an object.
+
+> Why? Destructuring saves you from creating temporary references for those properties.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+
+  return `${firstName} ${lastName}`;
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+// Good
+function getFullName(user) {
+  const { firstName, lastName } = user;
+  return `${firstName} ${lastName}`;
+}
+
+// Best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+```
+
+#### Resources
+
+- ESLint: [prefer-destructuring]
+- JSPerf: [Object Destructuring vs Not]
+- MDN Web Docs: [Object Destructuring]
+
+### 4.2 Array Destructuring
+
+How you destructure an array depends on your situation. Below are a couple of ways to complete the same task.
+
+#### Examples
+
+```js
+// This works!
+const arr = [1, 2, 3, 4];
+const first = arr[0];
+const second = arr[1];
+const rest = arr.slice(2);
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(rest); // [3, 4]
+
+// This works great also!
+const arr = [1, 2, 3, 4];
+const [first, second, ...rest] = arr;
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(rest); // [3, 4]
+```
+
+_**Note:** For performance reasons, strongly consider use of the [@babel/plugin-transform-destructuring] plugin when using [array destructuring][Array Destructuring]._
+
+#### Resources
+
+- Babel Plugin: [@babel/plugin-transform-destructuring]
+- JSPerf: [Array Destructuring vs Not]
+- MDN Web Docs: [Array Destructuring]
+
+### 4.3 Destructuring for Multiple Return Values
+
+Use [object destructuring][Object Destructuring] for multiple return values, not [array destructuring][Array Destructuring].
+
+> Why? You can add new properties over time or change the order of things without breaking call sites.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function processInput(input) {
+  return [left, right, top, bottom];
+}
+
+// the caller needs to think about the order of return data
+const [left, __, top] = processInput(input);
+
+```
+
+🎉 Yep! 🎉
+
+```js
+function processInput(input) {
+  return { left, right, top, bottom };
+}
+
+// the caller selects only the data they need
+const { left, top } = processInput(input);
+```
 
 [⇧ top](#javascript-guide)
 
