@@ -4,7 +4,7 @@ TODO - fill in here
 
 ## Publishing a new version
 
-Prerequisites: [Node](https://nodejs.org) version 10+ (required for `npm ci` to work)
+Prerequisites: [Node](https://nodejs.org) with NPM version 5.7.0+ (required for `npm ci` to work)
 
 If you haven't already set yourself up for NPM publishing, you need to do the following:
 
