@@ -2,18 +2,22 @@
 [Airbnb JavaScript Style Guide]: https://github.com/airbnb/javascript
 
 <!-- MDN link aliases -->
+[Array Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring
 [Array Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_array_literals
 [Array.from]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 [Array.prototype.push]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push
 [NodeList]: https://developer.mozilla.org/en-US/docs/Web/API/NodeList
 [Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+[Object Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring
 [Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
 
 <!-- JSPerf link aliases -->
 [Adding Array Items]: https://jsperf.com/adding-array-items
 [Arrays from Array-Like Objects]: https://jsperf.com/array-like-object-to-array
+[Array Destructuring vs Not]: https://jsperf.com/array-destructuring
 [Arrays From Iterables]: https://jsperf.com/arrays-from-iterables
 [Mapping Over Iterables]: https://jsperf.com/array-from-vs-spread-vs-array-from-map
+[Object Destructuring vs Not]: https://jsperf.com/destructure-vs-not
 [Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
@@ -26,9 +30,13 @@
 [no-var]: https://eslint.org/docs/rules/no-var.html
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
+[prefer-destructuring]: https://eslint.org/docs/rules/prefer-destructuring
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
 [prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
+
+<!-- Babel link aliases -->
+[@babel/plugin-transform-destructuring]: https://babeljs.io/docs/en/next/babel-plugin-transform-destructuring.html
 
 # JavaScript Guide
 
@@ -39,6 +47,7 @@
 1. [Variables](#variables)
 2. [Objects](#objects)
 3. [Arrays](#arrays)
+4. [Destructring](#destructuring)
 
 ---
 
@@ -521,5 +530,116 @@ inbox.filter(msg => {
 #### Resources
 
 - ESLint: [array-callback-return]
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Destructuring
+
+### 4.1 Object Destructuring
+
+Use [object destructuring][Object Destructuring] when accessing and using multiple properties of an object.
+
+> Why? Destructuring saves you from creating temporary references for those properties.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+
+  return `${firstName} ${lastName}`;
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+// Good
+function getFullName(user) {
+  const { firstName, lastName } = user;
+  return `${firstName} ${lastName}`;
+}
+
+// Best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+```
+
+#### Resources
+
+- ESLint: [prefer-destructuring]
+- JSPerf: [Object Destructuring vs Not]
+- MDN Web Docs: [Object Destructuring]
+
+### 4.2 Array Destructuring
+
+How you destructure an array depends on your situation. Below are a couple of ways to complete the same task.
+
+#### Examples
+
+```js
+// This works!
+const arr = [1, 2, 3, 4];
+const first = arr[0];
+const second = arr[1];
+const rest = arr.slice(2);
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(rest); // [3, 4]
+
+// This works great also!
+const arr = [1, 2, 3, 4];
+const [first, second, ...rest] = arr;
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(rest); // [3, 4]
+```
+
+_**Note:** For performance reasons, strongly consider use of the [@babel/plugin-transform-destructuring] plugin when using [array destructuring][Array Destructuring]._
+
+#### Resources
+
+- Babel Plugin: [@babel/plugin-transform-destructuring]
+- JSPerf: [Array Destructuring vs Not]
+- MDN Web Docs: [Array Destructuring]
+
+### 4.3 Destructuring for Multiple Return Values
+
+Use [object destructuring][Object Destructuring] for multiple return values, not [array destructuring][Array Destructuring].
+
+> Why? You can add new properties over time or change the order of things without breaking call sites.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function processInput(input) {
+  return [left, right, top, bottom];
+}
+
+// the caller needs to think about the order of return data
+const [left, __, top] = processInput(input);
+
+```
+
+🎉 Yep! 🎉
+
+```js
+function processInput(input) {
+  return { left, right, top, bottom };
+}
+
+// the caller selects only the data they need
+const { left, top } = processInput(input);
+```
 
 [⇧ top](#javascript-guide)
