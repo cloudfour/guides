@@ -33,4 +33,9 @@ When you see your user is set up to publish, you can now do the following
 - `npm version <new version here>`
   - Refer to the previous version and follow [Semver](https://docs.npmjs.com/getting-started/semantic-versioning)
   - For example, a basic, non breaking update for version `1.0.0` would be `npm version 1.1.0`
-- `npm publish` - this will run the build and actually publish the output to npm
+
+- `git add . && git commit -m "Note about versioning patterns"`
+
+Now is the time to merge your PR to `master`, once approved
+
+- On `master`, **_AFTER_** merging the PR, **_NOT_** in your branch: `npm publish`
