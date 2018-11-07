@@ -24,7 +24,6 @@
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
 
 <!-- ESLint link aliases -->
-[max-len]: https://eslint.org/docs/rules/max-len
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
@@ -682,38 +681,7 @@ const name = 'Cloud Four';
 
 - ESLint: [quotes]
 
-### 5.2 Line Length
-
-Strings that cause the line to go over 80 characters should not be written across multiple lines using string concatenation.
-
-> Why? Broken strings are painful to work with and make code less searchable.
-
-#### Examples
-
-🚫 Nope. 🚫
-
-```js
-const errorMessage = 'This is a super long error that was thrown because \
-of Batman. When you stop to think about how Batman had anything to do \
-with this, you would get nowhere \
-fast.';
-
-const errorMessage = 'This is a super long error that was thrown because ' +
-  'of Batman. When you stop to think about how Batman had anything to do ' +
-  'with this, you would get nowhere fast.';
-```
-
-🎉 Yep! 🎉
-
-```js
-const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-```
-
-#### Resources
-
-- ESLint [max-len]
-
-### 5.3 Template Literals
+### 5.2 Template Literals
 
 When programmatically building up strings, use [template literals][Template Literals] instead of concatenation.
 
@@ -747,7 +715,7 @@ function sayHi(name) {
   - [prefer-template]
   - [template-curly-spacing]
 
-### 5.4 Eval
+### 5.3 Eval
 
 [Never use `eval()`][No eval] on a string, it opens too many vulnerabilities.
 
@@ -755,7 +723,7 @@ function sayHi(name) {
 
 - ESLint: [no-eval]
 
-### 5.5 Escaping Characters
+### 5.4 Escaping Characters
 
 Do not unnecessarily escape characters in strings.
 
