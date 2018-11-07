@@ -657,23 +657,30 @@ const { left, top } = processInput(input);
 
 ### 5.1 Quotes
 
-Use single quotes `''` for strings.
+Use single quotes `''` for strings. The exception is if a string includes a literal `'` single quote, use double quotes `"` instead.
 
 #### Examples
 
 🚫 Nope. 🚫
 
 ```js
+// Should be single quote.
 const name = "Cloud Four";
 
 // Template literals should contain interpolation or newlines.
 const name = `Cloud Four`;
+
+// This string has a literal single quote!
+const foo = 'What\'s for dinner?';
 ```
 
 🎉 Yep! 🎉
 
 ```js
 const name = 'Cloud Four';
+
+// It's okay to use double quotes here.
+const foo = "What's for dinner?";
 ```
 
 #### Resources
