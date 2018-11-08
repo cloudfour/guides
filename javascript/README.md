@@ -32,6 +32,7 @@
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-eval]: https://eslint.org/docs/rules/no-eval
+[no-new-func]: https://eslint.org/docs/rules/no-new-func
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
 [no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
 [no-var]: https://eslint.org/docs/rules/no-var.html
@@ -898,27 +899,39 @@ count(3); // 3
 count();  // 3
 ```
 
+### 6.6 Function Constructor
 
-
-
-
-
-
-<a name="functions--constructor"></a><a name="7.10"></a>
-- [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
+Never use the Function constructor to create a new function.
 
 > Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
+#### Examples
+
+🚫 Nope. 🚫
+
 ```js
-// bad
 var add = new Function('a', 'b', 'return a + b');
 
-// still bad
 var subtract = Function('a', 'b', 'return a - b');
 ```
 
+🎉 Yep! 🎉
+
+```js
+var x = function (a, b) {
+    return a + b;
+};
+```
+
+#### Resources
+
+- ESLint: [no-new-func]
+
+
+
+
 <a name="functions--signature-spacing"></a><a name="7.11"></a>
-- [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+[7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
 > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
