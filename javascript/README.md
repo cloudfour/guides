@@ -874,43 +874,57 @@ function doThings(opts = {}) {
 
 - MDN: [Function Default Parameters]
 
+### 6.5 Function Default Parameter Side Effects
 
-
-
-
-
-
-<a name="functions--default-side-effects"></a><a name="7.8"></a>
-[7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+Avoid side effects with [function default parameters][Function Default Parameters].
 
 > Why? They are confusing to reason about.
 
+#### Examples
+
+🚫 Nope. 🚫
+
 ```js
-var b = 1;
-// bad
+let b = 1;
+
+// Eek!
 function count(a = b++) {
   console.log(a);
 }
+
 count();  // 1
 count();  // 2
 count(3); // 3
 count();  // 3
 ```
 
-<a name="functions--defaults-last"></a><a name="7.9"></a>
-- [7.9](#functions--defaults-last) Always put default parameters last.
+### 6.6 Function Default Parameters Last
+
+Always put [function default parameters][Function Default Parameters] last.
+
+#### Examples
+
+🚫 Nope. 🚫
 
 ```js
-// bad
-function handleThings(opts = {}, name) {
-  // ...
-}
-
-// good
-function handleThings(name, opts = {}) {
+function doThings(opts = {}, name) {
   // ...
 }
 ```
+
+🎉 Yep! 🎉
+
+```js
+function doThings(name, opts = {}) {
+  // ...
+}
+```
+
+
+
+
+
+
 
 <a name="functions--constructor"></a><a name="7.10"></a>
 - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
