@@ -27,6 +27,7 @@
 [Object Destructuring vs Not]: https://jsperf.com/destructure-vs-not
 [Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
+[Spread Syntax for Variadic Functions]: https://jsperf.com/spread-syntax-for-variadic-functions
 
 <!-- ESLint link aliases -->
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
@@ -992,6 +993,7 @@ new Date(...[2016, 8, 5]);
 #### Resources
 
 - ESLint: [prefer-spread]
+- JSPerf: [Spread Syntax for Variadic Functions]
 
 ### 6.9 Function Multiline Signatures
 
