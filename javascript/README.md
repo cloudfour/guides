@@ -898,28 +898,6 @@ count(3); // 3
 count();  // 3
 ```
 
-### 6.6 Function Default Parameters Last
-
-Always put [function default parameters][Function Default Parameters] last.
-
-#### Examples
-
-🚫 Nope. 🚫
-
-```js
-function doThings(opts = {}, name) {
-  // ...
-}
-```
-
-🎉 Yep! 🎉
-
-```js
-function doThings(name, opts = {}) {
-  // ...
-}
-```
-
 
 
 
