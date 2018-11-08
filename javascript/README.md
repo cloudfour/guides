@@ -45,7 +45,7 @@
 [prefer-destructuring]: https://eslint.org/docs/rules/prefer-destructuring
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
 [prefer-rest-params]: https://eslint.org/docs/rules/prefer-rest-params
-[prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
+[prefer-spread]: https://eslint.org/docs/rules/prefer-spread
 [prefer-template]: https://eslint.org/docs/rules/prefer-template.html
 [quotes]: https://eslint.org/docs/rules/quotes.html
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
@@ -994,48 +994,6 @@ new Date(...[2016, 8, 5]);
 
 - ESLint: [prefer-spread]
 - JSPerf: [Spread Syntax for Variadic Functions]
-
-### 6.9 Function Multiline Signatures
-
-Functions with multiline signatures should be indented with each item on a line by itself, with a trailing comma on the last item.
-
-#### Examples
-
-🚫 Nope. 🚫
-
-```js
-function foo(bar,
-              baz,
-              quux) {
-  // ...
-}
-
-console.log(foo,
-  bar,
-  baz);
-```
-
-🎉 Yep! 🎉
-
-```js
-function foo(
-  bar,
-  baz,
-  quux,
-) {
-  // ...
-}
-
-console.log(
-  foo,
-  bar,
-  baz,
-);
-```
-
-#### Resources
-
-- ESLint: [function-paren-newline]
 
 [⇧ top](#javascript-guide)
 
