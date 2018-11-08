@@ -738,6 +738,7 @@ function concatenateAll() {
   return args.join('');
 }
 
+// Slow performance
 function concatenateAll() {
   const args = Array.from(arguments);
   return args.join('');
