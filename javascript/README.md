@@ -6,11 +6,16 @@
 [Array Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_array_literals
 [Array.from]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 [Array.prototype.push]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+[Function Arguments Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+[Function Declaration]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+[Function Default Parameters]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+[Function Expression]: https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
 [No eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Do_not_ever_use_eval!
 [NodeList]: https://developer.mozilla.org/en-US/docs/Web/API/NodeList
 [Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 [Object Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring
 [Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+[Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 [Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
 <!-- JSPerf link aliases -->
@@ -22,21 +27,25 @@
 [Object Destructuring vs Not]: https://jsperf.com/destructure-vs-not
 [Shallow Copy Objects]: https://jsperf.com/shallow-copy-objects
 [Shallow Copy Arrays]: https://jsperf.com/shallow-copy-arrays
+[Spread Syntax for Variadic Functions]: https://jsperf.com/spread-syntax-for-variadic-functions
 
 <!-- ESLint link aliases -->
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
+[function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-eval]: https://eslint.org/docs/rules/no-eval
+[no-new-func]: https://eslint.org/docs/rules/no-new-func
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
+[no-param-reassign]: https://eslint.org/docs/rules/no-param-reassign.html
 [no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
-[no-useless-escape]: https://eslint.org/docs/rules/no-useless-escape
 [no-var]: https://eslint.org/docs/rules/no-var.html
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
 [prefer-destructuring]: https://eslint.org/docs/rules/prefer-destructuring
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
-[prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
+[prefer-rest-params]: https://eslint.org/docs/rules/prefer-rest-params
+[prefer-spread]: https://eslint.org/docs/rules/prefer-spread
 [prefer-template]: https://eslint.org/docs/rules/prefer-template.html
 [quotes]: https://eslint.org/docs/rules/quotes.html
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
@@ -55,6 +64,7 @@
 3. [Arrays](#arrays)
 4. [Destructring](#destructuring)
 5. [Strings](#strings)
+6. [Functions](#functions)
 
 ---
 
@@ -635,7 +645,6 @@ function processInput(input) {
 
 // the caller needs to think about the order of return data
 const [left, __, top] = processInput(input);
-
 ```
 
 🎉 Yep! 🎉
@@ -726,5 +735,504 @@ function sayHi(name) {
 #### Resources
 
 - ESLint: [no-eval]
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Functions
+
+### 6.1 Function Style
+
+Understand the difference between **function declarations** and **function expressions**.
+
+> The primary difference between function declarations and function expressions is that declarations are hoisted to the top of the scope in which they are defined, which allows you to write code that uses the function before its declaration.
+
+It can be argued that using function expressions will result in more a structured code base. We do not have a strict rule of using function declarations vs function expressions but wanted to document the difference between the two.
+
+#### Examples
+
+> Function declarations in JavaScript are hoisted to the top of the enclosing function or global scope. You can use the function before you declared it:
+>
+> ```js
+> hoisted(); // logs "foo"
+>
+> function hoisted() {
+>   console.log('foo');
+> }
+> ```
+
+> Although this code might seem like an error, it actually works fine because JavaScript engines hoist the function declarations to the top of the scope. That means this code is treated as if the declaration came before the invocation.
+
+> Note that function expressions are not hoisted:
+>
+> ```js
+> notHoisted(); // TypeError: notHoisted is not a function
+> 
+> var notHoisted = function() {
+>    console.log('bar');
+> };
+> ```
+
+
+### Resources
+
+- MDN Web Docs
+  - [Function Declaration]
+  - [Function Expression]
+
+### 6.2 Function Arguments Parameter
+
+Never name a function parameter `arguments`.
+
+> Why? This will take precedence over the [`arguments` object][Function Arguments Object] that is given to every function scope.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function foo(name, options, arguments) {
+  // ...
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+function foo(name, options, args) {
+  // ...
+}
+```
+
+#### Resources
+
+- MDN: [Function Arguments Object]
+
+### 6.3 Use Rest Syntax for Function Arguments Object
+
+Use the rest syntax `...args` instead of the `arguments` object.
+
+> Why? Rest arguments are a real Array, and not merely Array-like as the `arguments` object is.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function concatenateAll() {
+  const args = Array.prototype.slice.call(arguments);
+  return args.join('');
+}
+
+// Slow performance
+function concatenateAll() {
+  const args = Array.from(arguments);
+  return args.join('');
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+function concatenateAll(...args) {
+  return args.join('');
+}
+```
+
+#### Resources
+
+- ESLint: [prefer-rest-params]
+
+### 6.4 Function Default Parameters
+
+Use [function default parameter syntax][Function Default Parameters] rather than mutating function arguments.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function doThings(opts) {
+  // If opts is falsey it can introduce bugs.
+  opts = opts || {};
+  // ...
+}
+
+function doThings(opts) {
+  if (opts === undefined) {
+    opts = {};
+  }
+  // ...
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+function doThings(opts = {}) {
+  // ...
+}
+```
+
+#### Resources
+
+- MDN: [Function Default Parameters]
+
+### 6.5 Function Default Parameter Side Effects
+
+Avoid side effects with [function default parameters][Function Default Parameters].
+
+> Why? They are confusing to reason about.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+let b = 1;
+
+// Eek!
+function count(a = b++) {
+  console.log(a);
+}
+
+count();  // 1
+count();  // 2
+count(3); // 3
+count();  // 3
+```
+
+### 6.6 Function Constructor
+
+Never use the `Function` constructor to create a new function.
+
+> Why? Creating a function in this way evaluates a string similarly to `eval()`, which [opens vulnerabilities](#53-eval).
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+var add = new Function('a', 'b', 'return a + b');
+
+var subtract = Function('a', 'b', 'return a - b');
+```
+
+🎉 Yep! 🎉
+
+```js
+var x = function (a, b) {
+    return a + b;
+};
+```
+
+#### Resources
+
+- ESLint: [no-new-func]
+
+### 6.7 Mutating Function Parameters
+
+Never mutate function parameters.
+
+> Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function foo(bar) {
+    bar = 13;
+}
+
+function foo(bar) {
+    bar++;
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+function foo(bar) {
+    var baz = bar;
+}
+```
+
+#### Resources
+
+- ESLint: [no-param-reassign]
+
+
+### 6.8 Spread Syntax for Variadic Functions
+
+Prefer the use of the [spread syntax operator `...`][Spread Syntax] to call variadic functions (a function that accepts a variable number of arguments).
+
+> Why? It’s cleaner, you don’t need to supply a context, and it's easier to compose `new` when compared to using `apply`.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+const args = [1, 2, 3, 4];
+Math.max.apply(Math, args);
+
+new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+```
+
+🎉 Yep! 🎉
+
+```js
+const args = [1, 2, 3, 4];
+Math.max(...args);
+
+new Date(...[2016, 8, 5]);
+```
+
+#### Resources
+
+- ESLint: [prefer-spread]
+- JSPerf: [Spread Syntax for Variadic Functions]
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Arrow Functions
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Classes & Constructors
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Modules
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Iterators and Generators
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Properties
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Variables
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Hoisting
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Comparison Operators & Equality
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Blocks
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Control Statements
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Comments
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Whitespace
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Commas
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Semicolons
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Type Casting & Coercion
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Naming Conventions
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Accessors
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Events
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## jQuery
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## ECMAScript 5 Compatibility
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## ECMAScript 6+ (ES 2015+) Styles
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Standard Library
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Testing
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Performance
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Resources
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## In the Wild
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Translation
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## The JavaScript Style Guide Guide
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## Contributors
+
+TBD...
+
+[⇧ top](#javascript-guide)
+
+---
+
+## License
+
+TBD...
 
 [⇧ top](#javascript-guide)
