@@ -906,7 +906,7 @@ count();  // 3
 
 Never use the `Function` constructor to create a new function.
 
-> Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
+> Why? Creating a function in this way evaluates a string similarly to `eval()`, which [opens vulnerabilities](#53-eval).
 
 #### Examples
 
