@@ -932,7 +932,7 @@ var x = function (a, b) {
 
 ### 6.7 Mutating Function Parameters
 
-Never mutate parameters.
+Never mutate function parameters.
 
 > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
