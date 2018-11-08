@@ -967,7 +967,7 @@ function foo(bar) {
 
 Prefer the use of the [spread syntax operator `...`][Spread Syntax] to call variadic functions (a function that accepts a variable number of arguments).
 
-> Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+> Why? It’s cleaner, you don’t need to supply a context, and it's easier to compose `new` when compared to using `apply`.
 
 #### Examples
 
