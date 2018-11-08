@@ -634,7 +634,6 @@ function processInput(input) {
 
 // the caller needs to think about the order of return data
 const [left, __, top] = processInput(input);
-
 ```
 
 🎉 Yep! 🎉
