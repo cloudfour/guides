@@ -30,6 +30,7 @@
 
 <!-- ESLint link aliases -->
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
+[function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
 [no-eval]: https://eslint.org/docs/rules/no-eval
@@ -973,7 +974,7 @@ Prefer the use of the [spread syntax operator `...`][Spread Syntax] to call vari
 🚫 Nope. 🚫
 
 ```js
-var args = [1, 2, 3, 4];
+const args = [1, 2, 3, 4];
 Math.max.apply(Math, args);
 
 new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
@@ -982,7 +983,7 @@ new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
 🎉 Yep! 🎉
 
 ```js
-var args = [1, 2, 3, 4];
+const args = [1, 2, 3, 4];
 Math.max(...args);
 
 new Date(...[2016, 8, 5]);
@@ -992,23 +993,29 @@ new Date(...[2016, 8, 5]);
 
 - ESLint: [prefer-spread]
 
-### 6.9
+### 6.9 Function Multiline Signatures
 
+Functions with multiline signatures should be indented with each item on a line by itself, with a trailing comma on the last item.
 
-<a name="functions--signature-invocation-indentation"></a>
-- [7.15](#functions--signature-invocation-indentation)
+#### Examples
 
-Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+🚫 Nope. 🚫
 
 ```js
-// bad
 function foo(bar,
               baz,
               quux) {
   // ...
 }
 
-// good
+console.log(foo,
+  bar,
+  baz);
+```
+
+🎉 Yep! 🎉
+
+```js
 function foo(
   bar,
   baz,
@@ -1017,17 +1024,15 @@ function foo(
   // ...
 }
 
-// bad
-console.log(foo,
-  bar,
-  baz);
-
-// good
 console.log(
   foo,
   bar,
   baz,
 );
 ```
+
+#### Resources
+
+- ESLint: [function-paren-newline]
 
 [⇧ top](#javascript-guide)
