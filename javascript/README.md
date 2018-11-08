@@ -15,6 +15,7 @@
 [Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 [Object Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring
 [Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+[Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 [Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
 <!-- JSPerf link aliases -->
@@ -34,6 +35,7 @@
 [no-eval]: https://eslint.org/docs/rules/no-eval
 [no-new-func]: https://eslint.org/docs/rules/no-new-func
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
+[no-param-reassign]: https://eslint.org/docs/rules/no-param-reassign.html
 [no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
 [no-var]: https://eslint.org/docs/rules/no-var.html
 [object-shorthand]: https://eslint.org/docs/rules/object-shorthand.html
@@ -927,93 +929,76 @@ var x = function (a, b) {
 
 - ESLint: [no-new-func]
 
+### 6.7 Mutating Function Parameters
 
-
-
-<a name="functions--signature-spacing"></a><a name="7.11"></a>
-[7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
-
-> Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
-
-```js
-// bad
-const f = function(){};
-const g = function (){};
-const h = function() {};
-
-// good
-const x = function () {};
-const y = function a() {};
-```
-
-<a name="functions--mutate-params"></a><a name="7.12"></a>
-- [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+Never mutate parameters.
 
 > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
+#### Examples
+
+🚫 Nope. 🚫
+
 ```js
-// bad
-function f1(obj) {
-  obj.key = 1;
+function foo(bar) {
+    bar = 13;
 }
 
-// good
-function f2(obj) {
-  const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+function foo(bar) {
+    bar++;
 }
 ```
 
-<a name="functions--reassign-params"></a><a name="7.13"></a>
-- [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
-
-> Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+🎉 Yep! 🎉
 
 ```js
-// bad
-function f1(a) {
-  a = 1;
-  // ...
-}
-
-function f2(a) {
-  if (!a) { a = 1; }
-  // ...
-}
-
-// good
-function f3(a) {
-  const b = a || 1;
-  // ...
-}
-
-function f4(a = 1) {
-  // ...
+function foo(bar) {
+    var baz = bar;
 }
 ```
 
-<a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-- [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+#### Resources
+
+- ESLint: [no-param-reassign]
+
+
+### 6.8 Spread Syntax for Variadic Functions
+
+Prefer the use of the [spread syntax operator `...`][Spread Syntax] to call variadic functions (a function that accepts a variable number of arguments).
 
 > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
 
+#### Examples
+
+🚫 Nope. 🚫
+
 ```js
-// bad
-const x = [1, 2, 3, 4, 5];
-console.log.apply(console, x);
+var args = [1, 2, 3, 4];
+Math.max.apply(Math, args);
 
-// good
-const x = [1, 2, 3, 4, 5];
-console.log(...x);
-
-// bad
 new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+```
 
-// good
+🎉 Yep! 🎉
+
+```js
+var args = [1, 2, 3, 4];
+Math.max(...args);
+
 new Date(...[2016, 8, 5]);
 ```
 
+#### Resources
+
+- ESLint: [prefer-spread]
+
+### 6.9
+
+
 <a name="functions--signature-invocation-indentation"></a>
-- [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+- [7.15](#functions--signature-invocation-indentation)
+
+Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
 
 ```js
 // bad
