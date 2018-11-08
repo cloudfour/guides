@@ -6,6 +6,7 @@
 [Array Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_array_literals
 [Array.from]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 [Array.prototype.push]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+[Function Arguments Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 [Function Expression]: https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
 [Function Declaration]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 [NodeList]: https://developer.mozilla.org/en-US/docs/Web/API/NodeList
@@ -34,6 +35,7 @@
 [prefer-const]: https://eslint.org/docs/rules/prefer-const.html
 [prefer-destructuring]: https://eslint.org/docs/rules/prefer-destructuring
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
+[prefer-rest-params]: https://eslint.org/docs/rules/prefer-rest-params
 [prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
 
@@ -653,30 +655,30 @@ const { left, top } = processInput(input);
 
 ## Functions
 
-eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
+### 6.1 Function Style
 
-### 6.1 Function Expressions over Function Declarations
-
-> Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
-
-Understand the difference between **function expressions** and **function declarations**. 
+Understand the difference between **function declarations** and **function expressions**.
 
 > The primary difference between function declarations and function expressions is that declarations are hoisted to the top of the scope in which they are defined, which allows you to write code that uses the function before its declaration.
+
+It can be argued that using function expressions will result in more a structured code base. We do not have a strict rule of using function declarations vs function expressions but wanted to document the difference between the two.
 
 #### Examples
 
 > Function declarations in JavaScript are hoisted to the top of the enclosing function or global scope. You can use the function before you declared it:
+>
+> ```js
+> hoisted(); // logs "foo"
+>
+> function hoisted() {
+>   console.log('foo');
+> }
+> ```
 
-```js
-hoisted(); // logs "foo"
-
-function hoisted() {
-  console.log('foo');
-}
-```
+> Although this code might seem like an error, it actually works fine because JavaScript engines hoist the function declarations to the top of the scope. That means this code is treated as if the declaration came before the invocation.
 
 > Note that function expressions are not hoisted:
-
+>
 > ```js
 > notHoisted(); // TypeError: notHoisted is not a function
 > 
@@ -685,86 +687,84 @@ function hoisted() {
 > };
 > ```
 
+
 ### Resources
 
 - MDN Web Docs
+  - [Function Declaration]
+  - [Function Expression]
 
+### 6.2 Arguments Parameter
 
+Never name a function parameter `arguments`.
 
+> Why? This will take precedence over the [`arguments` object][Function Arguments Object] that is given to every function scope.
 
+#### Examples
 
-
-
-<a name="functions--iife"></a><a name="7.2"></a>
-[7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
-
-> Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
-
-```js
-// immediately-invoked function expression (IIFE)
-(function () {
-  console.log('Welcome to the Internet. Please follow me.');
-}());
-```
-
-<a name="functions--in-blocks"></a><a name="7.3"></a>
-- [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
-
-<a name="functions--note-on-blocks"></a><a name="7.4"></a>
-- [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
+🚫 Nope. 🚫
 
 ```js
-// bad
-if (currentUser) {
-  function test() {
-    console.log('Nope.');
-  }
-}
-
-// good
-let test;
-if (currentUser) {
-  test = () => {
-    console.log('Yup.');
-  };
-}
-```
-
-<a name="functions--arguments-shadow"></a><a name="7.5"></a>
-- [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
-
-```js
-// bad
 function foo(name, options, arguments) {
   // ...
 }
+```
 
-// good
+🎉 Yep! 🎉
+
+```js
 function foo(name, options, args) {
   // ...
 }
 ```
 
-<a name="es6-rest"></a><a name="7.6"></a>
-- [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
+#### Resources
 
-> Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+- MDN: [Function Arguments Object]
+
+### 6.3 Use Rest Syntax for Arguments Object
+
+Use the rest syntax `...args` instead of the `arguments` object.
+
+> Why? Rest arguments are a real Array, and not merely Array-like as the `arguments` object is.
+
+#### Examples
+
+🚫 Nope. 🚫
 
 ```js
-// bad
 function concatenateAll() {
   const args = Array.prototype.slice.call(arguments);
   return args.join('');
 }
 
-// good
+function concatenateAll() {
+  const args = Array.from(arguments);
+  return args.join('');
+}
+```
+
+🎉 Yep! 🎉
+
+```js
 function concatenateAll(...args) {
   return args.join('');
 }
 ```
 
+#### Resources
+
+- ESLint: [prefer-rest-params]
+
+
+
+
+
+
+
+
 <a name="es6-default-parameters"></a><a name="7.7"></a>
-- [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+[7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
 
 ```js
 // really bad
