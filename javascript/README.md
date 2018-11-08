@@ -9,10 +9,12 @@
 [Function Arguments Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 [Function Expression]: https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
 [Function Declaration]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+[No eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Do_not_ever_use_eval!
 [NodeList]: https://developer.mozilla.org/en-US/docs/Web/API/NodeList
 [Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 [Object Destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring
 [Object Literal Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals
+[Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
 <!-- JSPerf link aliases -->
 [Adding Array Items]: https://jsperf.com/adding-array-items
@@ -28,6 +30,7 @@
 [array-callback-return]: https://eslint.org/docs/rules/array-callback-return
 [no-array-constructor]: https://eslint.org/docs/rules/no-array-constructor.html
 [no-const-assign]: https://eslint.org/docs/rules/no-const-assign.html
+[no-eval]: https://eslint.org/docs/rules/no-eval
 [no-new-object]: https://eslint.org/docs/rules/no-new-object.html
 [no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
 [no-var]: https://eslint.org/docs/rules/no-var.html
@@ -37,6 +40,8 @@
 [prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
 [prefer-rest-params]: https://eslint.org/docs/rules/prefer-rest-params
 [prefer-spread]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-spread.md
+[prefer-template]: https://eslint.org/docs/rules/prefer-template.html
+[quotes]: https://eslint.org/docs/rules/quotes.html
 [quote-props]: https://eslint.org/docs/rules/quote-props.html
 
 <!-- Babel link aliases -->
@@ -52,7 +57,7 @@
 2. [Objects](#objects)
 3. [Arrays](#arrays)
 4. [Destructring](#destructuring)
-
+5. [Strings](#strings)
 6. [Functions](#functions)
 
 ---
@@ -649,6 +654,83 @@ const { left, top } = processInput(input);
 
 [⇧ top](#javascript-guide)
 
+---
+
+## Strings
+
+### 5.1 Quotes
+
+Use single quotes `''` for strings. The exception is if a string includes a literal `'` single quote, use double quotes `"` instead.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+// Should be single quote.
+const name = "Cloud Four";
+
+// Template literals should contain interpolation or newlines.
+const name = `Cloud Four`;
+
+// This string has a literal single quote!
+const foo = 'What\'s for dinner?';
+```
+
+🎉 Yep! 🎉
+
+```js
+const name = 'Cloud Four';
+
+// It's okay to use double quotes here.
+const foo = "What's for dinner?";
+```
+
+#### Resources
+
+- ESLint: [quotes]
+
+### 5.2 Template Literals
+
+When programmatically building up strings, use [template literals][Template Literals] instead of concatenation.
+
+> Why? Template literals (template strings) give you a readable, concise syntax with proper newlines and string interpolation features.
+
+#### Examples
+
+🚫 Nope. 🚫
+
+```js
+function sayHi(name) {
+  return 'How are you, ' + name + '?';
+}
+
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+}
+```
+
+🎉 Yep! 🎉
+
+```js
+function sayHi(name) {
+  return `How are you, ${name}?`;
+}
+```
+
+#### Resources
+
+- ESLint: [prefer-template]
+
+### 5.3 Eval
+
+[Never use `eval()`][No eval] on a string, it opens too many vulnerabilities.
+
+#### Resources
+
+- ESLint: [no-eval]
+
+[⇧ top](#javascript-guide)
 
 ---
 
