@@ -7,8 +7,9 @@
 [Array.from]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 [Array.prototype.push]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push
 [Function Arguments Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
-[Function Expression]: https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
 [Function Declaration]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
+[Function Default Parameters]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+[Function Expression]: https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
 [No eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Do_not_ever_use_eval!
 [NodeList]: https://developer.mozilla.org/en-US/docs/Web/API/NodeList
 [Object.assign]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
@@ -775,7 +776,7 @@ It can be argued that using function expressions will result in more a structure
   - [Function Declaration]
   - [Function Expression]
 
-### 6.2 Arguments Parameter
+### 6.2 Function Arguments Parameter
 
 Never name a function parameter `arguments`.
 
@@ -803,7 +804,7 @@ function foo(name, options, args) {
 
 - MDN: [Function Arguments Object]
 
-### 6.3 Use Rest Syntax for Arguments Object
+### 6.3 Use Rest Syntax for Function Arguments Object
 
 Use the rest syntax `...args` instead of the `arguments` object.
 
@@ -838,42 +839,49 @@ function concatenateAll(...args) {
 
 - ESLint: [prefer-rest-params]
 
+### 6.4 Function Default Parameters
 
+Use [function default parameter syntax][Function Default Parameters] rather than mutating function arguments.
 
+#### Examples
 
-
-
-
-
-<a name="es6-default-parameters"></a><a name="7.7"></a>
-[7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+🚫 Nope. 🚫
 
 ```js
-// really bad
-function handleThings(opts) {
-  // No! We shouldn’t mutate function arguments.
-  // Double bad: if opts is falsy it'll be set to an object which may
-  // be what you want but it can introduce subtle bugs.
+function doThings(opts) {
+  // If opts is falsey it can introduce bugs.
   opts = opts || {};
   // ...
 }
 
-// still bad
-function handleThings(opts) {
-  if (opts === void 0) {
+function doThings(opts) {
+  if (opts === undefined) {
     opts = {};
   }
   // ...
 }
+```
 
-// good
-function handleThings(opts = {}) {
+🎉 Yep! 🎉
+
+```js
+function doThings(opts = {}) {
   // ...
 }
 ```
 
+#### Resources
+
+- MDN: [Function Default Parameters]
+
+
+
+
+
+
+
 <a name="functions--default-side-effects"></a><a name="7.8"></a>
-- [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+[7.8](#functions--default-side-effects) Avoid side effects with default parameters.
 
 > Why? They are confusing to reason about.
 
