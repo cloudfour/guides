@@ -1,6 +1,6 @@
 # Setting up your computer to publish to npm
 
-Prerequisites: [Node](https://nodejs.org) with npm version 5.7.0+ (required for `npm ci` to work)
+Prerequisites: [Node.js](https://github.com/creationix/nvm#installation) with npm version 5.7.0+ (required for `npm ci` to work)
 
 ## Setting up your npm account online
 
