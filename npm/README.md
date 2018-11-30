@@ -4,7 +4,7 @@ Prerequisites: [Node](https://nodejs.org) with npm version 5.7.0+ (required for 
 
 ## Setting up your npm account online
 
-- Either confirm that you have an npm account or create one (you'll need your username and password)
+- [Either confirm that you have an npm account or create one](https://www.npmjs.com/) (you'll need your username and password)
 - Confirm you have set up two-factor authentication on your npm account or set it up
   - Set up 2FA to protect `Authorization and Publishing`
 - Use a phone app to complete your 2FA setup, scanning the QR code offered to you
