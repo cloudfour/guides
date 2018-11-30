@@ -7,7 +7,7 @@ Prerequisites: [Node](https://nodejs.org) with npm version 5.7.0+ (required for 
 - [Either confirm that you have an npm account or create one](https://www.npmjs.com/) (you'll need your username and password)
 - Confirm you have set up two-factor authentication on your npm account or set it up
   - Set up 2FA to protect `Authorization and Publishing`
-- Use a phone app to complete your 2FA setup, scanning the QR code offered to you
+- Use a 2FA provider to complete your 2FA setup ([1Password](https://1password.com/) or [Authy](https://authy.com/) or [Google Authenticator](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8))
   - This app will now provide you with a One-Time Password (OTP), every time you do a task that requires 2FA
 - Login to the C4 npm account (see 1Password for details: `cloudfour-user`)
 - Go to the account settings for `cloudfour` (not `cloudfour-user`), under `Organizations`
