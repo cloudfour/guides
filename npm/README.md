@@ -1,4 +1,4 @@
-# Setting up your computer to publish to npm
+# Setting up your computer to publish to npm (only necessary the first time)
 
 Prerequisites: [Node.js](https://github.com/creationix/nvm#installation) with npm version 5.7.0+ (required for `npm ci` to work)
 
@@ -22,3 +22,5 @@ Prerequisites: [Node.js](https://github.com/creationix/nvm#installation) with np
   - Your password
   - Your email address
   - A new OTP from your phone, once prompted
+
+Once you are signed in, you should be ready to publish
