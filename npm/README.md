@@ -23,4 +23,4 @@ Prerequisites: [Node.js](https://github.com/creationix/nvm#installation) with np
   - Your email address
   - A new OTP from your phone, once prompted
 
-Once you are signed in, you should be ready to publish
+Once you are signed in, you should be ready to publish (see individual repos for per-repo publishing instructions)
