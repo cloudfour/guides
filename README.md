@@ -8,3 +8,4 @@ Conventions, processes and notes about how we do things.
 - **[Design Guide](./design/)**
 - **[Git Guide](./git/)**
 - **[Today I Learned](./til/)**
+- **[Setup npm Publish](./npm)**

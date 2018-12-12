@@ -16,8 +16,7 @@ Prerequisites: [Node.js](https://github.com/creationix/nvm#installation) with np
 
 ## Signing in to npm locally
 
-- In the terminal, type `npm adduser <your_user_name>`
- - At the following prompts enter
+- In the terminal, type `npm adduser <your_user_name>`, and enter:
   - Your username
   - Your password
   - Your email address
