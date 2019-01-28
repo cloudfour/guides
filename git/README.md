@@ -158,3 +158,31 @@ Delete your local feature branch.
 ```
 git branch --delete <branch-name>
 ```
+
+## Pull Request Template
+
+Please add a [Pull Request Template](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) to your repo, to ensure that all pull requests follow our guide:
+
+```
+## Overview
+
+Please include a summary of the change and which issue is fixed.
+Please also include relevant motivation and context.
+List any dependencies that are required for this change.
+
+## Testing
+
+1. instructions for reviewers
+1. to test your changes
+
+## Screenshots
+
+Visual changes should include a screenshot.
+
+---
+
+- Fixes # (issue)
+- or [TrelloCard/Issue/Story](LINK_TO_STORY)
+
+/CC @person
+```
