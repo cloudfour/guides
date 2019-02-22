@@ -57,9 +57,9 @@
 
 *A mostly reasonable approach to JavaScript, inspired by the [Airbnb JavaScript Style Guide].*
 
-## A note on performance vs readibility
+## A note on performance vs readability
 
-The end-user experience should always come first which means performance should always be top-of-mind. The JSPerf examples used in this guide do not use large datasets. If you find yourself working with large datasets and the suggested approach based on this guide performs slower, don't be afraid to push back on a per-project basis (see [Performance vs Readability](https://blog.usejournal.com/performance-vs-readability-2e9332730790)).
+The end-user experience always come first which means performance should always be top-of-mind. The JSPerf examples used in this guide do not use large datasets. If you find yourself working with large datasets and the suggested approach based on this guide performs slower, don't be afraid to push back on a per-project basis (see [Performance vs Readability](https://blog.usejournal.com/performance-vs-readability-2e9332730790)).
 
 ## Table of Contents
 
