@@ -6,6 +6,13 @@ Git Protocol
 
 A guide for programming within version control.
 
+1. [General Guidelines](#general-guidelines)
+1. [Writing a Feature](#writing-a-feature)
+1. [Reviewing Code](#reviewing-code)
+1. [Merging in General](#merging-in-general)
+1. [Pull Request Template](#pull-request-template)
+1. [Commit Message Template](#commit-message-template)
+
 General Guidelines
 ------------------
 
@@ -161,28 +168,12 @@ git branch --delete <branch-name>
 
 ## Pull Request Template
 
-Please add a [Pull Request Template](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) to your repo, to ensure that all pull requests follow our guide:
+Please add a [Pull Request Template](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) to your repo. This ensures that Pull Requests are created with testing instructions and screenshots as needed to allow your teammakes to more easily review your code. Linking to a ticket is _not sufficient_.
 
-```
-## Overview
+See [pull_request_template.md](pull_request_template.md) for our standard template.
 
-Please include a summary of the change and which issue is fixed.
-Please also include relevant motivation and context.
-List any dependencies that are required for this change.
+## Commit Message Template
 
-## Screenshots
+Please add a [Commit Message Template](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_commit_template_code) in your `gitconfig`. This ensures that you're writing [good commit messages](https://chris.beams.io/posts/git-commit/). Single-line commit messages for merging a feature branch are _not sufficient_.
 
-Visual changes should include a screenshot.
-
-## Testing
-
-1. instructions for reviewers
-1. to test your changes
-
----
-
-- Fixes # (issue)
-- or [TrelloCard/Issue/Story](LINK_TO_STORY)
-
-/CC @person
-```
+See [commit_template.txt](commit_template.txt) for an example.
