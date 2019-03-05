@@ -426,6 +426,8 @@ const animalsCopy = [...animals];
 
 To convert an iterable object (e.g. [NodeList]) to an array, use [array spread syntax][Array Literal Spread Syntax] `...` instead of [Array.from].
 
+(Note: This may not work correctly if transpiling with support for IE11. Instead, try a `for ... of` loop over the `NodeList`.)
+
 > Why? Better performance.
 
 #### Examples
