@@ -1,10 +1,15 @@
 [pull request]: https://help.github.com/articles/using-pull-requests
 [commit message]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+[best practices]: https://chris.beams.io/posts/git-commit/
+[pull request template]: https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/
+[name your feature branches by convention]: https://docs.microsoft.com/en-us/vsts/git/concepts/git-branching-guidance?view=vsts#name-your-feature-branches-by-convention
 
 Git Protocol
 ============
 
 A guide for programming within version control.
+
+
 
 General Guidelines
 ------------------
@@ -29,20 +34,18 @@ git checkout -b <branch-name>
 
 Prefix the branch name with something meaningful, for example:
 
-- `feature/make-the-thing-better`
-- `bugfix/735-sw-not-caching-images`
-- `cleanup/rename-all-the-files`
+- `users/username/description`
+- `users/username/workitem`
+- `feature/feature-name`
+- `feature/feature-area/feature-name`
+- `bugfix/description`
+- `hotfix/description`
+- `cleanup/description`
+- `chore/description`
 
-Using slashes provides a much nicer organization when viewing as directories as well as within any Git GUI apps.
-
-Another benefit is it lends itself to [this type of organization](https://docs.microsoft.com/en-us/vsts/git/concepts/git-branching-guidance?view=vsts#name-your-feature-branches-by-convention) as well, when/if needed:
-
-> - `users/username/description`
-> - `users/username/workitem`
-> - `bugfix/description`
-> - `feature/feature-name`
-> - `feature/feature-area/feature-name`
-> - `hotfix/description`
+When you [name your feature branches by convention] using slashes,
+it provides a much nicer organization when viewing as directories
+as well as within any Git GUI apps.
 
 ### Rebase frequently to incorporate upstream changes
 
@@ -64,16 +67,7 @@ git status
 git commit --verbose
 ```
 
-Write a good [commit message]. Example format:
-
-```
-Present-tense summary under 50 characters
-
-* More information about commit (under 72 characters).
-* More information about commit (under 72 characters).
-
-http://project.management-system.com/ticket/123
-```
+Be sure to [write a good commit message](#write-useful-commit-messages).
 
 If you've created more than one commit, use a rebase to squash them into
 cohesive commits with good messages:
@@ -161,28 +155,45 @@ git branch --delete <branch-name>
 
 ## Pull Request Template
 
-Please add a [Pull Request Template](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) to your repo, to ensure that all pull requests follow our guide:
+Please add a [Pull Request Template] to your repo,
+to ensure that all pull requests follow our guide:
+
+See our [Standard Pull Request Template](./commit_template.txt) in this directory.
+
+## Write Useful Commit Messages
+
+Please ensure that you follow [commit message] [best practices]:
+
+1. Separate subject from body with a blank line
+1. Limit the subject line to 50 characters
+1. Capitalize the first word of the subject line
+1. Do not end the subject line with a period
+1. Use the imperative mood in the subject line
+   (e.g. "Fix the bug" not "Fixed the bug")
+1. Wrap the body at 72 characters
+1. Use the body to explain what and why vs. how
+
+For example:
 
 ```
-## Overview
+Present-tense summary under 50 characters
 
-Please include a summary of the change and which issue is fixed.
-Please also include relevant motivation and context.
-List any dependencies that are required for this change.
+* More information about commit (under 72 characters).
+* More information about commit (under 72 characters).
 
-## Screenshots
+http://project.management-system.com/ticket/123
+```
 
-Visual changes should include a screenshot.
+See our [Standard Commit Message Template](./commit_template.txt) in this directory.
 
-## Testing
+To use the template, save it to your local machines and add it to your `.gitconfig`:
 
-1. instructions for reviewers
-1. to test your changes
+```
+git config --global commit.template <.git-commit-template.txt file path>
+```
 
----
+For example, if you saved it to your home folder, try:
 
-- Fixes # (issue)
-- or [TrelloCard/Issue/Story](LINK_TO_STORY)
-
-/CC @person
+```
+git config --global commit.template ~/.git-commit-template.txt
 ```
