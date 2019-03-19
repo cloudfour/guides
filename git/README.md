@@ -166,9 +166,10 @@ Please ensure that you follow [commit message] [best practices]:
 
 1. Separate subject from body with a blank line
 1. Limit the subject line to 50 characters
-1. Capitalize the subject line
+1. Capitalize the first word of the subject line
 1. Do not end the subject line with a period
 1. Use the imperative mood in the subject line
+   (e.g. "Fix the bug" not "Fixed the bug")
 1. Wrap the body at 72 characters
 1. Use the body to explain what and why vs. how
 
