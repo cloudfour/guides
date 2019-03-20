@@ -89,28 +89,16 @@ Reviewing Code
 
 ### Fellow team members review the pull request
 
-They follow code review guidelines to avoid miscommunication. They make comments
-and ask questions directly on lines of code. For changes which they can make
-themselves, they `checkout` the branch:
-
-```
-git checkout <branch-name>
-```
-
-If needed, they make small changes right in the branch, test the feature on
-their machine, `commit`, and `push`.
-
-```
-git commit -m "Fix the stuff that so-and-so missed"
-git push origin <branch-name>
-```
-
-### When satisfied, they comment on the pull request
+Your team members will follow code review guidelines to avoid miscommunication.
+They make comments and ask questions directly on lines of code.
+When satisfied, they'll approve your pull request and leave a comment:
 
 > This is some excellent work, Ross. :thumbsup:
 
 Merging in General
 ------------------
+
+Once your PR has been approved, you are responsible for merging it.
 
 ### Rebasing
 
