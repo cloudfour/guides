@@ -426,8 +426,6 @@ const animalsCopy = [...animals];
 
 To convert an iterable object (e.g. [NodeList]) to an array, use [array spread syntax][Array Literal Spread Syntax] `...` instead of [Array.from].
 
-(Note: This may not work correctly if transpiling with support for IE11. Instead, try a `for ... of` loop over the `NodeList`.)
-
 > Why? Better performance.
 
 #### Examples
@@ -445,6 +443,19 @@ const nodes = Array.from(paragraphs);
 const paragraphs = document.querySelectorAll('p');
 const nodes = [...paragraphs];
 ```
+#### Note
+
+If using Babel with `@babel/preset-env` with option `loose:true`, and are transpiling to older targets in a `.browserlistrc`, you may need to add the following to your Babel config (e.g., `babel.config.js`):
+
+```js
+plugins: [
+  ...,
+  '@babel/plugin-transform-spread',
+  ...
+]
+```
+
+(The default option for this plugin is `loose:false`, which will override the global setting)
 
 #### Resources
 
