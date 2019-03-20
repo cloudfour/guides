@@ -146,7 +146,7 @@ git branch --delete <branch-name>
 Please add a [Pull Request Template] to your repo,
 to ensure that all pull requests follow our guide:
 
-See our [Standard Pull Request Template](./commit_template.txt) in this directory.
+See our [Standard Pull Request Template](./pull_request_template.md) in this directory.
 
 ## Write Useful Commit Messages
 
