@@ -66,3 +66,4 @@ Add note about Snyk
 - [Audit CI](https://www.npmjs.com/package/audit-ci)
 - [Comparing NPM Audit with Synk](https://www.nearform.com/blog/comparing-npm-audit-with-snyk/)
 - [Snyk demo app](https://github.com/snyk/snyk-demo-app)
+- [Twitter thread about Snyk patches](https://twitter.com/spaceninja/status/1118179340871553024)
