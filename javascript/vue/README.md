@@ -10,7 +10,7 @@ This styleguide is a work-in-progress, documenting how Cloud Four prefers to wri
 
 Try to avoid destructuring in HTML templates, to make it obvious where a particular variable is coming from. Since HTML templates have access to props and local variables in `v-for` loops, clarity is favored over brevity in this case.
 
-**Bad**
+**Avoid This**
 
 Notice that in this example with nested `v-for` loops, destructuring makes it unclear where certain variables are coming from, and some repeated variables like `title` need to be remapped.
 
@@ -37,7 +37,7 @@ Notice that in this example with nested `v-for` loops, destructuring makes it un
 </section>
 ```
 
-**Good**
+**Prefer This**
 
 By not destructuring, the nested `v-for` loops are much easier to understand.
 
