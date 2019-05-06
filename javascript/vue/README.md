@@ -61,4 +61,4 @@ By not destructuring, the nested `v-for` loops are much easier to understand.
 </section>
 ```
 
-Note that while these examples with nested `v-for` loops are severe, they highlight a possible problem with destructuring in HTML templates. As a team, we decided to favor consistancy, and rather than have a rule like "always destructure except in loops," we've standardized on "avoid destructuring in templates."
+Note that while these examples with nested `v-for` loops are extreme, they highlight a possible problem with destructuring in HTML templates. As a team, we decided to favor consistency, and rather than have a rule like "always destructure except in loops," we've standardized on "avoid destructuring in templates."
