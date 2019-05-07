@@ -1,7 +1,4 @@
 [pull request]: https://help.github.com/articles/using-pull-requests
-[A Note About Git Commit Messages]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[How to Write a Git Commit Message]: https://chris.beams.io/posts/git-commit/
-[Commit Messages Guide]: https://github.com/RomuloOliveira/commit-messages-guide
 [pull request template]: https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/
 [name your feature branches by convention]: https://docs.microsoft.com/en-us/vsts/git/concepts/git-branching-guidance?view=vsts#name-your-feature-branches-by-convention
 
@@ -182,9 +179,9 @@ http://project.management-system.com/ticket/123
 ```
 
 ### Commit Message Best Practices
-- [A Note About Git Commit Messages]
-- [How to Write a Git Commit Message]
-- [Commit Messages Guide]
+- [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+- [Commit Messages Guide](https://github.com/RomuloOliveira/commit-messages-guide)
 
 ### Commit Message Template
 
