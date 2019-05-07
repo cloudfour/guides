@@ -1,6 +1,4 @@
 [pull request]: https://help.github.com/articles/using-pull-requests
-[commit message]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[best practices]: https://chris.beams.io/posts/git-commit/
 [pull request template]: https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/
 [name your feature branches by convention]: https://docs.microsoft.com/en-us/vsts/git/concepts/git-branching-guidance?view=vsts#name-your-feature-branches-by-convention
 
@@ -9,6 +7,14 @@ Git Protocol
 
 A guide for programming within version control.
 
+## Table of Contents
+
+- [General Guidelines](#general-guidelines)
+- [Writing a Feature](#writing-a-feature)
+- [Reviewing Code](#reviewing-code)
+- [Merging in General](#merging-in-general)
+- [Pull Request Template](#pull-request-template)
+- [Write Useful Commit Messages](#write-useful-commit-messages)
 
 
 General Guidelines
@@ -150,7 +156,7 @@ See our [Standard Pull Request Template](./pull_request_template.md) in this dir
 
 ## Write Useful Commit Messages
 
-Please ensure that you follow [commit message] [best practices]:
+Please ensure that you follow commit message best practices:
 
 1. Separate subject from body with a blank line
 1. Limit the subject line to 50 characters
@@ -171,6 +177,13 @@ Present-tense summary under 50 characters
 
 http://project.management-system.com/ticket/123
 ```
+
+### Commit Message Best Practices
+- [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+- [Commit Messages Guide](https://github.com/RomuloOliveira/commit-messages-guide)
+
+### Commit Message Template
 
 See our [Standard Commit Message Template](./commit_template.txt) in this directory.
 
