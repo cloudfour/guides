@@ -47,7 +47,7 @@ In a small company like ours, the most senior engineer with direct knowledge sho
 
 The postmortem is intended for public consumption, especially by clients. It's a visible way to document not just the problem that happened, but how you addressed it and are ensuring it won't happen again. A properly written postmortem should increase your customer's faith in you.
 
-> The postmortem audience includes customers, direct reports, peers, the company's executive team and often investors. The document may be published on your website, and otherwise goes to the entire team. It's critical to bcc everyone. This is the equivalent of a locked thread, avoiding washing the laundry in public: one of the worst possible things to see is when a senior manager replies back pointing an individual who made a mistake, definitely not an email you want accidentally sent to the entire company. — [Daniel Doubrovkine](https://artsy.github.io/blog/2014/11/19/how-to-write-great-outage-post-mortems/)
+> "The postmortem audience includes customers, direct reports, peers, the company's executive team and often investors. The document may be published on your website, and otherwise goes to the entire team. It's critical to bcc everyone. This is the equivalent of a locked thread, avoiding washing the laundry in public: one of the worst possible things to see is when a senior manager replies back pointing an individual who made a mistake, definitely not an email you want accidentally sent to the entire company." — [Daniel Doubrovkine](https://artsy.github.io/blog/2014/11/19/how-to-write-great-outage-post-mortems/)
 
 ### Running a Postmortem Meeting
 
