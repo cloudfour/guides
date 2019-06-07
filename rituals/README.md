@@ -2,6 +2,8 @@
 
 This guide documents some common rituals we encourage in our work.
 
+These are not ironclad processes we should always follow. More like a helpful jumping-off point if you're on a project where they would be useful.
+
 ## [Retrospectives](./retros.md)
 
 > "At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly." — Agile Manifesto
