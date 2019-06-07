@@ -39,7 +39,7 @@ The postmortem document should be produced within 24-48 hours of the incident's 
 
 ### Who Completes the Postmortem?
 
-In a small company like ours, the most senior engineer with direct knowledge should be writing an outage postmortem. It's their job and responsibility to acknowledge, understand and explain what happened. For particularly sensitive topics, it may make sense to escalate this responsibility to an engineering manager, CTO, VP or Head of Engineering.
+In a small company like ours, the most senior engineer with direct knowledge should be writing an outage postmortem. It's their job and responsibility to acknowledge, understand and explain what happened. For particularly sensitive topics, it may make sense to escalate this responsibility to an engineering manager or founder.
 
 > "Focusing attention away from the individual contributors allows the team to learn from the mistakes and address the root causes in time without the unnecessary stress or pressure during a crisis." — [Daniel Doubrovkine](https://artsy.github.io/blog/2014/11/19/how-to-write-great-outage-post-mortems/)
 
