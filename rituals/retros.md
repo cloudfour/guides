@@ -51,7 +51,7 @@ If the _goal_ of a retro is to learn how process can be improved, then the _outp
 
 After the meeting, the facilitator will:
 
-- Create a retro document from the [Retrospective Template](#coming-soon)
+- Create a retro document from the [Retrospective Template](https://docs.google.com/document/d/1tXjLXG1ftNDXHvBuA9QoJhwT2WwgM2b-h8sy-z6HzqE)
 - Add the notes from the retro meeting to the retro document
 - Save the document to a project-specific retrospectives document folder
 - Share the document to with the company by email
@@ -77,7 +77,7 @@ If you're concerned this retro might be particularly contentious, consider spend
 
 ## Resources
 
-- [Retrospective Template](#coming-soon) document on Google Drive
+- [Retrospective Template](https://docs.google.com/document/d/1tXjLXG1ftNDXHvBuA9QoJhwT2WwgM2b-h8sy-z6HzqE) document on Google Drive
 - [Retrospective Playbook from Atlassian](https://www.atlassian.com/team-playbook/plays/retrospective)
 - [5 Tips for an Effective and Lively Retrospective](https://gaiku.io/blog/sprint-retrospective)
                  
