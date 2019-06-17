@@ -11,3 +11,4 @@ Conventions, processes and notes about how we do things.
 - **[Today I Learned](./til/)**
 - **[Setup npm Publish](./npm)**
 - **[Open Source Guide](./opensource)**
+- **[Rituals Guide](./rituals)**
