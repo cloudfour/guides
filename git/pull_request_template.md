@@ -10,12 +10,8 @@ List any dependencies that are required for this change.
 - [ ] Did you test with a keyboard?
 - [ ] Did you [test in grayscale](https://9to5mac.com/2019/05/27/how-to-use-grayscale-on-your-mac/)?
 - [ ] Did you test with a screenreader?
-- [ ] Consider adding a screenshot of the relevant sections from the Accessibility Tree
+- [ ] Consider adding a screenshot of relevant changes to the Accessibility Tree ([Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector#Accessing_the_Accessibility_Inspector)/[Chrome](https://umaar.com/dev-tips/152-accessibility-tree))
 - [ ] Consider adding other relevant accessibility information (updates, audits, etc.)
-
-**Accessibility Tree References**
-- [Firefox Accessibility Tree](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector#Accessing_the_Accessibility_Inspector)
-- [Chrome Accessibility Tree](https://umaar.com/dev-tips/152-accessibility-tree)
 
 ### Test Coverage
 
