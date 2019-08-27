@@ -8,7 +8,7 @@ List any dependencies that are required for this change.
 
 - [ ] Did you make any changes that affect accessibility?
 - [ ] Did you test with a keyboard?
-- [ ] Did you test in grayscale? (System Prefs > A11y > Display > use grayscale)
+- [ ] Did you [test in grayscale](https://9to5mac.com/2019/05/27/how-to-use-grayscale-on-your-mac/)?
 - [ ] Did you test with a screenreader?
 - [ ] Consider adding a screenshot of the relevant sections from the Accessibility Tree
 - [ ] Consider adding other relevant accessibility information (updates, audits, etc.)
