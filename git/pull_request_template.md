@@ -11,7 +11,7 @@ List any dependencies that are required for this change.
 - [ ] Did you [test in grayscale](https://9to5mac.com/2019/05/27/how-to-use-grayscale-on-your-mac/)?
 - [ ] Did you test with a screenreader?
 - [ ] Consider adding a screenshot of relevant changes to the Accessibility Tree ([Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector#Accessing_the_Accessibility_Inspector)/[Chrome](https://umaar.com/dev-tips/152-accessibility-tree))
-- [ ] Consider adding other relevant accessibility information (updates, audits, etc.)
+- [ ] Consider adding other relevant accessibility information (updates, [audits](https://developers.google.com/web/tools/lighthouse/), etc.)
 
 ### Test Coverage
 
@@ -22,9 +22,9 @@ List any dependencies that are required for this change.
 
 ## Screenshots
 
-Visual changes should include a screenshot.
+- [ ] Visual changes should include a screenshot.
 
-## How to Test this PR
+## How to test this PR
 
 1. instructions for reviewers
 1. to test your changes
