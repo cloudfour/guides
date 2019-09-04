@@ -10,7 +10,7 @@ On GitHub, you can use the "Squash and Merge" option when merging a commit to au
 
 From the command line, you can use the `git rebase -i` command, and then change `pick` to `s` for any commit you want to squash into the first. For more details, see the following articles:
 
-## Resources:
+## Resources
 
 - [Thoughtbot: Git Interactive Rebase, Squash, Amend, and Other Ways of Rewriting History](https://thoughtbot.com/blog/git-interactive-rebase-squash-amend-rewriting-history)
 - [Always Squash and Rebase Your Git Commits](https://blog.carbonfive.com/2017/08/28/always-squash-and-rebase-your-git-commits/)
