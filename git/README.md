@@ -108,13 +108,15 @@ Once your PR has been approved, you are responsible for merging it.
 
 ### Rebasing
 
-Squash commits like "Fix whitespace" into one or a small number of valuable
-commit(s). Edit commit messages to reveal intent. Run tests.
+[Squash commits](./squash.md) like "Fix whitespace" into one or a small number
+of valuable commit(s). Edit commit messages to reveal intent. Run tests.
 
 ```
 git fetch origin
 git rebase -i origin/master
 ```
+
+- [How and Why to Squash Merge your Pull Request](./squash.md)
 
 ### Force-Pushing
 
