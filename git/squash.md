@@ -16,3 +16,4 @@ From the command line, you can use the `git rebase -i` command, and then change 
 - [Always Squash and Rebase Your Git Commits](https://blog.carbonfive.com/2017/08/28/always-squash-and-rebase-your-git-commits/)
 - [Squash All Commits Related to a Single Issue into a Single Commit](https://github.com/todotxt/todo.txt-android/wiki/Squash-All-Commits-Related-to-a-Single-Issue-into-a-Single-Commit)
 - [A Beginner's Guide to Squashing Commits with Git Rebase](https://medium.com/@slamflipstrom/a-beginners-guide-to-squashing-commits-with-git-rebase-8185cf6e62ec)
+- [GitHub: Configuring commit squashing for pull requests](https://help.github.com/en/articles/configuring-commit-squashing-for-pull-requests)
