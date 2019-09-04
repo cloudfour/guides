@@ -2,7 +2,7 @@
 
 [![How and Why to Squash Merge your Pull Requests](./thumbnail.png)](https://www.youtube.com/watch?v=41EITMtWUZM "How and Why to Squash Merge your Pull Requests")
 
-When merging a feature branch PR into master, we recommend you squash your commits into one (or just a few) commits. We do this to avoid having a messy history full of "fix typo" and "lint fix" and "oops" commits. As a rule of thumb, most PRs should squash down to a single commit with a well-written commit message explaining why a change is happening.
+When merging a feature branch PR into master, we recommend you squash your commits into one (or just a few) commits. We do this to avoid having a messy history full of "fix typo", "lint fix" and "oops" commits. As a rule of thumb, most PRs should squash down to a single commit with a well-written commit message explaining why a change is happening.
 
 On GitHub, you can use the "Squash Merge" option when merging a commit to automatically squash all commits into one, with the option to rewrite the commit message.
 
