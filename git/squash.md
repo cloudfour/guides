@@ -8,7 +8,7 @@ When merging a feature branch PR into master, we recommend you squash your commi
 
 On GitHub, you can use the "Squash and Merge" option when merging a commit to automatically squash all commits into one, with the option to rewrite the commit message.
 
-From the command line, you can use the `git rebase -i` command, and then change `pick` to `s` for any commit you want to squash into the first. For more details, see the following articles:
+From the command line, you can use the `git rebase -i` command, and then change `pick` to `s` for any commit you want to squash into the first. For more details, see the following resources.
 
 ## Resources
 
