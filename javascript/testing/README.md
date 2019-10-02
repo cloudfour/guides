@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Testing JavaScript](#testing-javascript)
   - [Overview](#overview)
     - [Why test?](#why-test)
@@ -100,11 +99,11 @@ Unit tests are designed to verify the functionality of the smallest building blo
 
 ### Integration
 
-#### Snapshot
-
 ### End-to-end
 
-### Visual regression
+### Snapshot
+
+#### Visual regression
 
 ## Test organization
 
