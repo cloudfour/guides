@@ -4,6 +4,9 @@
 
 - [Testing JavaScript](#testing-javascript)
   - [Overview](#overview)
+  - [Why test?](#why-test)
+  - [Costs and benefits](#costs-and-benefits)
+  - [Building a practice of testing](#building-a-practice-of-testing)
   - [The language of tests](#the-language-of-tests)
     - [Examples](#examples)
   - [Types of tests](#types-of-tests)
@@ -37,9 +40,15 @@ WIP.
 
 This guide is meant to be both a general reference and place for documenting team-specific standards and approaches. It will be JavaScript-specific, and focust on client-side testing, but many of the concepts discussed can apply to testing across languages and platforms.
 
+## Why test?
+
 Writing, maintaining, and automatically running tests for significant portions of in-house generated code is considered the best way to have confidence that software will perform according to requirements, over time. This practice also helps catch bugs during development and, depending on the workflow adopted, can also be used as a scaffold for writing the code itself (see test-driven development).
 
+## Costs and benefits
+
 In agency work, particularly, clients may need to be convinced of the benefits of testing, considering the time and effort needed to create, run, and maintain tests. In this light, the costs of testing can be weighed against the inevitable costs of shipping and fixing buggy software.
+
+## Building a practice of testing
 
 It also takes time to build developers' skills in writing both tests and testable code, and knowing how to set up and configure the tooling needed to scaffold and run tests throughout the development and release lifecycle. The hope is that this guide will be one resource to help minimize the costs of adopting a testing practice, in the hope that it becomes a standard practice on many, if not all projects.
 
