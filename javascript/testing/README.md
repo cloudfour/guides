@@ -12,7 +12,7 @@
 
 WIP.
 
-This guide is meant to be both a general reference and place for documenting team-specific standards and approaches.
+This guide is meant to be both a general reference and place for documenting team-specific standards and approaches. It will be JavaScript-specific, and focust on client-side testing, but many of the concepts discussed can apply to testing across languages and platforms.
 
 Writing, maintaining, and automatically running tests for significant portions of in-house generated code is considered the best way to have confidence that software will perform according to requirements, over time. This practice also helps catch bugs during development and, depending on the workflow adopted, can also be used as a scaffold for writing the code itself (see test-driven development).
 
