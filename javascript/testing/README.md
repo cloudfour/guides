@@ -1,14 +1,37 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Overview](#overview)
+
+- [Testing JavaScript](#testing-javascript)
+  - [Overview](#overview)
+  - [The language of tests](#the-language-of-tests)
+    - [Examples](#examples)
   - [Types of tests](#types-of-tests)
-  - [Tools (Frameworks, runners, libraries)](#tools-frameworks-runners-libraries)
+    - [Unit](#unit)
+    - [Integration](#integration)
+      - [Snapshot](#snapshot)
+    - [End-to-end](#end-to-end)
+    - [Visual regression](#visual-regression)
+  - [Test organization](#test-organization)
+    - [Placement and naming of tests](#placement-and-naming-of-tests)
+    - [Test blocks](#test-blocks)
+    - [Setup and teardown](#setup-and-teardown)
+    - [Test object factories](#test-object-factories)
+  - [Tools](#tools)
+    - [Runners](#runners)
+    - [Assertion libraries](#assertion-libraries)
+    - [Test double libraries](#test-double-libraries)
+    - [Code coverage testers](#code-coverage-testers)
+    - [Frameworks](#frameworks)
   - [Testable code](#testable-code)
+    - [Functional style](#functional-style)
+    - [Managing dependencies](#managing-dependencies)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Overview
+# Testing JavaScript
+
+## Overview
 
 WIP.
 
@@ -24,10 +47,80 @@ It also takes time to build developers' skills in writing both tests and testabl
 (@TODO - Decide whether to keep the following reference)
 -->
 
-A decent overview of both general and JS-specific testing concepts can be found in [this article](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a) by Vitali Zaidman.
+A decent overview of both general and JS-specific testing concepts and tools can be found in [this article](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a) by Vitali Zaidman.
+
+## The language of tests
+
+Almost all tests are fundamentally written in an assertion or expectation style. For example, a function or portion code is run, or UI flow run though automation, and then the test executes assertions or expectations that should evaluate to true for the test to pass.
+
+### Examples
+
+```js
+// Assertion style
+assert.equal(2 + 2, 4);
+```
+
+or
+
+```js
+// Expectation style
+expect(2 + 2).toEqual(4);
+```
+
+These concepts can apply to almost any type of test. For example:
+
+```js
+// Run code that renders, compare with past snapshot
+expect(renderedOutput).toMatch(snapshot);
+```
+
+or (at a point in an integration or end-to-end test flow)
+
+```js
+// Automate a user login page, then
+expect(user.loggedIn).toBe(true);
+```
 
 ## Types of tests
 
-## Tools (Frameworks, runners, libraries)
+There are a handful of different, commonly recognized types of tests, each of which has a specific focus and purpose. Some should be run during development and as part of a VCS workflow, and others are meant to be run mainly in CI and deployment stages.
+
+### Unit
+
+Unit tests are designed to verify the functionality of the smallest building blocks of code. They are usually specced at the level of single functions. A suite of unit tests might cover most or all of the functions within a single (ES) module or the methods of a particular class.
+
+### Integration
+
+#### Snapshot
+
+### End-to-end
+
+### Visual regression
+
+## Test organization
+
+### Placement and naming of tests
+
+### Test blocks
+
+### Setup and teardown
+
+### Test object factories
+
+## Tools
+
+### Runners
+
+### Assertion libraries
+
+### Test double libraries
+
+### Code coverage testers
+
+### Frameworks
 
 ## Testable code
+
+### Functional style
+
+### Managing dependencies
