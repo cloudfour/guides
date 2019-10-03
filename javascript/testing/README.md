@@ -95,9 +95,19 @@ There are a handful of different, commonly recognized types of tests, each of wh
 
 ### Unit
 
-Unit tests are designed to verify the functionality of the smallest building blocks of code. They are usually specced at the level of single functions. A suite of unit tests might cover most or all of the functions within a single (ES) module or the methods of a particular class.
+Unit tests are designed to verify the functionality of the smallest building blocks of code. They are usually specced at the level of single functions or class methods. A suite of unit tests might cover most or all of the functions within a single (ES) module or the methods of a particular class.
+
+Unit tests strive to isolate the subject of the test by using test doubles to predictably control the behavior of dependencies and eliminate side-effects. For example, a call to an API might be replaced with something like
+
+```js
+const apiCall = () => Promise.resolve({ data: { someKey: someValue } });
+```
+
+Test doubles can also be made to track details about their use (aka, act as `spies`), and testing libraries and frameworks generally supply methods that provide this functionality out of the box.
 
 ### Integration
+
+Integration tests verify the correct coordination of functionality between modules or classes (both internal and possibly external [3rd-party]). Because integration tests are meant to verify the behavior of a system, fewer or maybe no units of code involved in the test may be substituted with test doubles.
 
 ### End-to-end
 
