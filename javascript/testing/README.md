@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Testing JavaScript](#testing-javascript)
   - [Overview](#overview)
     - [Why test?](#why-test)
@@ -11,9 +12,9 @@
   - [Types of tests](#types-of-tests)
     - [Unit](#unit)
     - [Integration](#integration)
-      - [Snapshot](#snapshot)
     - [End-to-end](#end-to-end)
-    - [Visual regression](#visual-regression)
+    - [Snapshot](#snapshot)
+      - [Visual regression](#visual-regression)
   - [Test organization](#test-organization)
     - [Placement and naming of tests](#placement-and-naming-of-tests)
     - [Test blocks](#test-blocks)
@@ -22,7 +23,10 @@
   - [Tools](#tools)
     - [Runners](#runners)
     - [Assertion libraries](#assertion-libraries)
-    - [Test double libraries](#test-double-libraries)
+    - [Test doubles](#test-doubles)
+      - [Fakes](#fakes)
+      - [Stubs](#stubs)
+      - [Mocks & Spying](#mocks--spying)
     - [Code coverage testers](#code-coverage-testers)
     - [Frameworks](#frameworks)
   - [Testable code](#testable-code)
@@ -131,7 +135,15 @@ Integration tests verify the correct coordination of functionality between modul
 
 ### Assertion libraries
 
-### Test double libraries
+### Test doubles
+
+[Reference](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da) (find more)
+
+#### Fakes
+
+#### Stubs
+
+#### Mocks & Spying
 
 ### Code coverage testers
 
