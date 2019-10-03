@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Testing JavaScript](#testing-javascript)
   - [Overview](#overview)
     - [Why test?](#why-test)
@@ -137,7 +136,11 @@ Integration tests verify the correct coordination of functionality between modul
 
 ### Test doubles
 
-[Reference](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da) (find more)
+[Reference](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da)
+
+[Another reference](https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub#17810004)
+
+(find more)
 
 #### Fakes
 
