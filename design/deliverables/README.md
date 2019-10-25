@@ -40,7 +40,6 @@ Mood boards are traditionally assembled in-person by cutting out pieces of magaz
 
 - [InVision Boards](https://www.invisionapp.com/blog/boards-share-design-inspiration-assets/)
 - [Niice](https://niice.co/)
-- [Pinterest](https://www.pinterest.com/)
 
 ### Further Reading
 
