@@ -108,8 +108,9 @@ Once your PR has been approved, you are responsible for merging it.
 
 ### Rebasing
 
-Squash commits like "Fix whitespace" into one or a small number of valuable
-commit(s). Edit commit messages to reveal intent. Run tests.
+To avoid a messy history, please rebase and squash low-value commits
+like "Fix whitespace" into one or a small number of valuable commit(s). 
+Edit commit messages to reveal intent. Run tests.
 
 ```
 git fetch origin
@@ -132,6 +133,16 @@ Force-pushing may not always be appropriate for every project, depending on
 other factors like hooks or continuous integration. Pull Requests may also be
 merged into `master` (or whatever their target branch is) by simply
 clicking the green "Merge Branch" button on the GitHub Pull Request page.
+
+Note that GitHub offers three merge options: a merge commit, rebase and merge,
+and squash and merge. All are good for different situations. For example,
+merge commits are good for merging feature branches with many developers or
+that other feature branches depend on.
+
+For short-lived, single-developer feature branches, we favor squashing to
+preserve a clean and easy-to-follow history.
+
+- [How and Why to Squash Merge your Pull Request](https://cloudfour.com/thinks/squashing-your-pull-requests/)
 
 ### Once merged, delete your branch
 
