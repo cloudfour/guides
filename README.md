@@ -8,7 +8,6 @@ Conventions, processes and notes about how we do things.
     - [Vue Guide](./javascript/vue)
 - **[Design Guide](./design/)**
 - **[Git Guide](./git/)**
-    - [Squash Merge Guide](./git/squash.md)
 - **[Today I Learned](./til/)**
 - **[Setup npm Publish](./npm)**
 - **[Open Source Guide](./opensource)**
