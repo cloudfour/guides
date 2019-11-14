@@ -68,28 +68,36 @@ Almost all tests are fundamentally written in an assertion or expectation style.
 
 ```js
 // Assertion style
-assert.equal(2 + 2, 4);
+test('Two plus two equals four', () => {
+  assert.equal(2 + 2, 4);
+});
 ```
 
 or
 
 ```js
 // Expectation style
-expect(2 + 2).toEqual(4);
+test('Two plus two equals four', () => {
+  expect(2 + 2).toEqual(4);
+});
 ```
 
 These concepts can apply to almost any type of test. For example:
 
 ```js
 // Run code that renders, compare with past snapshot
-expect(renderedOutput).toMatch(snapshot);
+test('Nothing has changed', () => {
+  expect(renderedOutput).toMatch(snapshot);
+});
 ```
 
 or (at a point in an integration or end-to-end test flow)
 
 ```js
 // Automate a user login page, then
-expect(user.loggedIn).toBe(true);
+test('User is logged in correctly', () => {
+  expect(user.loggedIn).toBe(true);
+});
 ```
 
 ## Types of tests
@@ -114,7 +122,11 @@ Integration tests verify the correct coordination of functionality between modul
 
 ### End-to-end
 
+End-to-end (aka, E2E) tests verify expected outcomes of complete user flows by automating interaction with a running application. For web applications, this means spawning a fully built application in a real browser (may be headless) and having a test runner follow instructions to interact with (or drive) that browser through a user flow, simulating real-world use. In this scenario, nothing is faked, other than the user.
+
 ### Snapshot
+
+Snapshot tests compare a portion of the current state of code or output (generally) in an application with a previous record of that same piece of state. In this way, a test can verify that something hasn't, or maybe has changed, and that this outcome was expected. If a code update results in a change where one wasn't expected (for example), the baseline can be reset for follow-up tests to use as a comparison.
 
 #### Visual regression
 
