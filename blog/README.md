@@ -52,34 +52,34 @@ We have received requests to translate our articles in the past, but don't have 
 
 ## Writing Advice
 
-[Don't Feel Like an Expert? Share Anyway.](https://medium.com/@sara_ann_marie/dont-feel-like-an-expert-share-anyway-661f2f8cd038)
+- [Don't Feel Like an Expert? Share Anyway.](https://medium.com/@sara_ann_marie/dont-feel-like-an-expert-share-anyway-661f2f8cd038)
 
-> Too many of the most interesting voices in tech and design talk themselves out of writing or speaking about their work—because they don’t think they have enough experience. But you don’t have to wait for “enough“ (whatever that means). Here’s how to find what’s special about your perspective right now—wherever you are in your career.
+  > Too many of the most interesting voices in tech and design talk themselves out of writing or speaking about their work—because they don’t think they have enough experience. But you don’t have to wait for “enough“ (whatever that means). Here’s how to find what’s special about your perspective right now—wherever you are in your career.
 
-[Advice for Technical Writing](https://css-tricks.com/advice-for-technical-writing/)
+- [Advice for Technical Writing](https://css-tricks.com/advice-for-technical-writing/)
 
-> In advance of a recent podcast with the incredible technical writer and Smashing Magazine editor-in-chief Rachel Andrew, I gathered up a bunch of thoughts and references on the subject of technical writing. So many smart people have said a lot of smart things over the years that I thought I'd round up some of my favorite advice and sprinkle in my own experiences, as someone who has also done his fair share of technical writing and editing.
+  > In advance of a recent podcast with the incredible technical writer and Smashing Magazine editor-in-chief Rachel Andrew, I gathered up a bunch of thoughts and references on the subject of technical writing. So many smart people have said a lot of smart things over the years that I thought I'd round up some of my favorite advice and sprinkle in my own experiences, as someone who has also done his fair share of technical writing and editing.
 
-[Avoid the Word "Just"](https://bradfrost.com/blog/post/just/)
+- [Avoid the Word "Just"](https://bradfrost.com/blog/post/just/)
 
-> “Just” makes me feel like an idiot. “Just” presumes I come from a specific background, studied certain courses in university, am fluent in certain technologies, and have read all the right books, articles, and resources. “Just” is a dangerous word.
+  > “Just” makes me feel like an idiot. “Just” presumes I come from a specific background, studied certain courses in university, am fluent in certain technologies, and have read all the right books, articles, and resources. “Just” is a dangerous word.
 
-[Words To Avoid in Educational Writing](https://css-tricks.com/words-avoid-educational-writing/)
+- [Words To Avoid in Educational Writing](https://css-tricks.com/words-avoid-educational-writing/)
 
-> I'm no English major, but as a writer and consumer of loads of educational (mostly tech) writing, I've come to notice a number of words and phrases that come up fairly often and don't add anything to the writing. In fact, they might detract from it.
+  > I'm no English major, but as a writer and consumer of loads of educational (mostly tech) writing, I've come to notice a number of words and phrases that come up fairly often and don't add anything to the writing. In fact, they might detract from it.
 
-> Obviously; Basically; Simply; Of course; Clearly; Just; Everyone knows; However; So; Easy;
+  > Obviously; Basically; Simply; Of course; Clearly; Just; Everyone knows; However; So; Easy;
 
-[Plain Language Is for Everyone, Even Experts](https://www.nngroup.com/articles/plain-language-experts/)
+- [Plain Language Is for Everyone, Even Experts](https://www.nngroup.com/articles/plain-language-experts/)
 
-> Professionals want clear, concise information devoid of unnecessary jargon or complex terms. Plain language benefits both consumers and organizations.
+  > Professionals want clear, concise information devoid of unnecessary jargon or complex terms. Plain language benefits both consumers and organizations.
 
-[Keep Code Samples Short & Relevant](https://twitter.com/sarah_edo/status/1106631555693187073)
+- [Keep Code Samples Short & Relevant](https://twitter.com/sarah_edo/status/1106631555693187073)
 
-> When writing technical blog posts, please take care that the code samples in the article aren't long. In my opinion, the post shouldn't be the full repo. Highlight the specific parts of interest, and peel away boilerplate so people can read less and learn more. Then, if needed, link to a more complete code example on [CodePen](https://codepen.io/), [JSBin](https://jsbin.com/), or something similar.
+  > When writing technical blog posts, please take care that the code samples in the article aren't long. In my opinion, the post shouldn't be the full repo. Highlight the specific parts of interest, and peel away boilerplate so people can read less and learn more. Then, if needed, link to a more complete code example on [CodePen](https://codepen.io/), [JSBin](https://jsbin.com/), or something similar.
 
-[Write a Hulk Summary](https://chriscoyier.net/2020/01/23/the-hulk-summary/)
+- [Write a Hulk Summary](https://chriscoyier.net/2020/01/23/the-hulk-summary/)
 
-> Channel your inner Hulk voice and use it to describe whatever you need to get writing on. Hammer down that shift key (caps lock is a cop-out) and type max 4 words for each bullet to capture the core sentiment of what you’re arguing.
+  > Channel your inner Hulk voice and use it to describe whatever you need to get writing on. Hammer down that shift key (caps lock is a cop-out) and type max 4 words for each bullet to capture the core sentiment of what you’re arguing.
 
-> WRITING IS HARD; YOU THINK TOO MUCH! WE HAVE A SOLUTION; THE HULK SUMMARY!
+  > WRITING IS HARD; YOU THINK TOO MUCH! WE HAVE A SOLUTION; THE HULK SUMMARY!
