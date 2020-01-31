@@ -1,6 +1,6 @@
 # Cloud Four Blog Guide
 
-![Captain America sitting on a backwards chair](https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580506044/america_obfr70.jpg)
+<p align="center"><img alt="Captain America sitting on a backwards chair" src="https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_800/v1580506044/america_obfr70.jpg" width="400" /></p>
 
 So you've decided to write for the Cloud Four blog… Congratulations! There are a few things you may want to know about how our blog works:
 
