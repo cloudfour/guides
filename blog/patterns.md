@@ -12,7 +12,7 @@ The Box shortcode will create a [Post Intro](https://cloudfour-patterns.netlify.
 
 - [Example](https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/)
 
-### Grow Modifier
+#### Grow Modifier
 
 The Grow modifier will add a [`u-textGrowX` class](https://cloudfour-patterns.netlify.com/patterns/utilities.html#text) using whatever size you pass in.
 
@@ -38,7 +38,7 @@ Note the optional use of the `u-borderSm` utility class to add a light border to
 
 - [Example](https://cloudfour.com/thinks/hey-hey-cloud-four-is-a-pwa/)
 
-### Shrink Modifier
+#### Shrink Modifier
 
 The Grow modifier will add a [`u-textShrinkX` class](https://cloudfour-patterns.netlify.com/patterns/utilities.html#text) using whatever size you pass in.
 
@@ -60,7 +60,7 @@ The FlexEmbed shortcode create a [Flex Embed](https://cloudfour-patterns.netlify
 
 - [Example](https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/)
 
-### Ratio Modifier
+#### Ratio Modifier
 
 You can manually choose the aspect ratio of the embed by setting the `ratio` attribute to either `1by1, `2by1`, `3by1`, or `4by3`. You don't need to specify `16by9`, as that's the default.
 
@@ -70,7 +70,7 @@ You can manually choose the aspect ratio of the embed by setting the `ratio` att
 [/c4flexembed]
 ```
 
-### No Wrap Modifier
+#### No Wrap Modifier
 
 Passing the `nowrap` modifier will prevent the embedded content from being wrapped in `<div class="FlexEmbed-content">…</div>`. It's useful if you're manually adding the class to your embed.
 
@@ -82,7 +82,7 @@ Passing the `nowrap` modifier will prevent the embedded content from being wrapp
 
 - [Example](https://cloudfour.com/thinks/feeling-sassy-again/)
 
-### Combining with Figure
+#### Combining with Figure
 
 You can use `c4flexembed` inside `c4figure` to add a caption to your embedded content.
 
@@ -98,7 +98,7 @@ You can use `c4flexembed` inside `c4figure` to add a caption to your embedded co
 
 ## Image Alignment
 
-### Featured Image
+#### Featured Image
 
 A featured image is pulled outside the content column, but isn't quite full-bleed. We accomplish this using [`u-pullSidesX` utility classes](https://cloudfour-patterns.netlify.com/patterns/utilities.html#space).
 
@@ -114,7 +114,7 @@ Here, the combination of `u-pullSides1 u-md-pullSides6` will pull the image just
 
 - [Example](https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/)
 
-### Full-Bleed Image
+#### Full-Bleed Image
 
 If you have an image you really want to showcase, try using the `u-release` class to make it full-bleed. Be aware this works best with images that are much wider than they are tall, otherwise users with very wide browsers may find the image fills the entire screen.
 
@@ -128,7 +128,7 @@ If you have an image you really want to showcase, try using the `u-release` clas
 
 - [Example](https://cloudfour.com/thinks/progressive-web-apps-book-now-available/)
 
-### Float Left/Right Image
+#### Float Left/Right Image
 
 Use a combination of [sizing utility classes](https://cloudfour-patterns.netlify.com/patterns/utilities.html#size) and [layout utility classes](https://cloudfour-patterns.netlify.com/patterns/utilities.html#layout) to scale and image and float it left or right.
 
