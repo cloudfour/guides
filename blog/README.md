@@ -26,7 +26,7 @@ We don’t have a formal policy on comment approval, but here’s Jason's genera
 
 > Despite the fact that we ask people to be kind, courteous and constructive when they submit comments on our site, when articles reach a larger audience, we will inevitably end up some with comments that start to inch into an unkind territory. It can be hard to tell how to respond. If they are blatant jerks, I’ll simply delete their comment—you don’t get to come into our house and tear the place up.
 
-> Sometimes with a comment [like this one](https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/#comment-5880), I’m pretty sure the author is being a jerk in the second paragraph, but isn’t being direct about it. I usually sit on a response for awhile and only approve the comment when I’m ready to respond in a calm manner. In this case, I decided to ignore the sarcasm and treat the question seriously. [Here's another example](https://cloudfour.com/thinks/first-thing-you-should-do-to-optimize-your-desktop-site-for-mobile/#comment-690).
+> Sometimes with a comment [like this one](https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/#comment-5880), I’ll decide to ignore the sarcasm and treat the question seriously. [Here's another example](https://cloudfour.com/thinks/first-thing-you-should-do-to-optimize-your-desktop-site-for-mobile/#comment-690).
 
 ### Pingbacks
 
@@ -34,9 +34,7 @@ Don't approve pingbacks. We keep the featured enabled so we can see if websites 
 
 ## Translation Requests
 
-We have received requests to translate our articles in the past, but don't have a set answer.
-
-[Tyler's instinct](https://cloudfour.slack.com/archives/C0L9UQCTU/p1571268050000100) was to say "yes," given that we still get credit, and the link is included, but you should check that the translator has done a respectful job in the past.
+We have received requests to translate our articles in the past, but don't have a set answer. We'll considering saying "yes," if we still get credit, a link back to our site is clearly included, and they have a demonstrable track record of respectful translations.
 
 ## Writing Advice
 
@@ -56,7 +54,7 @@ We have received requests to translate our articles in the past, but don't have 
 
 > When writing technical blog posts, please take care that the code samples in the article aren't long. In my opinion, the post shouldn't be the full repo. Highlight the specific parts of interest, and peel away boilerplate so people can read less and learn more. Then, if needed, link to a more complete code example on [CodePen](https://codepen.io/), [JSBin](https://jsbin.com/), or something similar.
 
-[Know Your Audience](https://cloudfour.slack.com/archives/C0L9UQCTU/p1572999313002300)
+[Know Your Audience](https://cloudfour.slack.com/archives/C0L9UQCTU/p1572999313002300) (internal Slack thread)
 
 The full thread is worth reading, but TL;DR: When deciding how much context to include in a technical article, it's good to have a clear picture of your intended audience. Tyler says most of his articles are either written for himself in the past, or for our customers. If some context is necessary but isn't really the crux of your article, you can link to something that gets the reader up to speed for your point.
 
