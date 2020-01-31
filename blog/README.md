@@ -1,14 +1,22 @@
 # Cloud Four Blog Guide
 
-coming soon
+![Captain America sitting on a backwards chair](https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580506044/america_obfr70.jpg)
+
+So you've decided to write for the Cloud Four blog… Congratulations! There are a few things you may want to know about how our blog works:
+
+## WordPress Shortcodes
+
+We have a small collection of useful shortcodes to apply design patterns:
+
+## Utility Classes
+
+For a complete list of available utility classes, visit the [Cloud Four Pattern Library](https://cloudfour-patterns.netlify.com/patterns/utilities.html).
 
 ## Previewing
 
-TODO: expand and clarify
+Note that our blog has two preview features. The "Preview" button only works for authenticated users. The "Enable Public Preview" checkbox will give you a public URL to share with unauthenticated users.
 
-There are two preview features. One lets you share previews with unauthenticated users. The other is preview for authenticated users.
-
-Sometimes the preview for unauthenticated users can get stuck or cached. The way to get it to uncache is to uncheck the preview box and then check it again.
+Sometimes the public preview can get stuck or cached. To reset, just uncheck the preview box and check it again.
 
 ## Publication Time
 
