@@ -4,11 +4,13 @@
 
 So you've decided to write for the Cloud Four blog… Congratulations! There are a few things you may want to know about how our blog works:
 
-## WordPress Shortcodes
+## Post Excerpt
 
-We have a small collection of useful shortcodes to apply design patterns:
+Don't miss the "Excerpt" field at the bottom of the post editing UI. By crafting a short excerpt here, it will be displayed on the post listing pages and used for social media posts. If you don't set one explicitly, one will be created using the first few sentences of your post.
 
-## Utility Classes
+## WordPress Shortcodes & Classes
+
+In addition to standard Markdown, we have a small collection of [useful shortcodes and classes](patterns.md) to apply design patterns.
 
 For a complete list of available utility classes, visit the [Cloud Four Pattern Library](https://cloudfour-patterns.netlify.com/patterns/utilities.html).
 
