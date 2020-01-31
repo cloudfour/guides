@@ -106,7 +106,7 @@ You can use `c4flexembed` inside `c4figure` to add a caption to your embedded co
 
 ## Image Alignment
 
-#### Featured Image
+### Featured Image
 
 <p align="center"><a href="https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/"><img alt="Featured Image Example" src="https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580512879/blog-patterns/featured-image.png" /></a></p>
 
@@ -122,7 +122,7 @@ A featured image is pulled outside the content column, but isn't quite full-blee
 
 Here, the combination of `u-pullSides1 u-md-pullSides6` will pull the image just outside the content container on small screens, and quite a bit more on medium and larger screens.
 
-#### Full-Bleed Image
+### Full-Bleed Image
 
 <p align="center"><a href="https://cloudfour.com/thinks/progressive-web-apps-book-now-available/"><img alt="Full-Bleed Image Example" src="https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580512879/blog-patterns/full-bleed-image.png" /></a></p>
 
@@ -136,7 +136,7 @@ If you have an image you really want to showcase, try using the `u-release` clas
 </div>
 ```
 
-#### Float Left/Right Image
+### Float Left/Right Image
 
 <p align="center"><a href="https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/"><img alt="Floated Image Example" src="https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580512879/blog-patterns/float-right-image.png" /></a></p>
 
