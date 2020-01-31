@@ -22,15 +22,15 @@ We don’t have a formal policy on comment approval, but here’s Jason's genera
 - Replying to comments is up to the author. If they contribute to understanding and there is nothing else to add, don’t feel compelled to respond.
 - Delete comments that are spam, troll, or jerk-like behavior.
 
-### Pingbacks
-
-Don't approve pingbacks. We keep the featured enabled so we can see if websites link to us, but there's not very much review in displaying them on the site, and we don't optimize for them in our design.
-
 ### Advice from Jason:
 
 > Despite the fact that we ask people to be kind, courteous and constructive when they submit comments on our site, when articles reach a larger audience, we will inevitably end up some with comments that start to inch into an unkind territory. It can be hard to tell how to respond. If they are blatant jerks, I’ll simply delete their comment—you don’t get to come into our house and tear the place up.
 
 > Sometimes with a comment [like this one](https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/#comment-5880), I’m pretty sure the author is being a jerk in the second paragraph, but isn’t being direct about it. I usually sit on a response for awhile and only approve the comment when I’m ready to respond in a calm manner. In this case, I decided to ignore the sarcasm and treat the question seriously. [Here's another example](https://cloudfour.com/thinks/first-thing-you-should-do-to-optimize-your-desktop-site-for-mobile/#comment-690).
+
+### Pingbacks
+
+Don't approve pingbacks. We keep the featured enabled so we can see if websites link to us, but there's not very much review in displaying them on the site, and we don't optimize for them in our design.
 
 ## Translation Requests
 
