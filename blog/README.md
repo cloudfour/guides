@@ -54,10 +54,6 @@ We have received requests to translate our articles in the past, but don't have 
 
 > When writing technical blog posts, please take care that the code samples in the article aren't long. In my opinion, the post shouldn't be the full repo. Highlight the specific parts of interest, and peel away boilerplate so people can read less and learn more. Then, if needed, link to a more complete code example on [CodePen](https://codepen.io/), [JSBin](https://jsbin.com/), or something similar.
 
-[Know Your Audience](https://cloudfour.slack.com/archives/C0L9UQCTU/p1572999313002300) (internal Slack thread)
-
-The full thread is worth reading, but TL;DR: When deciding how much context to include in a technical article, it's good to have a clear picture of your intended audience. Tyler says most of his articles are either written for himself in the past, or for our customers. If some context is necessary but isn't really the crux of your article, you can link to something that gets the reader up to speed for your point.
-
 [Write a Hulk Summary](https://chriscoyier.net/2020/01/23/the-hulk-summary/)
 
 > Channel your inner Hulk voice and use it to describe whatever you need to get writing on. Hammer down that shift key (caps lock is a cop-out) and type max 4 words for each bullet to capture the core sentiment of what you’re arguing.
