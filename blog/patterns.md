@@ -1,6 +1,6 @@
 # WordPress Shortcodes & Classes
 
-In addition to standard Markdown, we have a small collection of useful shortcodes and classes to apply design patterns:
+In addition to [Markdown](https://en.support.wordpress.com/markdown-quick-reference/), we have a small collection of useful shortcodes and classes to apply design patterns:
 
 ## Box Shortcode
 
@@ -23,6 +23,22 @@ The Grow modifier will add a [`u-textGrowX` class](https://cloudfour-patterns.ne
 You can use `grow=0` to keep the text the same size as the rest of the post, which is useful for a sort of alert box.
 
 - [Example](https://cloudfour.com/thinks/mood-boards/)
+
+## Footnotes
+
+This is actually a feature of WordPress's version of [Markdown Extra](https://en.support.wordpress.com/markdown-quick-reference/).
+
+```md
+I have more [^1] to say up here.
+
+(other post content)
+
+[^1]: To say down here.
+```
+
+Footnotes marked up this way will be added to the bottom of the post with a link back to the original reference.
+
+- [Example](https://cloudfour.com/thinks/hey-hey-cloud-four-is-a-pwa/)
 
 ## Figure Shortcode
 
