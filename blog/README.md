@@ -58,6 +58,16 @@ We have received requests to translate our articles in the past, but don't have 
 
 > “Just” makes me feel like an idiot. “Just” presumes I come from a specific background, studied certain courses in university, am fluent in certain technologies, and have read all the right books, articles, and resources. “Just” is a dangerous word.
 
+[Words To Avoid in Educational Writing](https://css-tricks.com/words-avoid-educational-writing/)
+
+> I'm no English major, but as a writer and consumer of loads of educational (mostly tech) writing, I've come to notice a number of words and phrases that come up fairly often and don't add anything to the writing. In fact, they might detract from it.
+
+> Obviously; Basically; Simply; Of course; Clearly; Just; Everyone knows; However; So; Easy;
+
+[Plain Language Is for Everyone, Even Experts](https://www.nngroup.com/articles/plain-language-experts/)
+
+> Professionals want clear, concise information devoid of unnecessary jargon or complex terms. Plain language benefits both consumers and organizations.
+
 [Keep Code Samples Short & Relevant](https://twitter.com/sarah_edo/status/1106631555693187073)
 
 > When writing technical blog posts, please take care that the code samples in the article aren't long. In my opinion, the post shouldn't be the full repo. Highlight the specific parts of interest, and peel away boilerplate so people can read less and learn more. Then, if needed, link to a more complete code example on [CodePen](https://codepen.io/), [JSBin](https://jsbin.com/), or something similar.
