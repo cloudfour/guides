@@ -38,7 +38,7 @@ We have received requests to translate our articles in the past, but don't have 
 
 [Tyler's instinct](https://cloudfour.slack.com/archives/C0L9UQCTU/p1571268050000100) was to say "yes," given that we still get credit, and the link is included, but you should check that the translator has done a respectful job in the past.
 
-## Motivation
+## Writing Advice
 
 [Don't Feel Like an Expert? Share Anyway.](https://medium.com/@sara_ann_marie/dont-feel-like-an-expert-share-anyway-661f2f8cd038)
 
@@ -52,7 +52,7 @@ We have received requests to translate our articles in the past, but don't have 
 
 > “Just” makes me feel like an idiot. “Just” presumes I come from a specific background, studied certain courses in university, am fluent in certain technologies, and have read all the right books, articles, and resources. “Just” is a dangerous word.
 
-[Keep Code Samples Relevant](https://twitter.com/sarah_edo/status/1106631555693187073)
+[Keep Code Samples Short & Relevant](https://twitter.com/sarah_edo/status/1106631555693187073)
 
 > When writing technical blog posts, please take care that the code samples in the article aren't long. In my opinion, the post shouldn't be the full repo. Highlight the specific parts of interest, and peel away boilerplate so people can read less and learn more. Then, if needed, link to a more complete code example on [CodePen](https://codepen.io/), [JSBin](https://jsbin.com/), or something similar.
 
@@ -62,4 +62,6 @@ The full thread is worth reading, but TL;DR: When deciding how much context to i
 
 [Write a Hulk Summary](https://chriscoyier.net/2020/01/23/the-hulk-summary/)
 
-> … channel your inner Hulk voice … and use it to describe whatever you need to get writing on. Hammer down that shift key (caps lock is a cop-out) and type max 4 words for each bullet to capture the core sentiment of what you’re arguing.
+> Channel your inner Hulk voice and use it to describe whatever you need to get writing on. Hammer down that shift key (caps lock is a cop-out) and type max 4 words for each bullet to capture the core sentiment of what you’re arguing.
+
+> WRITING IS HARD; YOU THINK TOO MUCH! WE HAVE A SOLUTION; THE HULK SUMMARY!
