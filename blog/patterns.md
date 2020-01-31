@@ -9,7 +9,9 @@ In addition to [Markdown](https://en.support.wordpress.com/markdown-quick-refere
 The Box shortcode will create a [Post Intro](https://cloudfour-patterns.netlify.com/patterns/combos/blog.html#post-intro). It will strip any line breaks from the text.
 
 ```html
-[c4box]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.[/c4box]
+[c4box]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+[/c4box]
 ```
 
 #### Grow Modifier
@@ -19,7 +21,9 @@ The Box shortcode will create a [Post Intro](https://cloudfour-patterns.netlify.
 The Grow modifier will add a [`u-textGrowX` class](https://cloudfour-patterns.netlify.com/patterns/utilities.html#text) using whatever size you pass in.
 
 ```html
-[c4box grow=2]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.[/c4box]
+[c4box grow=2]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+[/c4box]
 ```
 
 You can use `grow=0` to keep the text the same size as the rest of the post, which is useful for a sort of alert box.
