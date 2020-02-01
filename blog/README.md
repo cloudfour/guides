@@ -14,7 +14,7 @@ Similarly, don't forget the "Featured Image" field in the sidebar. If you set an
 
 ## WordPress Shortcodes & Classes
 
-In addition to standard Markdown, we have a small collection of [useful shortcodes and classes](patterns.md) to apply design patterns from our [pattern library](https://cloudfour-patterns.netlify.com/patterns/utilities.html).
+We have a small collection of [useful shortcodes and classes](patterns.md) to apply design patterns from our [pattern library](https://cloudfour-patterns.netlify.com/patterns/utilities.html).
 
 ## Previewing
 
