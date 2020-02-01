@@ -36,13 +36,11 @@ We don’t have a formal policy on comment approval, but here’s Jason's genera
 
 ### Advice from Jason:
 
-> Despite the fact that we ask people to be kind, courteous and constructive when they submit comments on our site, when articles reach a larger audience, we will inevitably end up some with comments that start to inch into an unkind territory. It can be hard to tell how to respond. If they are blatant jerks, I’ll simply delete their comment—you don’t get to come into our house and tear the place up.
-
-> Sometimes with a comment [like this one](https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/#comment-5880), I’ll decide to ignore the sarcasm and treat the question seriously. [Here's another example](https://cloudfour.com/thinks/first-thing-you-should-do-to-optimize-your-desktop-site-for-mobile/#comment-690).
+> Despite the fact that we ask people to be kind, courteous and constructive when they submit comments on our site, when articles reach a larger audience, we will inevitably end up some with comments that start to inch into an unkind territory. It can be hard to tell how to respond. If they are blatant jerks, I’ll simply delete their comment—you don’t get to come into our house and tear the place up. Sometimes with an obviously snarky comment, I’ll ignore the sarcasm and respond to the question as if it was asked in earnest.
 
 ### Pingbacks
 
-Don't approve pingbacks. We keep the featured enabled so we can see if websites link to us, but there's not very much review in displaying them on the site, and we don't optimize for them in our design.
+Don't approve pingbacks. We keep the feature enabled so we can see if websites link to us, but there's not very much review in displaying them on the site, and we don't optimize for them in our design.
 
 ## Translation Requests
 
