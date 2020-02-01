@@ -72,7 +72,7 @@ The FlexEmbed shortcode create a [Flex Embed](https://cloudfour-patterns.netlify
 
 #### Ratio Modifier
 
-You can manually choose the aspect ratio of the embed by setting the `ratio` attribute to either `1by1, `2by1`, `3by1`, or `4by3`. You don't need to specify `16by9`, as that's the default.
+You can manually choose the aspect ratio of the embed by setting the `ratio` attribute to either `1by1`, `2by1`, `3by1`, or `4by3`. You don't need to specify `16by9`, as that's the default.
 
 ```html
 [c4flexembed ratio="1by1"]
