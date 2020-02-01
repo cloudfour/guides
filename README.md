@@ -7,8 +7,9 @@ Conventions, processes and notes about how we do things.
 - **[JavaScript Guide](./javascript/)**
     - [Vue Guide](./javascript/vue)
 - **[Design Guide](./design/)**
+- **[Blog Guide](./blog)**
 - **[Git Guide](./git/)**
-- **[Today I Learned](./til/)**
-- **[Setup npm Publish](./npm)**
+- **[npm Guide](./npm)**
 - **[Open Source Guide](./opensource)**
 - **[Rituals Guide](./rituals)**
+- **[Today I Learned](./til/)**
