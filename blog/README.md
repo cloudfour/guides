@@ -8,6 +8,10 @@ So you've decided to write for the Cloud Four blog… Congratulations! There are
 
 Don't miss the "Excerpt" field at the bottom of the post editing UI. By crafting a short excerpt here, it will be displayed on the post listing pages and used for social media posts. If you don't set one explicitly, one will be created using the first few sentences of your post.
 
+<p align="center"><img alt="WordPress Editor Screen Options Dialogue" src="https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580512879/blog-patterns/screen-options.png" /></p>
+
+Note you may need to open the "Screen Options" dialogue at the top of the page to make the "Excerpt" field visible.
+
 ## Featured Image Field
 
 Similarly, don't forget the "Featured Image" field in the sidebar. If you set an image here, it will be used for social media. This image is not displayed in the post content, however, so if you want to use it as a big image at the top of your post, you'll have to do that AND set the featured image.
