@@ -16,6 +16,17 @@ Note you may need to open the "Screen Options" dialogue at the top of the page t
 
 Similarly, don't forget the "Featured Image" field in the sidebar. If you set an image here, it will be used for social media. This image is not displayed in the post content, however, so if you want to use it as a big image at the top of your post, you'll have to do that AND set the featured image.
 
+## Categories and Tags
+
+Wordpress has a couple tools for organizing your posts: categories and tags. We primarily use categories, and rarely use tags. Here's some background context from Tyler:
+
+>Prior to the current iteration of cloudfour.com, categories and tags were used somewhat inconsistently. While there was some internal understanding of what constituted a tag versus a category, the resultant experience from a user's point of view was just a short, pleasant list of links and then a big ol' pile of random links.
+>
+>We simplified to displaying categories as "Topics" on our front-end. We only use tags when we want to have some point of organization that isn't exposed to that. As an example, a tag is what's used to determine the featured articles on the home page.
+>
+>It's possible that in the future we'll want to revisit this. As our staff has grown, the variety of things we're writing about has broadened. But the short version for now is that categories are a public-facing thing, tags are sort of an internal tool we don't expose on the front-end.
+
+
 ## WordPress Shortcodes & Classes
 
 We have a small collection of [useful shortcodes and classes](patterns.md) to apply design patterns from our [pattern library](https://cloudfour-patterns.netlify.com/patterns/utilities.html).
