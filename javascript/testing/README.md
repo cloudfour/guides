@@ -114,11 +114,13 @@ test('User is logged in correctly', () => {
 ```
 
 ### Behavior-Driven Development (BDD)
-The `should` assertion style, in particular, as well as the `expect` style, can be seen as aligned with the concept of behavior-driven development.
+The `should` and `expect` assertion styles are aligned with the concept of 
+behavior-driven development (BDD).
 
-In short, both of these assertion styles allow natural-language like assertion statements. 
+Both of these assertion styles allow sentence-like, chained assertion statements.
+
 The `should` style takes this furthest, by optionally extending the object prototype. 
-This allows tests to be written the way they might be by a project stakeholder:
+This allows tests to be written the way they might be written in requirements:
 
 ```js
 const customer = {
@@ -189,9 +191,20 @@ Snapshot tests compare a portion of the current state of code or output (general
 
 #### Fakes
 
+An object that has a simplified implementation of an interface. Useful to introduce a 
+working implementation before the real one has been written, or to access data in 
+memory before a DB has been set up and populated, e.g.
+
 #### Stubs
 
+An object that responds with the same, canned data every time
+
 #### Mocks & Spying
+
+A mock is an object that stands-in for a real object, with which a test unit needs to 
+interact. The test can "spy" on a mock, verifying, e.g., that one of its methods 
+was called, and how many timnes. The details of what that method call shoould have 
+done or returned is outside the scope of the test.
 
 ### Code coverage testers
 
