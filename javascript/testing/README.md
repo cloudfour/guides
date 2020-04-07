@@ -62,12 +62,16 @@ A decent overview of both general and JS-specific testing concepts and tools can
 
 ## The language of tests
 
-Almost all tests are fundamentally written in an assertion or expectation style. For example, a function or portion code is run, or UI flow run though automation, and then the test executes assertions or expectations that should evaluate to true for the test to pass.
+Tests can be written in a few styles, with the language provided by what's known as an assertion library.
+
+Most tests are written using `assert`-, `expect`-, or `should`-style assertion interfaces (see examples, below).
+
+No matter what the style, a function, portion of code, or automted UI flow is run, and then the test executes a statement that must evaluate to true for the test to pass.
 
 ### Examples
 
 ```js
-// Assertion style
+// Assert style
 test('Two plus two equals four', () => {
   assert.equal(2 + 2, 4);
 });
@@ -76,9 +80,18 @@ test('Two plus two equals four', () => {
 or
 
 ```js
-// Expectation style
+// Expect style
 test('Two plus two equals four', () => {
   expect(2 + 2).toEqual(4);
+});
+```
+
+or
+
+```js
+// Should style
+test('Two plus two equals four', () => {
+  should(2 + 2).be.exactly(4);
 });
 ```
 
@@ -87,16 +100,36 @@ These concepts can apply to almost any type of test. For example:
 ```js
 // Run code that renders, compare with past snapshot
 test('Nothing has changed', () => {
-  expect(renderedOutput).toMatch(snapshot);
+  expect(renderedOutput).toMatchSnapshot();
 });
 ```
 
 or (at a point in an integration or end-to-end test flow)
 
 ```js
-// Automate a user login page, then
+// Automate a user login flow, then
 test('User is logged in correctly', () => {
-  expect(user.loggedIn).toBe(true);
+  expect(user.loggedIn).toBeTrue();
+});
+```
+
+### Behavior-Driven Development (BDD)
+The `should` assertion style, in particular, as well as the `expect` style, can be seen as aligned with the concept of behavior-driven development.
+
+In short, both of these assertion styles allow natural-language like assertion statements. 
+The `should` style takes this furthest, by optionally extending the object prototype. 
+This allows tests to be written the way they might be by a project stakeholder:
+
+```js
+const customer = {
+  loggedIn: false
+};
+const login = person => person.loggedIn = true;
+// Automate a user login flow, then
+test('Customer is logged in correctly', () => {
+  customer.loggedIn.should.be.false;
+  login(customer);
+  customer.loggedIn.should.be.true;
 });
 ```
 
