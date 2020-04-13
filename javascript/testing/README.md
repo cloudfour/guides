@@ -161,9 +161,11 @@ End-to-end (aka, E2E) tests verify expected outcomes of complete user flows by a
 
 ### Snapshot
 
-Snapshot tests compare a portion of the current state of code or output (generally) in an application with a previous record of that same piece of state. In this way, a test can verify that something hasn't, or maybe has changed, and that this outcome was expected. If a code update results in a change where one wasn't expected (for example), the baseline can be reset for follow-up tests to use as a comparison.
+Snapshot tests compare the current state of a portion of code or rendered DOM with a previous record of that same piece of state. In this way, a test can verify that something has or hasn't changed, and that this outcome was expected. If a code update results in an expected change, the baseline can be reset for follow-up tests to use as a comparison. Otherwise the change can be treated as a bug or regression for fixing.
 
 #### Visual regression
+
+A variant of snapshot testing that builds on E2E tooling to test that UI in a browser is rendered as it was in a previous test (baseline). If a change is expected, just as with other types of snapshot tests, an approval is required to establish a new baseline for the next test.
 
 ## Test organization
 
@@ -191,17 +193,17 @@ Snapshot tests compare a portion of the current state of code or output (general
 
 #### Fakes
 
-An object that has a simplified implementation of an interface. Useful to introduce a 
-working implementation before the real one has been written, or to access data in 
-memory before a DB has been set up and populated, e.g.
+An object that has a simplified implementation of an interface. Useful, for example, 
+to introduce a working implementation before the real one has been written, or to 
+access data in memory before a DB has been set up and populated.
 
 #### Stubs
 
-An object that responds with the same, canned data every time
+An object that responds with the same, canned data every time.
 
 #### Mocks & Spying
 
-A mock is an object that stands-in for a real object, with which a test unit needs to 
+An object that stands-in for a real object, with which a test unit needs to 
 interact. The test can "spy" on a mock, verifying, e.g., that one of its methods 
 was called, and how many timnes. The details of what that method call shoould have 
 done or returned is outside the scope of the test.
