@@ -165,7 +165,9 @@ Snapshot tests compare the current state of a portion of code or rendered DOM wi
 
 #### Visual regression
 
-A variant of snapshot testing that builds on E2E tooling to test that UI in a browser is rendered as it was in a previous test (baseline). If a change is expected, just as with other types of snapshot tests, an approval is required to establish a new baseline for the next test.
+A variant of snapshot testing that builds on E2E tooling to test that UI in a browser is rendered - pixel-for-pixel - as it was in a previous test (baseline). If a change is expected, just as with other types of snapshot tests, an approval is required to establish a new baseline for the next test.
+
+To prevent visual regression tests from constantly failing for unintended reasons (changes that aren't regressions), modern tooling provides options to set allowable deviation tolerances, learn what kinds of subtle changes might be expected from test-to-test or device-to-device, and ignore portions of UI that may be expected to change. In addition, focusing visual regression tests on small portions of UI - e.g., at the component level - can help to prevent a high level of unintended failures.
 
 ## Test organization
 
