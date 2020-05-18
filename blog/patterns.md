@@ -2,6 +2,8 @@
 
 In addition to [Markdown](https://en.support.wordpress.com/markdown-quick-reference/), we have a small collection of useful shortcodes and classes to apply design patterns:
 
+Note that you'll need to disable the visual editor to use Markdown. Click on your name in the top right, and then check the "Disable the visual editor when writing" option.
+
 ## Box Shortcode
 
 <p align="center"><a href="https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/"><img alt="Box Example" src="https://res.cloudinary.com/cloudfour/image/upload/c_scale,f_auto,q_auto,w_400/v1580512879/blog-patterns/box.png" /></a></p>
@@ -57,6 +59,34 @@ The Figure shortcode will create a [Figure](https://cloudfour-patterns.netlify.c
 ```
 
 Note the optional use of the `u-borderSm` utility class to add a light border to the image. Images with a white background may benefit from a border.
+
+## Code Samples
+
+The WordPress Markdown editor understands both inline code using backticks — `` `code` `` — and "fenced" code blocks, using triple backticks:
+
+````markdown
+```css
+a {
+  color: red;
+}
+```
+````
+
+Note that you can trigger syntax highlighting by indicating what type of code you're writing: `` ```css ``, `` ```html ``, and `` ```js ``, for example.
+
+#### Combining with Figure
+
+You can also wrap your code sample in a `c4figure` to add a caption, but because Markdown doesn't work inside WordPress shortcodes, you'll need to add the `pre` and `code` elements by hand, like so:
+
+```html
+[c4figure caption="testing"]
+<pre class="language-css"><code>
+a {
+  color: red;
+}
+</code></pre>
+[/c4figure]
+```
 
 ## FlexEmbed Shortcode
 
