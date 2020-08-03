@@ -210,22 +210,22 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
   opacity: 0.8; /* 7 */
   transition-duration: 0.3s; /* 8 */
 
-  &::before { /* 9 */
-    content: "Foo";
-  }
-
   &:hover,
-  &:focus { /* 10 */
+  &:focus { /* 9 */
     color: green;
   }
 
   &.is-disabled,
-  &[disabled] { /* 11 */
+  &[disabled] { /* 10 */
     pointer-events: none;
   }
 
-  @media (min-width: 40em) { /* 12 */
+  @media (min-width: 40em) { /* 11 */
     width: auto;
+  }
+
+  &::before { /* 12 */
+    content: "Foo";
   }
 } /* 13 */
 /* 14 */
@@ -239,18 +239,125 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 6. Comma-delimited numbers inside of values with parenthesis (e.g. `rgb(0, 0, 0)`) should have spaces between them.
 7. Decimal values should include a leading `0`.
 8. Time values should be represented with the second (`s`) unit. This is easier for humans to parse, and encourages shorter values that divide evenly within an ideal 60 frames-per-second animation speed.
-9. Nested pseudo element blocks should come after all property declarations.
-10. Nested pseudo class blocks should come after all pseudo element blocks.
-11. Nested class or attribute blocks should come after all pseudo class blocks.
-12. Nested media queries should come after all combined class or attribute blocks.
+9. Nested pseudo class blocks should come after all property declarations.
+10. Nested class or attribute blocks should come after all pseudo class blocks.
+11. Nested media queries should come after all combined class or attribute blocks.
+12. Nested pseudo element blocks should come after all media queries.
 13. Closing braces should be on a new line.
 14. A blank line should come after each declaration block.
+
+### Order of Nested Selectors
+
+We use a standard order for nested selectors in Sass. By following this order, our code becomes more standardized and easier to understand.
+
+When in doubt, remember that the goal is to first define any **included** styles, followed by **regular** styles, followed by **modifiers**, followed by **children** (whose code would follow this same order).
+
+
+1. #### Included Code
+
+	1. Local `$variables`
+		* Local variables should really only be declared for mixins or functions. Most variables should be kept in the main variables partial, since variables in Sass are global.
+		* However, if you have a set of variables that will only be used in a certain partial, declare them at the top of that file and prefix their names to avoid confusion in the global namespace. e.g., `$m_module_name_height`.
+
+	1. `@extend` statements
+		* Avoid extends in favor of mixins. Extends offer no benefits over mixins, and can cause [specificity problems](http://csswizardry.com/2016/02/mixins-better-for-performance/).
+
+	1. `@include` statements
+		* Knowing right off the bat that this class inherits another whole set of rules from elsewhere is good. Another benefit is that overriding styles for that inherited set of rules becomes much easier.
+
+2. #### Alphabetized Regular Styles
+	1. Adding regular styles after the `@extend` and `@include` statements allows us to override those properties, if needed. Be sure to leave a comment if a declaration's only purpose is to override included styles. 
+    
+	1. Alphabetizing is helpful for a large team because it standardizes location of properties (See "Property Sorting" below).
+
+3. #### Modifiers
+	1. Pseudo-classes (`:hover`), attribute selectors (`&[type="input"]`), and state classes (`&.is-active`)
+		* These directly modify the parent selector so we declare them before other nested selectors.
+		* Most BEM modifier classes don't need to be nested. However, some generic state class names like `is-active` that would otherwise be too non-specific to live in the global namespace, should be nested here.
+
+	1. Nested media queries
+		* These come after regular styles, pseudo-classes, etc., so they can override them.
+        
+    1. Parent modifier classes (`.parent__modifier &`)
+        * Modifiers on parents can affect children. They should be nested like media queries.
+
+4. #### Child Selectors
+
+	1. Pseudo-elements (`::before`)
+		* Pseudo-elements are actually generated children, and so should be treated like any other nested selector.
+
+	2. Nested selectors
+		* As a rule, **if a selector will work without it being nested then do not nest it.**
+		* There shouldn’t be many nested selectors. Our naming convention means that we don’t need to nest selectors for namespacing. Before you nest a selector, consider if it would be better as a child class or modifier class.
+		* Any nested selectors could contain their own nested pseudo-classes, pseudo-elements and media queries, following the rules above.
+
+```sass
+.foo {
+    @include font_ui(2.0); // 1.iii
+    line-height: 1;        // override font_ui line-height, 2.i
+    width: 100%;           // 2.ii
+
+    &:hover { // 3.i - modifier: pseudo-class
+        color: red;
+    }
+
+    // state classes usually have `is-` or `has-` class names that need to be nested.
+    &.has-error { // 3.i - modifier: state class
+        color: red;
+    }
+
+    @media only screen and (min-width: $screen_medium) { // 3.ii - modifier: media query
+        width: 100%;
+    }
+
+    @media only screen and (min-width: $screen_large) { // 3.ii - modifier: media query
+        width: 50%;
+    }
+    
+    &::before { // 4.i - child: pseudo-element
+        content: "!";
+    }
+    
+    // this should really be a non-nested BEM child class!
+    h2 { // 4.ii - child: nested selector
+        font-size: 2em;
+    }
+}
+
+// modifier with proper BEM name
+// note the nested selectors follow the same order.
+.foo--bar {
+    color: red;
+    
+    &:hover {
+        color: orange;
+    }
+    
+    @media only screen and (min-width: $screen_large) {
+        display: none;
+    }
+}
+
+
+// child element with proper BEM name
+.foo__icon {
+    width: 1em;
+    
+    // nested modifier makes it easier to understand
+    .foo--bar & {
+        width: 2em;
+    }
+}
+```
 
 ### Property Sorting
 
 Until recently, we followed Guy Routledge's [Outside In] method of property sorting. Over time, we discovered most property sorting methodologies require maintenance as new properties (for example, `flex-*` or `grid-*`) are introduced. This makes them inherently fragile and difficult to enforce.
 
 We now recommend properties are sorted alphabetically. This technique will scale to accommodate any new properties, and requires no learning curve for new project contributors.
+
+* You can quickly alphabetize declarations in Sublime Text by selecting several lines of code and pressing F5.
+* You can quickly alphabetize declarations in VS Code by selecting several lines of code and using the "Sort Lines Ascending" command. This has no keyboard shortcut by default, so you can either use the command pallete (CMD+SHIFT+P) or assign a keyboard shortcut.
 
 ```css
 /* Do */
