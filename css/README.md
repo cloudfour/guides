@@ -273,7 +273,7 @@ When in doubt, remember that the goal is to first define any **included** styles
 3. #### Modifiers
 	1. Pseudo-classes (`:hover`), attribute selectors (`&[type="input"]`), and state classes (`&.is-active`)
 		* These directly modify the parent selector so we declare them before other nested selectors.
-        * Most BEM modifier classes don't need to be nested. However, some generic state class names like `is-active` that would otherwise be too non-specific to live in the global namespace, should be nested here.
+		* Most BEM modifier classes don't need to be nested. However, some generic state class names like `is-active` that would otherwise be too non-specific to live in the global namespace, should be nested here.
 
 	1. Nested media queries
 		* These come after regular styles, pseudo-classes, etc., so they can override them.
@@ -294,7 +294,7 @@ When in doubt, remember that the goal is to first define any **included** styles
 ```sass
 .foo {
     @include font_ui(2.0); // 1.iii
-    line-height: 1;        // override font_ui line-height // 2.i
+    line-height: 1;        // override font_ui line-height, 2.i
     width: 100%;           // 2.ii
 
     &:hover { // 3.i - modifier: pseudo-class
