@@ -13,3 +13,4 @@ Conventions, processes and notes about how we do things.
 - **[Open Source Guide](./opensource)**
 - **[Rituals Guide](./rituals)**
 - **[Today I Learned](./til/)**
+- **[Automated Testing](./testing)**
