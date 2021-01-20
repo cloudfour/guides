@@ -2,26 +2,27 @@
 
 ## Philosophy
 * Test code is a first-class part of the deliverable, not an optional nice-to-have.
-* When scopeing / estimating work: always factor in testing. 
-* Untestable code = bad code.
+* When scoping / estimating work: always factor in testing. 
 * Insufficent test coverage is better than no test coverage.
+* Prefer [Use Case Coverage over Code Coverage](https://kentcdodds.com/blog/how-to-know-what-to-test) (no need for 100% code coverage).
 * Additional history and guiding principles are in [this "manitesto" doc](https://bitbucket.org/blog/save-time-with-default-pull-request-descriptions)
 
 ## Best Practices & Standardization
 
 ### General
 * Organization of `scripts` in package.json:
-	- `test` = runs all unit tests + E2E tests in headless mode
+	- `test` = runs all unit/integration/E2E tests in headless mode
 	- `test:watch` = same as `test` but with Jest in watch mode
-	- `cypress` = run cypress with the dashboard open
+	- `cypress` = run Cypress with the [Cypress Test Runner](https://docs.cypress.io/guides/guides/command-line.html#cypress-open)
 	- `check-lint` = runs style lint, eslint, prettier
 	- `lint` = same as `check-lint` but writes the changes (`--fix`)
 	- `ci` = run EVERYTHING
 * Try to minimize nesting and coupling. These make tests brittle and hard to maintain.
+* [Apply the AHA principle (try to avoid over-abstraction)](https://kentcdodds.com/blog/avoid-nesting-when-youre-testing).
 
 ### Jest
 * Unit test files for components should be siblings in the same directory with a `.test.js` suffix. Placing test code close to application code is intended to encourage testing and make it harder to forget.
-* For the test name, prefer the `it('does something')` sytnax because it is more self-documenting and intuitive
+* For the test name, prefer the `it('should do something')` sytnax because it is more self-documenting and intuitive
 * Use `describe()` and `beforeEach` sparingly. They lead to nesting and coupling.
 
 ### Testing Library
@@ -30,7 +31,7 @@
 * We encourage using the `screen` object exported by Testing Library because the resulting idioms will be more similar in React and Vanilla JS projects. [1](https://testing-library.com/docs/queries/about#screen), [2](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#not-using-screen).
 
 ## Favorite Tools
-* Unit testing: Jest + Testing Library
+* Unit/integration testing: Jest + Testing Library
 * E2E testing: Cypress
 
 ## Resources
