@@ -17,7 +17,6 @@
 	- `lint` = same as `check-lint` but writes the changes (`--fix`)
 	- `ci` = run EVERYTHING
 * Try to minimize nesting and coupling. These make tests brittle and hard to maintain.
-* 
 
 ### Jest
 * Unit test files for components should be siblings in the same directory with a `.test.js` suffix. Placing test code close to application code is intended to encourage testing and make it harder to forget.
