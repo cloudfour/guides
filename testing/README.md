@@ -5,6 +5,7 @@
 * When scopeing / estimating work: always factor in testing. 
 * Untestable code = bad code.
 * Insufficent test coverage is better than no test coverage.
+* Additional history and guiding principles are in [this "manitesto" doc](https://bitbucket.org/blog/save-time-with-default-pull-request-descriptions)
 
 ## Best Practices & Standardization
 
