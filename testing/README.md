@@ -5,7 +5,7 @@
 * When scoping / estimating work: always factor in testing. 
 * Insufficent test coverage is better than no test coverage.
 * Prefer [Use Case Coverage over Code Coverage](https://kentcdodds.com/blog/how-to-know-what-to-test) (no need for 100% code coverage).
-* Additional history and guiding principles are in [this "manitesto" doc](https://bitbucket.org/blog/save-time-with-default-pull-request-descriptions)
+* Additional history and guiding principles are in [this "manifesto" doc](https://docs.google.com/document/d/1XWx0GZLndtPF4-cwBeHii85osRj0ROPrflBF3DAVewA/edit)
 
 ## Best Practices & Standardization
 
