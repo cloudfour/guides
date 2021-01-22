@@ -3,7 +3,7 @@
 ## Philosophy
 * Test code is a first-class part of the deliverable, not an optional nice-to-have.
 * When scoping / estimating work: always factor in testing. 
-* Insufficent test coverage is better than no test coverage.
+* Insufficient test coverage is better than no test coverage.
 * Prefer [Use Case Coverage over Code Coverage](https://kentcdodds.com/blog/how-to-know-what-to-test) (no need for 100% code coverage).
 * Additional history and guiding principles are in [this "manifesto" doc](https://docs.google.com/document/d/1XWx0GZLndtPF4-cwBeHii85osRj0ROPrflBF3DAVewA/edit)
 
@@ -22,7 +22,7 @@
 
 ### Jest
 * Unit test files for components should be siblings in the same directory with a `.test.js` suffix. Placing test code close to application code is intended to encourage testing and make it harder to forget.
-* For the test name, prefer the `it('should do something')` sytnax because it is more self-documenting and intuitive
+* For the test name, prefer the `it('should do something')` syntax because it is more self-documenting and intuitive
 * Use `describe()` and `beforeEach` sparingly. They lead to nesting and coupling.
 
 ### Testing Library
