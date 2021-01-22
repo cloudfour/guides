@@ -3,6 +3,7 @@
 ## Philosophy
 * Test code is a first-class part of the deliverable, not an optional nice-to-have.
 * When scoping / estimating work: always factor in testing. 
+* Testability is an attribute of good code. Code that cannot be tested is a problem.
 * Insufficient test coverage is better than no test coverage.
 * Prefer [Use Case Coverage over Code Coverage](https://kentcdodds.com/blog/how-to-know-what-to-test) (no need for 100% code coverage).
 * Additional history and guiding principles are in [this "manifesto" doc](https://docs.google.com/document/d/1XWx0GZLndtPF4-cwBeHii85osRj0ROPrflBF3DAVewA/edit)
