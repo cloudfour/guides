@@ -11,13 +11,14 @@
 ## Best Practices & Standardization
 
 ### General
-* Organization of `scripts` in package.json:
-	- `test` = runs all unit/integration/E2E tests in headless mode
-	- `test:watch` = same as `test` but with Jest in watch mode
-	- `cypress` = run Cypress with the [Cypress Test Runner](https://docs.cypress.io/guides/guides/command-line.html#cypress-open)
-	- `check-lint` = runs style lint, eslint, prettier
-	- `lint` = same as `check-lint` but writes the changes (`--fix`)
-	- `ci` = run EVERYTHING
+* Organization of testing scripts in `package.json` ([more details](../package-json-script-names.md))
+  * `npm run test`: Runs all test runners (Jest and/or Cypress)
+  * `npm run test:watch`: Runs all test runners in watch mode
+  * `npm run test:jest`: Runs Jest and exits
+  * `npm run test:jest:watch`: Runs Jest in watch mode
+  * `npm run test:cypress`: Runs Cypress and exits
+  * `npm run test:cypress:open`: Open Cypress dashboard
+
 * [Apply the AHA principle](https://kentcdodds.com/blog/avoid-nesting-when-youre-testing). Try to minimize nesting, coupling and over-abstraction. These make tests brittle and hard to maintain.
 
 ### Jest
