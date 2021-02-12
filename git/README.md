@@ -21,7 +21,7 @@ General Guidelines
 ------------------
 
 * Avoid including files that are specific to your own environment.
-* Avoid committing directly to `master`.
+* Avoid committing directly to `main`.
 * Perform all work in a feature branch.
 * Rebase frequently to incorporate upstream changes.
 * Use a [pull request] for code reviews.
@@ -30,10 +30,10 @@ General Guidelines
 Writing a Feature
 -----------------
 
-### Create a local feature branch based off master
+### Create a local feature branch based off main
 
 ```
-git checkout master
+git checkout main
 git pull
 git checkout -b <branch-name>
 ```
@@ -57,7 +57,7 @@ as well as within any Git GUI apps.
 
 ```
 git fetch origin
-git rebase origin/master
+git rebase origin/main
 ```
 
 Resolve conflicts. When feature is in a good state, stage the changes
@@ -79,7 +79,7 @@ If you've created more than one commit, use a rebase to squash them into
 cohesive commits with good messages:
 
 ```
-git rebase -i origin/master
+git rebase -i origin/main
 ```
 
 ### Push your branch
@@ -114,13 +114,13 @@ Edit commit messages to reveal intent. Run tests.
 
 ```
 git fetch origin
-git rebase -i origin/master
+git rebase -i origin/main
 ```
 
 ### Force-Pushing
 
 This allows GitHub to automatically close your pull
-request and mark it as merged when your commit(s) are pushed to master. It also
+request and mark it as merged when your commit(s) are pushed to `main`. It also
 makes it possible to find the pull request that brought in your changes.
 
 ```
@@ -131,7 +131,7 @@ git push --force origin <branch-name>
 
 Force-pushing may not always be appropriate for every project, depending on
 other factors like hooks or continuous integration. Pull Requests may also be
-merged into `master` (or whatever their target branch is) by simply
+merged into `main` (or whatever their target branch is) by simply
 clicking the green "Merge Branch" button on the GitHub Pull Request page.
 
 Note that GitHub offers three merge options: a merge commit, rebase and merge,
