@@ -759,44 +759,71 @@ function sayHi(name) {
 
 ## Functions
 
-### 6.1 Function Style
+### 6.1 Avoid Function Hoisting
 
-Understand the difference between **function declarations** and **function expressions**.
-
-> The primary difference between function declarations and function expressions is that declarations are hoisted to the top of the scope in which they are defined, which allows you to write code that uses the function before its declaration.
-
-It can be argued that using function expressions will result in more a structured code base. We do not have a strict rule of using function declarations vs function expressions but wanted to document the difference between the two.
+Although it is possible to call functions before they are defined via hoisting we prefer to avoid this pattern in our code as it can be confusing.
 
 #### Examples
 
-> Function declarations in JavaScript are hoisted to the top of the enclosing function or global scope. You can use the function before you declared it:
->
-> ```js
-> hoisted(); // logs "foo"
->
-> function hoisted() {
->   console.log('foo');
-> }
-> ```
+Although this code works properly it may be more confusing and we generally avoid it:
 
-> Although this code might seem like an error, it actually works fine because JavaScript engines hoist the function declarations to the top of the scope. That means this code is treated as if the declaration came before the invocation.
+```js
+logFoo();
 
-> Note that function expressions are not hoisted:
->
-> ```js
-> notHoisted(); // TypeError: notHoisted is not a function
-> 
-> var notHoisted = function() {
->    console.log('bar');
-> };
-> ```
+function logFoo() {
+  console.log("foo");
+}
+```
 
+We would prefer one of the following patterns:
 
-### Resources
+```js
+// Define the function before calling
+function logFoo() {
+  console.log("foo");
+}
 
-- MDN Web Docs
-  - [Function Declaration]
-  - [Function Expression]
+logFoo();
+```
+
+```js
+// Import the function
+import {logFoo} from './log-foo.js';
+
+logFoo();
+```
+
+In files that call a number of helper functions it can be helpful to move those functions to modules, or start the file with a main function that provides a summary of the steps taken in the file. For example:
+
+```js
+// The `main` function contains an overview of the file's logic.
+// (`main` could be switched to a more meaningful name in context.)
+function main() {
+  thing1();
+  thing2();
+  thing3();
+  thing4();
+}
+
+function thing1() {}
+function thing2() {}
+function thing3() {}
+function thing4() {}
+
+main();
+```
+
+Another option is to move helper functions to modules:
+
+```js
+// Import helpers so they're defined up front
+import {thing1, thing2, thing3, thing4} from './helpers.js';
+
+thing1();
+thing2();
+thing3();
+thing4();
+```
 
 ### 6.2 Function Arguments Parameter
 
