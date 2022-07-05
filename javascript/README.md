@@ -761,7 +761,7 @@ function sayHi(name) {
 
 ### 6.1 Avoid Function Hoisting
 
-Although it is possible to call functions before they are defined via hoisting we prefer to avoid this pattern in our code as it can be confusing.
+Although it is possible to call functions before they are defined via [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) we prefer to avoid this pattern in our code as it can be confusing.
 
 #### Examples
 
