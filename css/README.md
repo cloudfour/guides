@@ -204,10 +204,10 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
   @include some-mixin(); /* 2 */
 
   display: block; /* 3 */
-  padding: 0; /* 4 */
+  background-color: rgba(0, 0, 0, 0.1); /* 4 */
   background-image: url("image.png"); /* 5 */
-  background-color: rgba(0, 0, 0, 0.1); /* 6 */
-  opacity: 0.8; /* 7 */
+  opacity: 0.8; /* 6 */
+  padding: 0; /* 7 */
   transition-duration: 0.3s; /* 8 */
 
   &:hover,
@@ -234,10 +234,10 @@ These rules were adapted from [CSS Guidelines]. This is an example of how declar
 1. Combined selectors should be on separate lines, and the opening brace should be on the same line as the last selector.
 2. Variables and preprocessor cruft should come before any properties, separated with blank line below.
 3. One space should be after each colon, and each line should end with a semicolon.
-4. Values of zero should be unit-less.
+4. Comma-delimited numbers inside of values with parenthesis (e.g. `rgb(0, 0, 0)`) should have spaces between them.
 5. Strings within values should use double quotes.
-6. Comma-delimited numbers inside of values with parenthesis (e.g. `rgb(0, 0, 0)`) should have spaces between them.
-7. Decimal values should include a leading `0`.
+6. Decimal values should include a leading `0`.
+7. Values of zero should be unit-less.
 8. Time values should be represented with the second (`s`) unit. This is easier for humans to parse, and encourages shorter values that divide evenly within an ideal 60 frames-per-second animation speed.
 9. Nested pseudo class blocks should come after all property declarations.
 10. Nested class or attribute blocks should come after all pseudo class blocks.
