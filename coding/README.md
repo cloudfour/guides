@@ -6,7 +6,7 @@ We enforce consistency in editor defaults using an **[`.editorconfig`](http://ed
 root = true
 
 [*]
-indent_style = space
+indent_style = tab
 indent_size = 2
 charset = utf-8
 trim_trailing_whitespace = true
