@@ -14,6 +14,11 @@ insert_final_newline = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+# YAML files cannot have tabs
+# @see https://yaml.org/faq.html
+[*.yml]
+indent_style = space
 ```
 
 ### Enforcing editor defaults
