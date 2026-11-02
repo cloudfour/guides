@@ -160,10 +160,15 @@ git branch --delete <branch-name>
 
 ## Pull Request Template
 
-Please add a [Pull Request Template] to your repo,
-to ensure that all pull requests follow our guide:
+Our [Standard Pull Request Template](https://github.com/cloudfour/.github/blob/main/.github/pull_request_template.md)
+is the default for every Cloud Four repository. It lives in
+[cloudfour/.github](https://github.com/cloudfour/.github), and GitHub fills it
+in automatically when you open a pull request in any repository without a
+template of its own, so there's nothing to copy.
 
-See our [Standard Pull Request Template](./pull_request_template.md) in this directory.
+If a repository needs something different, add its own
+[pull request template] there. GitHub uses a repository's own template in place
+of the default.
 
 ## Write Useful Commit Messages
 

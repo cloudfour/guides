@@ -1,21 +1,7 @@
-## Overview
+# Moved
 
-Please include a summary of the change and which issue is fixed.
-Please also include relevant motivation and context.
-List any dependencies that are required for this change.
-
-## Screenshots
-
-Visual changes should include a screenshot.
-
-## Testing
-
-1. instructions for reviewers
-1. to test your changes
-
----
-
-- Fixes # (issue)
-- or [TrelloCard/Issue/Story](LINK_TO_STORY)
-
-/CC @person
+Our standard pull request template now lives in
+[cloudfour/.github](https://github.com/cloudfour/.github/blob/main/.github/pull_request_template.md),
+where GitHub uses it as the default for every Cloud Four repository without a
+template of its own. See the [git guide](./README.md#pull-request-template) for
+details.
